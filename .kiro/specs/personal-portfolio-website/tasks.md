@@ -48,7 +48,7 @@ This implementation plan breaks down the personal portfolio website into discret
     - Apply consistent container and spacing
     - _Requirements: 22.1, 22.2, 22.3, 22.4_
 
-- [-] 5. Build Home page components
+- [x] 5. Build Home page components
   - [x] 5.1 Create StatisticsCard component
     - Implement card displaying icon, label, and value
     - Use shadcn/ui Card component as base
@@ -82,15 +82,15 @@ This implementation plan breaks down the personal portfolio website into discret
     - Add "Visit Channel" CTA button
     - _Requirements: 9.4, 9.5, 9.6, 9.7_
 
-- [ ] 6. Build About page components
-  - [ ] 6.1 Create JobSection component
+- [x] 6. Build About page components
+  - [x] 6.1 Create JobSection component
     - Display company, role, employment period
     - Render features and contributions as lists
     - Add optional technologies tags
     - Include visual separator styling
     - _Requirements: 15.2, 15.3, 15.4, 15.5_
   
-  - [ ] 6.2 Create ThesisSection component
+  - [x] 6.2 Create ThesisSection component
     - Display thesis title, description, technologies, results
     - Add optional link to thesis document
     - _Requirements: 16.2, 16.3, 16.4, 16.5_
