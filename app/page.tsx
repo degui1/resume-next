@@ -1,8 +1,8 @@
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+    <div className="container mx-auto max-w-screen-xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
       <h1 className="text-4xl font-bold">Welcome to Personal Portfolio</h1>
-      <p className="mt-4 text-lg">Under construction...</p>
-    </main>
+      <p className="mt-4 text-lg text-muted-foreground">Under construction...</p>
+    </div>
   );
 }
