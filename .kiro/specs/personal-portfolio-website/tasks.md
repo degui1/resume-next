@@ -117,7 +117,7 @@ This implementation plan breaks down the personal portfolio website into discret
     - Add hover effects
     - _Requirements: 18.2, 18.3_
 
-- [ ] 8. Assemble Home page
+- [x] 8. Assemble Home page
   - Create app/page.tsx with Home page structure
   - Render HeroSection with profile, highlights, and statistics data
   - Create YouTube section with title, introduction, featured videos grid
@@ -126,7 +126,7 @@ This implementation plan breaks down the personal portfolio website into discret
   - Ensure sections appear in correct order (hero, YouTube)
   - _Requirements: 5.1, 5.2, 5.3, 9.1, 9.2, 9.3_
 
-- [ ] 9. Assemble About page
+- [-] 9. Assemble About page
   - Create app/about/page.tsx with About page structure
   - Render JobSection components for each job in chronological order
   - Render ThesisSection component
