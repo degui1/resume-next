@@ -155,32 +155,32 @@ This implementation plan breaks down the personal portfolio website into discret
 - [x] 12. Checkpoint - Ensure all pages render correctly
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ]* 13. Write property-based tests for layout and navigation
-  - [ ]* 13.1 Write property test for responsive layout adaptation
+- [x] 13. Write property-based tests for layout and navigation
+  - [x] 13.1 Write property test for responsive layout adaptation
     - **Property 1: Responsive layout adapts to viewport sizes**
     - **Validates: Requirements 3.1, 3.2**
   
-  - [ ]* 13.2 Write property test for navigation presence
+  - [x] 13.2 Write property test for navigation presence
     - **Property 2: Navigation appears on all pages**
     - **Validates: Requirements 4.2**
   
-  - [ ]* 13.3 Write property test for navigation routing
+  - [x] 13.3 Write property test for navigation routing
     - **Property 3: Navigation links route correctly**
     - **Validates: Requirements 4.3**
   
-  - [ ]* 13.4 Write property test for active page indication
+  - [x] 13.4 Write property test for active page indication
     - **Property 4: Active page indication**
     - **Validates: Requirements 4.4**
   
-  - [ ]* 13.5 Write property test for footer presence
+  - [x] 13.5 Write property test for footer presence
     - **Property 21: Footer appears on all pages**
     - **Validates: Requirements 20.3**
   
-  - [ ]* 13.6 Write property test for base layout wrapping
+  - [x] 13.6 Write property test for base layout wrapping
     - **Property 24: Base layout wraps page content**
     - **Validates: Requirements 22.3**
   
-  - [ ]* 13.7 Write property test for consistent layout structure
+  - [x] 13.7 Write property test for consistent layout structure
     - **Property 25: Consistent layout structure**
     - **Validates: Requirements 22.4**
 
