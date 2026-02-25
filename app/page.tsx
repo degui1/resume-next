@@ -1,8 +1,6 @@
 import { HeroSection } from '@/components/home/HeroSection';
 import { VideoCard } from '@/components/home/VideoCard';
 import { YouTubeChannelInfo } from '@/components/home/YouTubeChannelInfo';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { 
   profile, 
   highlights, 

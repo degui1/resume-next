@@ -2,9 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 export function Navigation() {
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const links = [
     { href: '/', label: 'Home' },
@@ -19,14 +22,15 @@ export function Navigation() {
           Portfolio
         </Link>
         
-        <div className="flex items-center gap-6">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-6">
           {links.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-foreground/80 ${
+                className={`text-sm font-medium transition-colors hover:text-foreground/80 min-h-[44px] flex items-center ${
                   isActive
                     ? 'text-foreground border-b-2 border-foreground pb-1'
                     : 'text-foreground/60'
@@ -37,7 +41,46 @@ export function Navigation() {
             );
           })}
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden p-2 text-foreground hover:text-foreground/80 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
+        >
+          {mobileMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-border bg-background">
+          <div className="container mx-auto px-4 py-4 space-y-2">
+            {links.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block px-4 py-3 text-base font-medium transition-colors hover:bg-accent rounded-md min-h-[44px] flex items-center ${
+                    isActive
+                      ? 'text-foreground bg-accent'
+                      : 'text-foreground/60'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
