@@ -95,15 +95,15 @@ This implementation plan breaks down the personal portfolio website into discret
     - Add optional link to thesis document
     - _Requirements: 16.2, 16.3, 16.4, 16.5_
 
-- [ ] 7. Build Links page components
-  - [ ] 7.1 Create ProjectCard component
+- [x] 7. Build Links page components
+  - [x] 7.1 Create ProjectCard component
     - Display project name, description, star count
     - Render technology tags as badges
     - Make card clickable to open GitHub repository in new tab
     - Add hover effects
     - _Requirements: 12.2, 12.3, 12.4, 12.5, 12.7_
   
-  - [ ] 7.2 Create LinkedInPostCard component
+  - [x] 7.2 Create LinkedInPostCard component
     - Display content preview (truncated text)
     - Show engagement metrics (likes, comments, shares) with icons
     - Display post date
@@ -111,7 +111,7 @@ This implementation plan breaks down the personal portfolio website into discret
     - Add hover effects
     - _Requirements: 13.2, 13.4_
   
-  - [ ] 7.3 Create LinkCard component
+  - [x] 7.3 Create LinkCard component
     - Display platform icon, name, and optional username
     - Make full card clickable to open external URL in new tab
     - Add hover effects
