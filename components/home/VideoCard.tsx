@@ -1,3 +1,5 @@
+"use client";
+
 import { Video } from '@/lib/types';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';

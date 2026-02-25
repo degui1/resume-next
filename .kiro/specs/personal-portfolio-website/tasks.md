@@ -152,7 +152,7 @@ This implementation plan breaks down the personal portfolio website into discret
   - Test touch-friendly targets (44x44px minimum)
   - _Requirements: 3.1, 3.2, 3.3, 3.4_
 
-- [ ] 12. Checkpoint - Ensure all pages render correctly
+- [x] 12. Checkpoint - Ensure all pages render correctly
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ]* 13. Write property-based tests for layout and navigation
