@@ -184,28 +184,28 @@ This implementation plan breaks down the personal portfolio website into discret
     - **Property 25: Consistent layout structure**
     - **Validates: Requirements 22.4**
 
-- [ ]* 14. Write property-based tests for Home page components
-  - [ ]* 14.1 Write property test for highlight items rendering
+- [x] 14. Write property-based tests for Home page components
+  - [x] 14.1 Write property test for highlight items rendering
     - **Property 5: Highlight items render with icon and text**
     - **Validates: Requirements 6.5, 8.1, 8.2, 8.3**
   
-  - [ ]* 14.2 Write property test for statistics cards rendering
+  - [x] 14.2 Write property test for statistics cards rendering
     - **Property 6: Statistics cards render with all fields**
     - **Validates: Requirements 6.6, 7.1, 7.2, 7.3**
   
-  - [ ]* 14.3 Write property test for content topics rendering
+  - [x] 14.3 Write property test for content topics rendering
     - **Property 7: Content topics render as chips**
     - **Validates: Requirements 9.5**
   
-  - [ ]* 14.4 Write property test for YouTube channels rendering
+  - [x] 14.4 Write property test for YouTube channels rendering
     - **Property 8: YouTube channels render with subscriber counts**
     - **Validates: Requirements 9.6**
   
-  - [ ]* 14.5 Write property test for video cards rendering
+  - [x] 14.5 Write property test for video cards rendering
     - **Property 9: Video cards render and display required fields**
     - **Validates: Requirements 10.1, 10.2, 10.3**
   
-  - [ ]* 14.6 Write property test for video card navigation
+  - [x] 14.6 Write property test for video card navigation
     - **Property 10: Video card navigation**
     - **Validates: Requirements 10.4**
 
