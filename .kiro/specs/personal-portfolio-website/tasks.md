@@ -222,32 +222,32 @@ This implementation plan breaks down the personal portfolio website into discret
     - **Property 13: Job sections maintain order**
     - **Validates: Requirements 14.4**
 
-- [ ]* 16. Write property-based tests for Links page components
-  - [ ]* 16.1 Write property test for project cards rendering
+- [x] 16. Write property-based tests for Links page components
+  - [x] 16.1 Write property test for project cards rendering
     - **Property 14: Project cards render with all fields**
     - **Validates: Requirements 12.1, 12.2, 12.3, 12.4, 12.5**
   
-  - [ ]* 16.2 Write property test for project card navigation
+  - [x] 16.2 Write property test for project card navigation
     - **Property 15: Project card navigation**
     - **Validates: Requirements 12.7**
   
-  - [ ]* 16.3 Write property test for LinkedIn posts rendering
+  - [x] 16.3 Write property test for LinkedIn posts rendering
     - **Property 16: LinkedIn posts render with engagement metrics**
     - **Validates: Requirements 13.1, 13.2**
   
-  - [ ]* 16.4 Write property test for LinkedIn post navigation
+  - [x] 16.4 Write property test for LinkedIn post navigation
     - **Property 17: LinkedIn post navigation**
     - **Validates: Requirements 13.4**
   
-  - [ ]* 16.5 Write property test for link cards rendering
+  - [x] 16.5 Write property test for link cards rendering
     - **Property 18: Link cards render from mock data**
     - **Validates: Requirements 18.1**
   
-  - [ ]* 16.6 Write property test for link card navigation
+  - [x] 16.6 Write property test for link card navigation
     - **Property 19: Link card navigation**
     - **Validates: Requirements 18.3**
   
-  - [ ]* 16.7 Write property test for featured video navigation
+  - [x] 16.7 Write property test for featured video navigation
     - **Property 20: Featured video navigation**
     - **Validates: Requirements 19.3**
 
