@@ -209,16 +209,16 @@ This implementation plan breaks down the personal portfolio website into discret
     - **Property 10: Video card navigation**
     - **Validates: Requirements 10.4**
 
-- [ ]* 15. Write property-based tests for About page components
-  - [ ]* 15.1 Write property test for job sections rendering
+- [x] 15. Write property-based tests for About page components
+  - [x] 15.1 Write property test for job sections rendering
     - **Property 11: Job sections render from mock data**
     - **Validates: Requirements 15.1**
   
-  - [ ]* 15.2 Write property test for job section fields
+  - [x] 15.2 Write property test for job section fields
     - **Property 12: Job section displays required fields**
     - **Validates: Requirements 15.2, 15.3, 15.4**
   
-  - [ ]* 15.3 Write property test for job sections order
+  - [x] 15.3 Write property test for job sections order
     - **Property 13: Job sections maintain order**
     - **Validates: Requirements 14.4**
 
