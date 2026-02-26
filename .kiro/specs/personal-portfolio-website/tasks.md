@@ -251,12 +251,12 @@ This implementation plan breaks down the personal portfolio website into discret
     - **Property 20: Featured video navigation**
     - **Validates: Requirements 19.3**
 
-- [ ]* 17. Write property-based tests for reusable components
-  - [ ]* 17.1 Write property test for Card component customization
+- [x] 17. Write property-based tests for reusable components
+  - [x] 17.1 Write property test for Card component customization
     - **Property 22: Card component accepts customization props**
     - **Validates: Requirements 20.4**
   
-  - [ ]* 17.2 Write property test for Section components customization
+  - [x] 17.2 Write property test for Section components customization
     - **Property 23: Section components accept customization props**
     - **Validates: Requirements 20.5**
 
