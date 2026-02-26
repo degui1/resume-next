@@ -10,7 +10,7 @@ export default function About() {
         <div className="mb-12">
           <h1 className="text-4xl font-bold mb-4">About</h1>
           <p className="text-lg text-muted-foreground max-w-3xl">
-            My professional journey and academic background in software development.
+            Over 3+ years at Apdata, I've contributed to the global-antares platform focusing on modernizing the cloud platform, time tracking systems, and OCR document processing. My work spans frontend development (React, TypeScript), infrastructure improvements, and complex business logic implementation (Delphi, C#) for HR and workforce management systems.
           </p>
         </div>
 
