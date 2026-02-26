@@ -1,12 +1,14 @@
 import { Job } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Dictionary } from '@/lib/i18n/get-dictionary';
 
 interface JobSectionProps {
   job: Job;
+  dict: Dictionary;
 }
 
-export function JobSection({ job }: JobSectionProps) {
+export function JobSection({ job, dict }: JobSectionProps) {
   return (
     <Card className="mb-6">
       <CardHeader>

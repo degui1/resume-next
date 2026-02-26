@@ -3,9 +3,11 @@
 import { Video } from '@/lib/types';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
+import { Dictionary } from '@/lib/i18n/get-dictionary';
 
 interface VideoCardProps {
   video: Video;
+  dict: Dictionary;
 }
 
 export function VideoCard({ video }: VideoCardProps) {

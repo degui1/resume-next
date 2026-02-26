@@ -1,0 +1,48 @@
+{
+  "navigation": {
+    "home": "Início",
+    "about": "Sobre",
+    "links": "Links"
+  },
+  "home": {
+    "hero": {
+      "greeting": "Olá, eu sou",
+      "description": "Engenheiro de Software apaixonado por criar soluções inovadoras e compartilhar conhecimento através da criação de conteúdo."
+    },
+    "highlights": {
+      "title": "Destaques"
+    },
+    "statistics": {
+      "title": "Estatísticas"
+    },
+    "content": {
+      "title": "Minha Jornada de Criação de Conteúdo",
+      "description": "Eu crio conteúdo educacional sobre desenvolvimento de software, algoritmos e crescimento de carreira em tecnologia. Meu objetivo é tornar tópicos complexos acessíveis e ajudar desenvolvedores a evoluírem suas habilidades.",
+      "featuredVideos": "Vídeos em Destaque",
+      "views": "visualizações",
+      "subscribers": "inscritos",
+      "videos": "vídeos"
+    }
+  },
+  "about": {
+    "title": "Sobre",
+    "description": "Ao longo de mais de 3 anos na Apdata, contribuí para a plataforma global-antares focando na modernização da plataforma em nuvem, sistemas de controle de ponto e processamento de documentos OCR. Meu trabalho abrange desenvolvimento frontend (React, TypeScript), melhorias de infraestrutura e implementação de lógica de negócios complexa (Delphi, C#) para sistemas de RH e gestão de força de trabalho.",
+    "experience": {
+      "title": "Experiência Profissional",
+      "present": "Presente"
+    },
+    "research": {
+      "title": "Pesquisa Acadêmica"
+    }
+  },
+  "links": {
+    "title": "Links",
+    "description": "Conecte-se comigo em várias plataformas e explore meus projetos.",
+    "projects": "Projetos",
+    "social": "Redes Sociais",
+    "posts": "Posts Recentes"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados."
+  }
+}

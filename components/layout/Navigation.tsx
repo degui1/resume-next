@@ -3,17 +3,30 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
+import { Locale } from '@/lib/i18n/locales';
+import { Dictionary } from '@/lib/i18n/get-dictionary';
 
-export function Navigation() {
+interface NavigationProps {
+  lang: Locale;
+  dict: Dictionary;
+}
+
+export function Navigation({ lang, dict }: NavigationProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const links = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/links', label: 'Links' },
+    { href: `/${lang}`, label: dict.navigation.home },
+    { href: `/${lang}/about`, label: dict.navigation.about },
+    { href: `/${lang}/links`, label: dict.navigation.links },
   ];
+
+  const toggleLanguage = () => {
+    const newLang = lang === 'en' ? 'pt' : 'en';
+    const pathWithoutLang = pathname.replace(`/${lang}`, '');
+    window.location.href = `/${newLang}${pathWithoutLang}`;
+  };
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -40,6 +53,14 @@ export function Navigation() {
               </Link>
             );
           })}
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-2 text-sm font-medium text-foreground/60 hover:text-foreground/80 transition-colors min-h-[44px]"
+            aria-label="Toggle language"
+          >
+            <Globe className="h-4 w-4" />
+            {lang.toUpperCase()}
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -78,6 +99,13 @@ export function Navigation() {
                 </Link>
               );
             })}
+            <button
+              onClick={toggleLanguage}
+              className="w-full flex items-center gap-2 px-4 py-3 text-base font-medium text-foreground/60 hover:bg-accent rounded-md min-h-[44px] transition-colors"
+            >
+              <Globe className="h-5 w-5" />
+              {lang === 'en' ? 'Português' : 'English'}
+            </button>
           </div>
         </div>
       )}

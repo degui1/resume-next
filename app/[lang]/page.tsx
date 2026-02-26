@@ -9,8 +9,17 @@ import {
   youtubeChannels, 
   contentTopics 
 } from '@/lib/data/mockData';
+import { Locale } from '@/lib/i18n/locales';
+import { getDictionary } from '@/lib/i18n/get-dictionary';
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ lang: Locale }>;
+}) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -19,6 +28,7 @@ export default function Home() {
           profile={profile}
           highlights={highlights}
           statistics={statistics}
+          dict={dict}
         />
       </section>
 
@@ -26,19 +36,18 @@ export default function Home() {
       <section className="bg-muted/30 py-12 sm:py-16">
         <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <h2 className="text-3xl font-bold mb-4">My Content Creation Journey</h2>
+            <h2 className="text-3xl font-bold mb-4">{dict.home.content.title}</h2>
             <p className="text-lg text-muted-foreground max-w-3xl">
-              I create educational content about software development, algorithms, and career growth in tech. 
-              My goal is to make complex topics accessible and help developers level up their skills.
+              {dict.home.content.description}
             </p>
           </div>
 
           {/* Featured Videos Grid */}
           <div className="mb-8">
-            <h3 className="text-xl font-semibold mb-4">Featured Videos</h3>
+            <h3 className="text-xl font-semibold mb-4">{dict.home.content.featuredVideos}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {videos.map((video) => (
-                <VideoCard key={video.id} video={video} />
+                <VideoCard key={video.id} video={video} dict={dict} />
               ))}
             </div>
           </div>
@@ -48,6 +57,7 @@ export default function Home() {
             <YouTubeChannelInfo 
               channels={youtubeChannels}
               topics={contentTopics}
+              dict={dict}
             />
           </div>
         </div>

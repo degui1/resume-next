@@ -5,13 +5,15 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Youtube } from 'lucide-react';
+import { Dictionary } from '@/lib/i18n/get-dictionary';
 
 interface YouTubeChannelInfoProps {
   channels: YouTubeChannel[];
   topics: string[];
+  dict: Dictionary;
 }
 
-export function YouTubeChannelInfo({ channels, topics }: YouTubeChannelInfoProps) {
+export function YouTubeChannelInfo({ channels, topics, dict }: YouTubeChannelInfoProps) {
   const handleVisitChannel = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
@@ -31,7 +33,7 @@ export function YouTubeChannelInfo({ channels, topics }: YouTubeChannelInfoProps
                 </div>
               </div>
               <p className="text-2xl font-bold text-foreground">
-                {channel.subscribers} <span className="text-sm font-normal text-muted-foreground">subscribers</span>
+                {channel.subscribers} <span className="text-sm font-normal text-muted-foreground">{dict.home.content.subscribers}</span>
               </p>
             </div>
           ))}

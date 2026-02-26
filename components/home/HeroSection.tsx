@@ -5,14 +5,16 @@ import { HighlightItem } from './HighlightItem';
 import { StatisticsCard } from './StatisticsCard';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
+import { Dictionary } from '@/lib/i18n/get-dictionary';
 
 interface HeroSectionProps {
   profile: Profile;
   highlights: Highlight[];
   statistics: Statistic[];
+  dict: Dictionary;
 }
 
-export function HeroSection({ profile, highlights, statistics }: HeroSectionProps) {
+export function HeroSection({ profile, highlights, statistics, dict }: HeroSectionProps) {
   return (
     <section className="py-12 sm:py-16" data-section="hero">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
