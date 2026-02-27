@@ -264,7 +264,7 @@ describe('GitHub Error Handler', () => {
         resetAt: new Date('2024-01-01T00:00:00Z'),
       };
 
-      const error = new RateLimitError('Rate limit exceeded', rateLimit, 429);
+      const error = new RateLimitError('Rate limit exceeded', 429, rateLimit);
 
       expect(error.name).toBe('RateLimitError');
       expect(error.code).toBe('RATE_LIMIT_ERROR');

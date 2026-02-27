@@ -42,7 +42,7 @@ export { formatLargeNumber, formatDate, formatNumber } from '@/lib/api/formatter
 export {
   handleGitHubError,
   ERROR_MESSAGES,
-  ApiError as GitHubError,
+  GitHubError,
   NetworkError,
   AuthenticationError,
   RateLimitError,

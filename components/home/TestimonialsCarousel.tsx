@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Quote, Linkedin } from 'lucide-react';
 
 interface Testimonial {
@@ -51,10 +52,11 @@ export function TestimonialsCarousel({ testimonials, dict }: TestimonialsCarouse
         {/* Author info */}
         <div className="flex items-center gap-4">
           {currentTestimonial.image ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={currentTestimonial.image}
               alt={currentTestimonial.name}
+              width={64}
+              height={64}
               className="w-16 h-16 rounded-full object-cover border-2 border-border"
             />
           ) : (

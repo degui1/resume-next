@@ -19,11 +19,25 @@ const githubConfigReader = createConfigReader<GitHubConfig & Record<string, unkn
     repositoryFilter: 'GITHUB_REPOSITORIES'
   },
   defaults: {
-    username: '',
+    username: undefined,
     revalidate: 3600,
     fallbackToMock: true
   },
   validators: {
+    username: (value) => {
+      // Convert empty string to undefined
+      if (typeof value === 'string' && value.trim().length === 0) {
+        return undefined;
+      }
+      return value as string | undefined;
+    },
+    token: (value) => {
+      // Convert empty string to undefined
+      if (typeof value === 'string' && value.trim().length === 0) {
+        return undefined;
+      }
+      return value as string | undefined;
+    },
     revalidate: (value) => {
       const parsed = parseNumber(value, 3600);
       // Ensure positive number
@@ -40,8 +54,7 @@ const githubConfigReader = createConfigReader<GitHubConfig & Record<string, unkn
       // If it's a string, try to parse it
       if (typeof value === 'string') {
         const parsed = parseStringArray(value);
-        // Return empty array if parsing resulted in no items (for backward compatibility with getGitHubConfig)
-        return parsed ?? [];
+        return parsed;
       }
       // For any other type, return undefined
       return undefined;

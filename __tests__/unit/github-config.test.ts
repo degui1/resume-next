@@ -39,7 +39,7 @@ describe('GitHub Configuration Module', () => {
       const config = getGitHubConfig();
 
       expect(config).toEqual({
-        username: '',
+        username: undefined,
         token: undefined,
         revalidate: 3600,
         repositoryFilter: undefined,
@@ -111,13 +111,12 @@ describe('GitHub Configuration Module', () => {
       expect(config.repositoryFilter).toBeUndefined();
     });
 
-    it('should return empty array when GITHUB_REPOSITORIES contains only whitespace', () => {
+    it('should return undefined when GITHUB_REPOSITORIES contains only whitespace', () => {
       process.env.GITHUB_REPOSITORIES = '  ,  ,  ';
 
       const config = getGitHubConfig();
 
-      // getGitHubConfig returns empty array, validateConfig would convert to undefined
-      expect(config.repositoryFilter).toEqual([]);
+      expect(config.repositoryFilter).toBeUndefined();
     });
 
     it('should always set fallbackToMock to true', () => {
@@ -162,7 +161,7 @@ describe('GitHub Configuration Module', () => {
     it('should use empty string for missing username', () => {
       const config = validateConfig({});
 
-      expect(config.username).toBe('');
+      expect(config.username).toBeUndefined();
     });
 
     it('should preserve valid revalidate time', () => {
@@ -237,13 +236,13 @@ describe('GitHub Configuration Module', () => {
       expect(config.repositoryFilter).toBeUndefined();
     });
 
-    it('should set repositoryFilter to undefined if not an array', () => {
+    it('should parse string repositoryFilter as comma-separated list', () => {
       const config = validateConfig({
         username: 'testuser',
         repositoryFilter: 'not-an-array' as any
       });
 
-      expect(config.repositoryFilter).toBeUndefined();
+      expect(config.repositoryFilter).toEqual(['not-an-array']);
     });
 
     it('should preserve fallbackToMock when explicitly set to false', () => {
@@ -297,7 +296,7 @@ describe('GitHub Configuration Module', () => {
 
     it('should return false when username is empty string', () => {
       const config: GitHubConfig = {
-        username: '',
+        username: undefined,
         token: undefined,
         revalidate: 3600,
         repositoryFilter: undefined,
@@ -326,8 +325,8 @@ describe('GitHub Configuration Module', () => {
 
       const config = getGitHubConfig();
 
-      // When username is empty, fallbackToMock should be true
-      expect(config.username).toBe('');
+      // When username is undefined, fallbackToMock should be true
+      expect(config.username).toBeUndefined();
       expect(config.fallbackToMock).toBe(true);
       expect(isConfigured(config)).toBe(false);
     });
@@ -337,7 +336,7 @@ describe('GitHub Configuration Module', () => {
 
       const config = getGitHubConfig();
 
-      expect(config.username).toBe('');
+      expect(config.username).toBeUndefined();
       expect(config.fallbackToMock).toBe(true);
       expect(isConfigured(config)).toBe(false);
     });
@@ -419,7 +418,7 @@ describe('GitHub Configuration Module', () => {
       const config = getGitHubConfig();
 
       expect(config).toEqual({
-        username: '',
+        username: undefined,
         token: undefined,
         revalidate: 3600,
         repositoryFilter: undefined,

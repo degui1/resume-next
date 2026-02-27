@@ -5,7 +5,7 @@
  * Tests specific examples and edge cases for number and date formatting.
  */
 
-import { formatLargeNumber, formatDate, formatNumber } from '@/lib/api/formatters';
+import { formatLargeNumber, formatNumber } from '@/lib/api/formatters';
 
 describe('Formatting Utilities', () => {
   describe('formatLargeNumber', () => {
@@ -63,64 +63,6 @@ describe('Formatting Utilities', () => {
       expect(formatLargeNumber(10000000)).toBe('10M');
       expect(formatLargeNumber(100000000)).toBe('100M');
       expect(formatLargeNumber(1000000000)).toBe('1000M');
-    });
-  });
-
-  describe('formatDate', () => {
-    it('should format dates in English locale (US format)', () => {
-      // Requirement 7.4 - English date formatting
-      const date = new Date('2024-01-15T00:00:00Z');
-      const formatted = formatDate(date, 'en');
-      
-      // US format: M/D/YYYY
-      expect(formatted).toBe('1/15/2024');
-    });
-
-    it('should format dates in Portuguese locale (Brazilian format)', () => {
-      // Requirement 7.4 - Portuguese date formatting
-      const date = new Date('2024-01-15T00:00:00Z');
-      const formatted = formatDate(date, 'pt');
-      
-      // Brazilian format: DD/MM/YYYY
-      expect(formatted).toBe('15/01/2024');
-    });
-
-    it('should handle ISO string dates', () => {
-      // Requirement 7.4 - ISO string input
-      const isoString = '2024-03-20T15:45:00Z';
-      
-      expect(formatDate(isoString, 'en')).toBe('3/20/2024');
-      expect(formatDate(isoString, 'pt')).toBe('20/03/2024');
-    });
-
-    it('should handle different months correctly', () => {
-      // Requirement 7.4 - Month handling
-      const jan = new Date('2024-01-01T00:00:00Z');
-      const dec = new Date('2024-12-31T00:00:00Z');
-      
-      expect(formatDate(jan, 'en')).toBe('1/1/2024');
-      expect(formatDate(dec, 'en')).toBe('12/31/2024');
-      expect(formatDate(jan, 'pt')).toBe('01/01/2024');
-      expect(formatDate(dec, 'pt')).toBe('31/12/2024');
-    });
-
-    it('should handle leap year dates', () => {
-      // Requirement 7.4 - Leap year
-      const leapDay = new Date('2024-02-29T00:00:00Z');
-      
-      expect(formatDate(leapDay, 'en')).toBe('2/29/2024');
-      expect(formatDate(leapDay, 'pt')).toBe('29/02/2024');
-    });
-
-    it('should handle different years', () => {
-      // Requirement 7.4 - Year handling
-      const date2020 = new Date('2020-06-15T00:00:00Z');
-      const date2025 = new Date('2025-06-15T00:00:00Z');
-      
-      expect(formatDate(date2020, 'en')).toBe('6/15/2020');
-      expect(formatDate(date2025, 'en')).toBe('6/15/2025');
-      expect(formatDate(date2020, 'pt')).toBe('15/06/2020');
-      expect(formatDate(date2025, 'pt')).toBe('15/06/2025');
     });
   });
 

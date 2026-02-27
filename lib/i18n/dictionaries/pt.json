@@ -85,6 +85,12 @@
     "social": "Redes Sociais",
     "posts": "Posts Recentes"
   },
+  "notFound": {
+    "title": "404",
+    "heading": "Página Não Encontrada",
+    "description": "A página que você está procurando não existe ou foi movida.",
+    "backButton": "Voltar para o início"
+  },
   "footer": {
     "rights": "Todos os direitos reservados."
   },

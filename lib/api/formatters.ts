@@ -1,3 +1,4 @@
+import { format, parseISO, isValid } from 'date-fns';
 import type { Locale } from '@/lib/i18n/locales';
 
 /**
@@ -41,7 +42,7 @@ export function formatLargeNumber(value: number): string {
 }
 
 /**
- * Format dates according to locale conventions
+ * Format dates according to locale conventions using date-fns
  * 
  * @param date - The date to format (Date object or ISO string)
  * @param locale - The locale to use for formatting ('en' or 'pt')
@@ -52,23 +53,26 @@ export function formatLargeNumber(value: number): string {
  * formatDate(new Date('2024-01-15'), 'pt') // "15/01/2024" (Brazilian format)
  */
 export function formatDate(date: Date | string, locale: Locale): string {
-  const dateObj = typeof date === 'string' ? new Date(date) : date;
+  let dateObj: Date;
+  
+  // Parse string dates
+  if (typeof date === 'string') {
+    dateObj = parseISO(date);
+  } else {
+    dateObj = date;
+  }
   
   // Check for invalid date
-  if (isNaN(dateObj.getTime())) {
+  if (!isValid(dateObj)) {
     return 'Invalid Date';
   }
   
-  // Use Intl.DateTimeFormat for locale-specific formatting
-  // Use UTC to avoid timezone conversion issues
-  const formatter = new Intl.DateTimeFormat(locale === 'pt' ? 'pt-BR' : 'en-US', {
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
-    timeZone: 'UTC'
-  });
+  // Format based on locale
+  // US format: M/d/yyyy (e.g., 1/15/2024)
+  // Brazilian format: dd/MM/yyyy (e.g., 15/01/2024)
+  const formatString = locale === 'pt' ? 'dd/MM/yyyy' : 'M/d/yyyy';
   
-  return formatter.format(dateObj);
+  return format(dateObj, formatString);
 }
 
 /**

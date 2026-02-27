@@ -69,8 +69,11 @@ export class AuthenticationError extends ApiError {
  * @template T - Type of rate limit metadata
  */
 export class RateLimitError<T = unknown> extends ApiError<T> {
+  public rateLimit?: T;
+
   constructor(message: string, statusCode?: number, metadata?: T) {
     super(message, 'RATE_LIMIT_ERROR', statusCode, metadata);
+    this.rateLimit = metadata;
   }
 }
 
@@ -154,17 +157,22 @@ export function createErrorHandler<T = unknown>(
     // Extract metadata if extractor is provided
     const extractedMetadata = config.extractMetadata?.(error) ?? metadata;
 
+    // Handle ApiError instances (already classified) - check this FIRST
+    if (error instanceof ApiError) {
+      return error as ApiError<T>;
+    }
+
     // Handle Response objects (fetch API)
     if (error instanceof Response) {
       const statusCode = error.status;
-      return classifyErrorByStatus(statusCode, config.messages, extractedMetadata);
+      return classifyErrorByStatus(statusCode, config.messages, extractedMetadata, error);
     }
 
     // Handle objects with status property
     if (error && typeof error === 'object' && 'status' in error) {
       const statusCode = typeof error.status === 'number' ? error.status : undefined;
       if (statusCode !== undefined) {
-        return classifyErrorByStatus(statusCode, config.messages, extractedMetadata);
+        return classifyErrorByStatus(statusCode, config.messages, extractedMetadata, error);
       }
     }
 
@@ -172,13 +180,8 @@ export function createErrorHandler<T = unknown>(
     if (error && typeof error === 'object' && 'statusCode' in error) {
       const statusCode = typeof error.statusCode === 'number' ? error.statusCode : undefined;
       if (statusCode !== undefined) {
-        return classifyErrorByStatus(statusCode, config.messages, extractedMetadata);
+        return classifyErrorByStatus(statusCode, config.messages, extractedMetadata, error);
       }
-    }
-
-    // Handle ApiError instances (already classified)
-    if (error instanceof ApiError) {
-      return error as ApiError<T>;
     }
 
     // Handle generic errors
@@ -201,6 +204,28 @@ export function createErrorHandler<T = unknown>(
 }
 
 /**
+ * Extracts error message from various error object formats
+ * @param error - The error object to extract message from
+ * @returns The error message string or null if not found
+ */
+function extractErrorMessage(error: unknown): string | null {
+  if (error && typeof error === 'object') {
+    // Check for direct message property
+    if ('message' in error && typeof error.message === 'string') {
+      return error.message;
+    }
+    // Check for message in body property
+    if ('body' in error && typeof error.body === 'object' && error.body) {
+      const body = error.body as Record<string, unknown>;
+      if ('message' in body && typeof body.message === 'string') {
+        return body.message;
+      }
+    }
+  }
+  return null;
+}
+
+/**
  * Classifies an error based on HTTP status code
  * @param statusCode - HTTP status code
  * @param messages - Error messages configuration
@@ -210,7 +235,8 @@ export function createErrorHandler<T = unknown>(
 function classifyErrorByStatus<T>(
   statusCode: number,
   messages: ErrorMessages,
-  metadata?: T
+  metadata?: T,
+  error?: unknown
 ): ApiError<T> {
   // 401 Unauthorized - Authentication error
   if (statusCode === 401) {
@@ -223,8 +249,16 @@ function classifyErrorByStatus<T>(
 
   // 403 Forbidden - Could be authentication or rate limit
   if (statusCode === 403) {
-    // If metadata suggests rate limit, use RateLimitError
-    // Otherwise, use AuthenticationError
+    const errorMessage = extractErrorMessage(error);
+    
+    if (errorMessage && /rate limit/i.test(errorMessage)) {
+      return new RateLimitError<T>(
+        messages.RATE_LIMIT,
+        statusCode,
+        metadata
+      );
+    }
+    
     return new AuthenticationError(
       messages.AUTHENTICATION,
       statusCode,

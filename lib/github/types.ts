@@ -62,7 +62,7 @@ export interface GitHubApiError {
  */
 export interface GitHubClientConfig {
   token?: string;
-  username: string;
+  username: string | undefined;
   baseUrl?: string;
   revalidate?: number; // Next.js revalidation time in seconds
 }
@@ -72,7 +72,7 @@ export interface GitHubClientConfig {
  * Configuration options for the high-level GitHub service
  */
 export interface GitHubServiceConfig {
-  username: string;
+  username: string | undefined;
   token?: string;
   revalidate?: number; // Next.js revalidation time in seconds (default: 3600)
   repositoryFilter?: string[];
@@ -83,8 +83,8 @@ export interface GitHubServiceConfig {
  * Complete configuration for GitHub integration
  */
 export interface GitHubConfig {
-  username: string;
-  token?: string;
+  username: string | undefined;
+  token: string | undefined;
   revalidate: number; // Next.js revalidation time in seconds
   repositoryFilter?: string[];
   fallbackToMock: boolean;
