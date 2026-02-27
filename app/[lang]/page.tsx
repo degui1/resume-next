@@ -1,14 +1,20 @@
 import { HeroSection } from '@/components/home/HeroSection';
 import { VideoCard } from '@/components/home/VideoCard';
 import { YouTubeChannelInfo } from '@/components/home/YouTubeChannelInfo';
+import { Timeline } from '@/components/home/Timeline';
+import { SkillsCarousel } from '@/components/home/SkillsCarousel';
+import { TestimonialsCarousel } from '@/components/home/TestimonialsCarousel';
 import { 
   profile, 
   highlights, 
   statistics, 
   videos, 
   youtubeChannels, 
-  contentTopics 
+  contentTopics,
+  jobs
 } from '@/lib/data/mockData';
+import { skills } from '@/lib/data/skills';
+import { testimonials } from '@/lib/data/testimonials';
 import { Locale } from '@/lib/i18n/locales';
 import { getDictionary } from '@/lib/i18n/get-dictionary';
 
@@ -62,6 +68,45 @@ export default async function Home({
               dict={dict}
             />
           </div>
+        </div>
+      </section>
+
+      {/* Experience Timeline Section */}
+      <section className="py-12 sm:py-16">
+        <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold mb-4">{dict.home.experience.title}</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl">
+              {dict.home.experience.description}
+            </p>
+          </div>
+          <Timeline jobs={jobs} dict={dict} />
+        </div>
+      </section>
+
+      {/* Skills Carousel Section */}
+      <section className="bg-muted/30 py-12 sm:py-16">
+        <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl font-bold mb-4">{dict.home.skills.title}</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              {dict.home.skills.description}
+            </p>
+          </div>
+          <SkillsCarousel skills={skills} />
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-12 sm:py-16">
+        <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold mb-4">{dict.home.testimonials.title}</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              {dict.home.testimonials.description}
+            </p>
+          </div>
+          <TestimonialsCarousel testimonials={testimonials} dict={dict} />
         </div>
       </section>
     </div>

@@ -22,6 +22,20 @@
       "views": "views",
       "subscribers": "subscribers",
       "videos": "videos"
+    },
+    "experience": {
+      "title": "Qualification",
+      "description": "My personal journey",
+      "education": "Education",
+      "work": "Work"
+    },
+    "skills": {
+      "title": "Technologies & Skills",
+      "description": "Tools and technologies I work with to build amazing solutions"
+    },
+    "testimonials": {
+      "title": "Recommendations",
+      "description": "What colleagues and partners say about working with me"
     }
   },
   "about": {
@@ -29,7 +43,8 @@
     "description": "Full-stack developer with experience designing and implementing backend services, cloud migrations, and system modernization. Skilled in building APIs, automating workflows, and integrating AI-powered solutions such as OCR and validation systems. Strong focus on performance, security, and maintainable architecture. Experienced in refactoring legacy codebases and establishing cleaner project structures. Motivated by complex technical challenges and scalable system design.",
     "experience": {
       "title": "Professional Experience",
-      "present": "Present"
+      "present": "Present",
+      "contributions": "Key Contributions"
     },
     "research": {
       "title": "Academic Research"

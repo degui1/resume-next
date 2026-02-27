@@ -22,6 +22,20 @@
       "views": "visualizações",
       "subscribers": "inscritos",
       "videos": "vídeos"
+    },
+    "experience": {
+      "title": "Qualificação",
+      "description": "Minha jornada pessoal",
+      "education": "Educação",
+      "work": "Trabalho"
+    },
+    "skills": {
+      "title": "Tecnologias & Habilidades",
+      "description": "Ferramentas e tecnologias que uso para construir soluções incríveis"
+    },
+    "testimonials": {
+      "title": "Recomendações",
+      "description": "O que colegas e parceiros dizem sobre trabalhar comigo"
     }
   },
   "about": {
@@ -29,7 +43,8 @@
     "description": "Ao longo de mais de 3 anos na Apdata, contribuí para a plataforma global-antares focando na modernização da plataforma em nuvem, sistemas de controle de ponto e processamento de documentos OCR. Meu trabalho abrange desenvolvimento frontend (React, TypeScript), melhorias de infraestrutura e implementação de lógica de negócios complexa (Delphi, C#) para sistemas de RH e gestão de força de trabalho.",
     "experience": {
       "title": "Experiência Profissional",
-      "present": "Presente"
+      "present": "Presente",
+      "contributions": "Principais Contribuições"
     },
     "research": {
       "title": "Pesquisa Acadêmica"
