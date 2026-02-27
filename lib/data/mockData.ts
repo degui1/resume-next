@@ -12,14 +12,14 @@ import {
 } from '@/lib/types';
 
 export const profile: Profile = {
-  name: "John Doe",
+  name: "Guilherme Gonçalves",
   title: "Full Stack Developer & Tech Educator",
   description: "Building amazing web experiences with modern technologies and teaching others to do the same.",
   profileImage: "/images/profile.jpg",
-  location: "Pádua, Itália",
-  role: "CTO",
-  availability: "Disponível para mentorias",
-  email: "john@example.com"
+  location: "São Paulo, Brazil",
+  role: "Software Developer",
+  availability: "Disponível",
+  email: "gui.denez56@gmail.com"
 };
 
 export const highlights: Highlight[] = [
@@ -99,10 +99,10 @@ export const videos: Video[] = [
 export const youtubeChannels: YouTubeChannel[] = [
   {
     id: "1",
-    name: "Tech with John",
-    handle: "@techwjohn",
-    subscribers: "117K",
-    url: "https://youtube.com/@techwjohn"
+    name: "Guilherme Gonçalves",
+    handle: "@guilhermegoncalves6743",
+    subscribers: "11",
+    url: "https://www.youtube.com/@guilhermegoncalves6743"
   }
 ];
 
@@ -165,26 +165,76 @@ export const linkedinPosts: LinkedInPost[] = [
 export const jobs: Job[] = [
   {
     id: "1",
-    company: "Tech Startup Inc",
-    role: "Chief Technology Officer",
-    period: "2022 - Present",
-    startDate: "2022-01",
+    company: "Apdata do Brasil",
+    role: "Software Developer",
+    period: "2024 - Present",
+    startDate: "2024-09",
     features: [
-      "Led team of 5 developers",
-      "Architected new platform from scratch",
-      "Established engineering best practices"
+      "Larger architectural challenges",
+      "Mentor junior developers",
+      "Lead cross-functional initiatives",
+      "Continue driving innovation in Apdata's cloud platform"
     ],
     contributions: [
-      "Improved performance by 50%",
-      "Reduced bugs by 30%",
-      "Scaled system to 10k users"
+      "Added contractor-specific appointment functionality with cost center, payroll, and activity tracking",
+      "Developed new independent on-call (sobreaviso) routine",
+      "Eliminated technical restrictions from legacy system",
+      "Provided more flexible solution for workforce scheduling",
+      "Enhanced user experience and feature completeness",
+      "Updated critical production packages and removed unused dependencies, reducing bundle size",
+      "Improved security and performance across the platform",
+      "Established design system consistency",
+      "Modernized project architecture",
+      "Improved code organization and maintainability",
+      "Implemented workflow form launch for OCR document reading",
+      "Automated field population from OCR-extracted medical certificate data",
+      "Streamlined document processing workflow",
+      "Created cadastral validation for CFO (Conselho Federal de Odontologia)",
+      "Automated professional credential verification for dentists",
+      "Created cadastral validation for CFM (Conselho Federal de Medicina)",
+      "Professional credential verification for physicians",
+      "Integrated chatbot functionality into platform",
     ],
-    technologies: ["React", "Node.js", "PostgreSQL", "AWS"]
+    technologies: ["React", "Node.js", "Delphi", "Docker", "Nest.js", "AWS", "Linux", "Kiro", "SQL Server", "Oracle", "OCR"]
   },
   {
     id: "2",
-    company: "Digital Agency Co",
-    role: "Senior Full Stack Developer",
+    company: "Apdata do Brasil",
+    role: "Junior Software Developer",
+    period: "2022 - 2024",
+    startDate: "2022-11",
+    features: [
+      "Larger architectural challenges",
+      "Mentor junior developers",
+      "Lead cross-functional initiatives",
+      "Continue driving innovation in Apdata's cloud platform"
+    ],
+    contributions: [
+      "Added contractor-specific appointment functionality with cost center, payroll, and activity tracking",
+      "Developed new independent on-call (sobreaviso) routine",
+      "Eliminated technical restrictions from legacy system",
+      "Provided more flexible solution for workforce scheduling",
+      "Enhanced user experience and feature completeness",
+      "Updated critical production packages and removed unused dependencies, reducing bundle size",
+      "Improved security and performance across the platform",
+      "Established design system consistency",
+      "Modernized project architecture",
+      "Improved code organization and maintainability",
+      "Implemented workflow form launch for OCR document reading",
+      "Automated field population from OCR-extracted medical certificate data",
+      "Streamlined document processing workflow",
+      "Created cadastral validation for CFO (Conselho Federal de Odontologia)",
+      "Automated professional credential verification for dentists",
+      "Created cadastral validation for CFM (Conselho Federal de Medicina)",
+      "Professional credential verification for physicians",
+      "Integrated chatbot functionality into platform",
+    ],
+    technologies: ["React", "Node.js", "Delphi", "Nest.js", "AWS", "Linux", "Kiro", "SQL Server", "Oracle", "OCR"]
+  },
+  {
+    id: "3",
+    company: "Grupo Melo Cordeiro",
+    role: "Intern Software Developer",
     period: "2019 - 2022",
     startDate: "2019-03",
     endDate: "2022-01",
@@ -218,29 +268,29 @@ export const socialLinks: SocialLink[] = [
   {
     id: "1",
     platform: "GitHub",
-    username: "johndoe",
-    url: "https://github.com/johndoe",
+    username: "degui1",
+    url: "https://github.com/degui1",
     icon: "github"
   },
   {
     id: "2",
     platform: "LinkedIn",
-    username: "johndoe",
-    url: "https://linkedin.com/in/johndoe",
+    username: "guilherme-gonçalves-50a48b1bb",
+    url: "https://linkedin.com/in/guilherme-gonçalves-50a48b1bb",
     icon: "linkedin"
   },
   {
     id: "3",
     platform: "YouTube",
-    username: "@techwjohn",
-    url: "https://youtube.com/@techwjohn",
+    username: "@guilhermegoncalves6743",
+    url: "https://youtube.com/@guilhermegoncalves6743",
     icon: "youtube"
   },
-  {
-    id: "4",
-    platform: "Twitter",
-    username: "@johndoe",
-    url: "https://twitter.com/johndoe",
-    icon: "twitter"
-  }
+  // {
+  //   id: "4",
+  //   platform: "Twitter",
+  //   username: "@johndoe",
+  //   url: "https://twitter.com/johndoe",
+  //   icon: "twitter"
+  // }
 ];
