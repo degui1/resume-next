@@ -4,6 +4,7 @@ import { YouTubeChannelInfo } from '@/components/home/YouTubeChannelInfo';
 import { Timeline } from '@/components/home/Timeline';
 import { SkillsCarousel } from '@/components/home/SkillsCarousel';
 import { TestimonialsCarousel } from '@/components/home/TestimonialsCarousel';
+import { GetInTouch } from '@/components/home/GetInTouch';
 import { 
   profile, 
   highlights, 
@@ -11,7 +12,8 @@ import {
   videos, 
   youtubeChannels, 
   contentTopics,
-  jobs
+  jobs,
+  socialLinks
 } from '@/lib/data/mockData';
 import { skills } from '@/lib/data/skills';
 import { testimonials } from '@/lib/data/testimonials';
@@ -107,6 +109,19 @@ export default async function Home({
             </p>
           </div>
           <TestimonialsCarousel testimonials={testimonials} dict={dict} />
+        </div>
+      </section>
+
+      {/* Get in Touch Section */}
+      <section className="bg-muted/30 py-12 sm:py-16">
+        <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <GetInTouch 
+            dict={dict}
+            githubUrl={socialLinks.find(link => link.platform === 'GitHub')?.url}
+            linkedinUrl={socialLinks.find(link => link.platform === 'LinkedIn')?.url}
+            contactEmail={profile.email}
+            lang={lang}
+          />
         </div>
       </section>
     </div>

@@ -36,6 +36,15 @@
     "testimonials": {
       "title": "Recomendações",
       "description": "O que colegas e parceiros dizem sobre trabalhar comigo"
+    },
+    "contact": {
+      "title": "Entre em Contato",
+      "subtitle": "Vamos nos conectar e discutir seu próximo projeto",
+      "findMe": "Você também me encontra em",
+      "emailPlaceholder": "Digite seu email",
+      "submitButton": "Enviar Mensagem",
+      "orButton": "ou",
+      "moreDetails": "Mais detalhes e links"
     }
   },
   "about": {

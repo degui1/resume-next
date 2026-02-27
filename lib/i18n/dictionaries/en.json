@@ -36,6 +36,15 @@
     "testimonials": {
       "title": "Recommendations",
       "description": "What colleagues and partners say about working with me"
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "subtitle": "Let's connect and discuss your next project",
+      "findMe": "You can also find me at",
+      "emailPlaceholder": "Enter your email",
+      "submitButton": "Send Message",
+      "orButton": "or",
+      "moreDetails": "More details and links"
     }
   },
   "about": {
