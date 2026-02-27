@@ -29,6 +29,7 @@ export function Navigation({ lang, dict }: NavigationProps) {
     { id: 'content', label: dict.navigation.sections.content },
     { id: 'experience', label: dict.navigation.sections.experience },
     { id: 'skills', label: dict.navigation.sections.skills },
+    { id: 'projects', label: dict.navigation.sections.projects },
     { id: 'testimonials', label: dict.navigation.sections.testimonials },
     { id: 'contact', label: dict.navigation.sections.contact },
   ];

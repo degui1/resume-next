@@ -8,6 +8,7 @@
       "content": "Conteúdo",
       "experience": "Experiência",
       "skills": "Habilidades",
+      "projects": "Projetos",
       "testimonials": "Recomendações",
       "contact": "Contato"
     }
@@ -44,6 +45,12 @@
     "testimonials": {
       "title": "Recomendações",
       "description": "O que colegas e parceiros dizem sobre trabalhar comigo"
+    },
+    "projects": {
+      "title": "Projetos em Destaque",
+      "description": "Alguns dos meus projetos open-source e contribuições no GitHub",
+      "viewProject": "Ver Projeto",
+      "stars": "estrelas"
     },
     "contact": {
       "title": "Entre em Contato",

@@ -117,27 +117,27 @@ export const contentTopics: string[] = [
 export const githubProjects: GitHubProject[] = [
   {
     id: "1",
-    name: "awesome-react-hooks",
-    description: "A collection of useful React hooks for common use cases",
-    stars: 1250,
-    url: "https://github.com/johndoe/awesome-react-hooks",
-    technologies: ["React", "TypeScript", "Hooks"]
+    name: "portfolio-website",
+    description: "Modern portfolio website built with Next.js 14, TypeScript, and Tailwind CSS featuring internationalization and responsive design",
+    stars: 0,
+    url: "https://github.com/degui1/portfolio-website",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React"]
   },
   {
     id: "2",
-    name: "next-auth-template",
-    description: "Production-ready Next.js authentication template",
-    stars: 890,
-    url: "https://github.com/johndoe/next-auth-template",
-    technologies: ["Next.js", "NextAuth", "Prisma"]
+    name: "apdata-projects",
+    description: "Enterprise-level HR and workforce management solutions with cloud migration, OCR integration, and automated workflows",
+    stars: 0,
+    url: "https://github.com/degui1",
+    technologies: ["React", "Node.js", "Delphi", "AWS", "OCR"]
   },
   {
     id: "3",
-    name: "api-rate-limiter",
-    description: "Flexible rate limiting middleware for Node.js APIs",
-    stars: 450,
-    url: "https://github.com/johndoe/api-rate-limiter",
-    technologies: ["Node.js", "Express", "Redis"]
+    name: "academic-research",
+    description: "Research projects and implementations from academic work, including algorithms and data structures",
+    stars: 0,
+    url: "https://github.com/degui1",
+    technologies: ["Python", "Algorithms", "Data Structures"]
   }
 ];
 

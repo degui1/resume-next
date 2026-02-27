@@ -4,6 +4,7 @@ import { YouTubeChannelInfo } from '@/components/home/YouTubeChannelInfo';
 import { Timeline } from '@/components/home/Timeline';
 import { SkillsCarousel } from '@/components/home/SkillsCarousel';
 import { TestimonialsCarousel } from '@/components/home/TestimonialsCarousel';
+import { ProjectsSection } from '@/components/home/ProjectsSection';
 import { GetInTouch } from '@/components/home/GetInTouch';
 import { 
   profile, 
@@ -13,7 +14,8 @@ import {
   youtubeChannels, 
   contentTopics,
   jobs,
-  socialLinks
+  socialLinks,
+  githubProjects
 } from '@/lib/data/mockData';
 import { skills } from '@/lib/data/skills';
 import { testimonials } from '@/lib/data/testimonials';
@@ -99,8 +101,15 @@ export default async function Home({
         </div>
       </section>
 
+      {/* Projects Section */}
+      <section id="projects" className="py-12 sm:py-16">
+        <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <ProjectsSection projects={githubProjects} dict={dict} />
+        </div>
+      </section>
+
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-12 sm:py-16">
+      <section id="testimonials" className="bg-muted/30 py-12 sm:py-16">
         <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold mb-4">{dict.home.testimonials.title}</h2>
@@ -113,7 +122,7 @@ export default async function Home({
       </section>
 
       {/* Get in Touch Section */}
-      <section id="contact" className="bg-muted/30 py-12 sm:py-16">
+      <section id="contact" className="py-12 sm:py-16">
         <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <GetInTouch 
             dict={dict}
