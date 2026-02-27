@@ -50,7 +50,11 @@
       "title": "Featured Projects",
       "description": "Some of my open-source projects and contributions on GitHub",
       "viewProject": "View Project",
-      "stars": "stars"
+      "stars": "stars",
+      "forks": "forks",
+      "language": "Language",
+      "lastUpdated": "Last updated",
+      "viewOnGitHub": "View on GitHub"
     },
     "contact": {
       "title": "Get in Touch",
@@ -83,5 +87,15 @@
   },
   "footer": {
     "rights": "All rights reserved."
+  },
+  "github": {
+    "errors": {
+      "rateLimit": "GitHub API rate limit reached. Showing cached data.",
+      "network": "Unable to fetch GitHub data. Showing cached data.",
+      "authentication": "GitHub authentication failed. Check your token.",
+      "notFound": "Repository not found.",
+      "validation": "Invalid data received from GitHub.",
+      "generic": "An error occurred while fetching GitHub data."
+    }
   }
 }

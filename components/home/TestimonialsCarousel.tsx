@@ -45,12 +45,13 @@ export function TestimonialsCarousel({ testimonials, dict }: TestimonialsCarouse
         
         {/* Testimonial text */}
         <blockquote className="text-lg md:text-xl leading-relaxed mb-8 text-foreground">
-          "{currentTestimonial.text}"
+          &quot;{currentTestimonial.text}&quot;
         </blockquote>
         
         {/* Author info */}
         <div className="flex items-center gap-4">
           {currentTestimonial.image ? (
+            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={currentTestimonial.image}
               alt={currentTestimonial.name}

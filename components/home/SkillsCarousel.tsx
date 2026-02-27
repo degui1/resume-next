@@ -1,5 +1,7 @@
 'use client';
 
+import Image from "next/image";
+
 interface Skill {
   name: string;
   icon: string;
@@ -11,7 +13,7 @@ interface SkillsCarouselProps {
 
 export function SkillsCarousel({ skills }: SkillsCarouselProps) {
   // Duplicate skills for seamless infinite scroll
-  const duplicatedSkills = [...skills, ...skills];
+  const duplicatedSkills = [...skills, ...skills, ...skills, ...skills];
 
   return (
     <div className="relative overflow-hidden py-8">
@@ -27,10 +29,12 @@ export function SkillsCarousel({ skills }: SkillsCarouselProps) {
             className="flex-shrink-0 mx-6 flex flex-col items-center justify-center group"
           >
             <div className="w-20 h-20 flex items-center justify-center bg-card border rounded-lg p-4 transition-all group-hover:scale-110 group-hover:shadow-lg">
-              <img
+              <Image
                 src={skill.icon}
                 alt={skill.name}
                 className="w-full h-full object-contain"
+                width={80}
+                height={80}
               />
             </div>
             <span className="mt-2 text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity">

@@ -50,7 +50,11 @@
       "title": "Projetos em Destaque",
       "description": "Alguns dos meus projetos open-source e contribuições no GitHub",
       "viewProject": "Ver Projeto",
-      "stars": "estrelas"
+      "stars": "estrelas",
+      "forks": "forks",
+      "language": "Linguagem",
+      "lastUpdated": "Última atualização",
+      "viewOnGitHub": "Ver no GitHub"
     },
     "contact": {
       "title": "Entre em Contato",
@@ -83,5 +87,15 @@
   },
   "footer": {
     "rights": "Todos os direitos reservados."
+  },
+  "github": {
+    "errors": {
+      "rateLimit": "Limite de taxa da API do GitHub atingido. Mostrando dados em cache.",
+      "network": "Não foi possível buscar dados do GitHub. Mostrando dados em cache.",
+      "authentication": "Falha na autenticação do GitHub. Verifique seu token.",
+      "notFound": "Repositório não encontrado.",
+      "validation": "Dados inválidos recebidos do GitHub.",
+      "generic": "Ocorreu um erro ao buscar dados do GitHub."
+    }
   }
 }

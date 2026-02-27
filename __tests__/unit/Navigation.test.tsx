@@ -39,10 +39,10 @@ describe('Navigation Component', () => {
     
     render(<Navigation lang="en" dict={mockDictionary} />);
     
-    const homeLink = screen.getByText('Home').closest('a');
+    const homeButton = screen.getByText('Home').closest('button');
     // Active links have border-b-2 and border-foreground classes
-    expect(homeLink).toHaveClass('border-b-2');
-    expect(homeLink).toHaveClass('border-foreground');
+    expect(homeButton).toHaveClass('border-b-2');
+    expect(homeButton).toHaveClass('border-foreground');
   });
 
   it('should apply active state styling to links page', () => {

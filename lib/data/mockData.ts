@@ -120,6 +120,9 @@ export const githubProjects: GitHubProject[] = [
     name: "portfolio-website",
     description: "Modern portfolio website built with Next.js 14, TypeScript, and Tailwind CSS featuring internationalization and responsive design",
     stars: 0,
+    forks: 0,
+    language: "TypeScript",
+    updatedAt: new Date().toISOString(),
     url: "https://github.com/degui1/portfolio-website",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React"]
   },
@@ -128,6 +131,9 @@ export const githubProjects: GitHubProject[] = [
     name: "apdata-projects",
     description: "Enterprise-level HR and workforce management solutions with cloud migration, OCR integration, and automated workflows",
     stars: 0,
+    forks: 0,
+    language: "JavaScript",
+    updatedAt: new Date().toISOString(),
     url: "https://github.com/degui1",
     technologies: ["React", "Node.js", "Delphi", "AWS", "OCR"]
   },
@@ -136,6 +142,9 @@ export const githubProjects: GitHubProject[] = [
     name: "academic-research",
     description: "Research projects and implementations from academic work, including algorithms and data structures",
     stars: 0,
+    forks: 0,
+    language: "Python",
+    updatedAt: new Date().toISOString(),
     url: "https://github.com/degui1",
     technologies: ["Python", "Algorithms", "Data Structures"]
   }

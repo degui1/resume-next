@@ -37,8 +37,11 @@ export interface GitHubProject {
   name: string;
   description: string;
   stars: number;
+  forks: number;
   url: string;
   technologies: string[];
+  language: string | null;
+  updatedAt: string; // ISO 8601 format
 }
 
 // LinkedIn post data structure

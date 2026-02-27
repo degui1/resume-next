@@ -15,12 +15,12 @@ import {
   contentTopics,
   jobs,
   socialLinks,
-  githubProjects
 } from '@/lib/data/mockData';
 import { skills } from '@/lib/data/skills';
 import { testimonials } from '@/lib/data/testimonials';
 import { Locale } from '@/lib/i18n/locales';
 import { getDictionary } from '@/lib/i18n/get-dictionary';
+import { getGitHubProjects } from '@/app/actions/github';
 
 interface HomeProps {
   params: Promise<{ lang: Locale }>
@@ -31,6 +31,9 @@ export default async function Home({
 }: HomeProps) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
+
+  // Fetch GitHub projects using the server action
+  const githubResult = await getGitHubProjects();
 
   return (
     <div className="min-h-screen">
@@ -104,7 +107,13 @@ export default async function Home({
       {/* Projects Section */}
       <section id="projects" className="py-12 sm:py-16">
         <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-          <ProjectsSection projects={githubProjects} dict={dict} />
+          <ProjectsSection 
+            projects={githubResult.data} 
+            dict={dict}
+            locale={lang}
+            source={githubResult.source}
+            error={githubResult.error}
+          />
         </div>
       </section>
 
