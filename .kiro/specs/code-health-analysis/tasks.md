@@ -66,7 +66,7 @@
 
 ## Fase 3: Testes E2E (3 dias)
 
-- [ ] 8. Configurar Playwright
+- [x] 8. Configurar Playwright
   - Instalar `@playwright/test` como devDependency
   - Executar `npm install`
   - Executar `npx playwright install` para instalar browsers
@@ -77,7 +77,7 @@
   - Adicionar scripts `test:e2e` e `test:e2e:ui` ao package.json
   - _Requirements: 1.2.1, 2.3.1_
 
-- [ ] 9. Criar testes E2E para fluxos principais
+- [x] 9. Criar testes E2E para fluxos principais
   - Criar `__tests__/e2e/portfolio.spec.ts`
   - Testar exibição da home page (h1 visível)
   - Testar navegação para about page (clicar link, validar URL)
@@ -87,7 +87,7 @@
   - Testar responsividade mobile (viewport 375x667, validar menu mobile)
   - _Requirements: 1.2.1, 1.2.2, 1.2.3, 2.3.1, 2.3.2, 2.3.3_
 
-- [ ] 10. Validação Fase 3
+- [x] 10. Validação Fase 3
   - Executar testes E2E localmente
   - Validar que todos os fluxos principais funcionam
   - Validar que integração com GitHub API funciona
@@ -95,7 +95,7 @@
 
 ## Checkpoint Final
 
-- [ ] 11. Validação completa do projeto
+- [x] 11. Validação completa do projeto
   - Executar todos os testes (unit + E2E)
   - Validar que site funciona perfeitamente
   - Validar métricas de sucesso:
