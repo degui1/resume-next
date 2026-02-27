@@ -3,11 +3,13 @@ import { socialLinks, githubProjects, linkedinPosts } from '@/lib/data/mockData'
 import { Locale } from '@/lib/i18n/locales';
 import { getDictionary } from '@/lib/i18n/get-dictionary';
 
+interface LinksProps {
+  params: Promise<{ lang: Locale }>;
+}
+
 export default async function Links({
   params,
-}: {
-  params: Promise<{ lang: Locale }>;
-}) {
+}: LinksProps) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
 

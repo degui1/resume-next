@@ -12,9 +12,9 @@ import { HighlightItem } from '@/components/home/HighlightItem';
 import { StatisticsCard } from '@/components/home/StatisticsCard';
 import { VideoCard } from '@/components/home/VideoCard';
 import { YouTubeChannelInfo } from '@/components/home/YouTubeChannelInfo';
-import HomePage from '@/app/page';
 import { Highlight, Statistic, Video, YouTubeChannel } from '@/lib/types';
 import { highlights, statistics, videos, youtubeChannels, contentTopics } from '@/lib/data/mockData';
+import { mockDictionary } from '../utils/mockDictionary.util';
 
 // Mock Next.js Image component
 jest.mock('next/image', () => ({
@@ -147,7 +147,7 @@ describe('Home Page Components Properties', () => {
           fc.constantFrom(...contentTopics),
           (topic: string) => {
             const { container } = render(
-              <YouTubeChannelInfo channels={youtubeChannels} topics={contentTopics} />
+              <YouTubeChannelInfo channels={youtubeChannels} topics={contentTopics} dict={mockDictionary} />
             );
             
             // Check that topic text is displayed
@@ -169,7 +169,7 @@ describe('Home Page Components Properties', () => {
           fc.array(fc.string({ minLength: 1 }), { minLength: 1, maxLength: 10 }),
           (topics: string[]) => {
             const { container } = render(
-              <YouTubeChannelInfo channels={youtubeChannels} topics={topics} />
+              <YouTubeChannelInfo channels={youtubeChannels} topics={topics} dict={mockDictionary} />
             );
             
             // Check that all topics are rendered as chips
@@ -201,7 +201,7 @@ describe('Home Page Components Properties', () => {
           fc.constantFrom(...youtubeChannels),
           (channel: YouTubeChannel) => {
             const { container } = render(
-              <YouTubeChannelInfo channels={[channel]} topics={contentTopics} />
+              <YouTubeChannelInfo channels={[channel]} topics={contentTopics} dict={mockDictionary} />
             );
             const content = container.textContent;
             
@@ -227,7 +227,7 @@ describe('Home Page Components Properties', () => {
           }),
           (channel: YouTubeChannel) => {
             const { container } = render(
-              <YouTubeChannelInfo channels={[channel]} topics={contentTopics} />
+              <YouTubeChannelInfo channels={[channel]} topics={contentTopics} dict={mockDictionary} />
             );
             const content = container.textContent;
             
@@ -256,7 +256,7 @@ describe('Home Page Components Properties', () => {
           ),
           (channels: YouTubeChannel[]) => {
             const { container } = render(
-              <YouTubeChannelInfo channels={channels} topics={contentTopics} />
+              <YouTubeChannelInfo channels={channels} topics={contentTopics} dict={mockDictionary} />
             );
             const content = container.textContent;
             
@@ -286,7 +286,7 @@ describe('Home Page Components Properties', () => {
         fc.property(
           fc.constantFrom(...videos),
           (video: Video) => {
-            const { container } = render(<VideoCard video={video} />);
+            const { container } = render(<VideoCard video={video} dict={mockDictionary} />);
             
             // Check that title is displayed
             expect(container.textContent).toContain(video.title);
@@ -316,7 +316,7 @@ describe('Home Page Components Properties', () => {
             views: fc.option(fc.nat(), { nil: undefined }),
           }),
           (video: Video) => {
-            const { container } = render(<VideoCard video={video} />);
+            const { container } = render(<VideoCard video={video} dict={mockDictionary} />);
             
             // Check that title is displayed
             expect(container.textContent).toContain(video.title);
@@ -355,7 +355,7 @@ describe('Home Page Components Properties', () => {
         fc.property(
           fc.constantFrom(...videos),
           (video: Video) => {
-            const { container } = render(<VideoCard video={video} />);
+            const { container } = render(<VideoCard video={video} dict={mockDictionary} />);
             
             // Find and click the video card
             const videoCard = container.querySelector('[data-video-card]');
@@ -389,7 +389,7 @@ describe('Home Page Components Properties', () => {
             views: fc.option(fc.nat(), { nil: undefined }),
           }),
           (video: Video) => {
-            const { container } = render(<VideoCard video={video} />);
+            const { container } = render(<VideoCard video={video} dict={mockDictionary} />);
             
             // Find and click the video card
             const videoCard = container.querySelector('[data-video-card]');

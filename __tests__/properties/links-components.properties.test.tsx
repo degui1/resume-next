@@ -12,9 +12,9 @@ import { ProjectCard } from '@/components/links/ProjectCard';
 import { LinkedInPostCard } from '@/components/links/LinkedInPostCard';
 import { LinkCard } from '@/components/links/LinkCard';
 import { VideoCard } from '@/components/home/VideoCard';
-import LinksPage from '@/app/links/page';
 import { GitHubProject, LinkedInPost, SocialLink, Video } from '@/lib/types';
 import { githubProjects, linkedinPosts, socialLinks, videos } from '@/lib/data/mockData';
+import { mockDictionary } from '../utils/mockDictionary.util';
 
 // Mock Next.js Image component
 jest.mock('next/image', () => ({
@@ -421,7 +421,7 @@ describe('Links Page Components Properties', () => {
         fc.property(
           fc.constantFrom(...videos),
           (video: Video) => {
-            const { container } = render(<VideoCard video={video} />);
+            const { container } = render(<VideoCard video={video} dict={mockDictionary} />);
             
             // Find and click the video card
             const videoCard = container.querySelector('[data-video-card]');
@@ -455,7 +455,7 @@ describe('Links Page Components Properties', () => {
             views: fc.option(fc.nat(), { nil: undefined }),
           }),
           (video: Video) => {
-            const { container } = render(<VideoCard video={video} />);
+            const { container } = render(<VideoCard video={video} dict={mockDictionary} />);
             
             // Find and click the video card
             const videoCard = container.querySelector('[data-video-card]');

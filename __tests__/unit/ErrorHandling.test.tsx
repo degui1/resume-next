@@ -4,6 +4,7 @@ import { LinkedInPostCard } from '@/components/links/LinkedInPostCard';
 import { StatisticsCard } from '@/components/home/StatisticsCard';
 import { HighlightItem } from '@/components/home/HighlightItem';
 import { VideoCard } from '@/components/home/VideoCard';
+import { mockDictionary } from '../utils/mockDictionary.util';
 
 describe('Error Handling - Components with Empty Arrays', () => {
   it('should handle ProjectCard with empty technologies array', () => {
@@ -68,7 +69,7 @@ describe('Error Handling - Components with Missing Optional Fields', () => {
       url: 'https://youtube.com/watch?v=test',
     };
     
-    const { container } = render(<VideoCard video={videoWithoutViews} />);
+    const { container } = render(<VideoCard video={videoWithoutViews} dict={mockDictionary} />);
     
     expect(container).toBeInTheDocument();
     expect(container.textContent).toContain('Test Video');

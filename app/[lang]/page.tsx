@@ -12,11 +12,13 @@ import {
 import { Locale } from '@/lib/i18n/locales';
 import { getDictionary } from '@/lib/i18n/get-dictionary';
 
+interface HomeProps {
+  params: Promise<{ lang: Locale }>
+}
+
 export default async function Home({
   params,
-}: {
-  params: Promise<{ lang: Locale }>;
-}) {
+}: HomeProps) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
 

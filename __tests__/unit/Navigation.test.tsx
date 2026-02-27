@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Navigation } from '@/components/layout/Navigation';
+import { mockDictionary } from '../utils/mockDictionary.util';
 
 // Mock usePathname from next/navigation
 jest.mock('next/navigation', () => ({
@@ -9,11 +10,11 @@ jest.mock('next/navigation', () => ({
 describe('Navigation Component', () => {
   beforeEach(() => {
     const { usePathname } = require('next/navigation');
-    usePathname.mockReturnValue('/');
+    usePathname.mockReturnValue('/en');
   });
 
   it('should display all navigation links', () => {
-    render(<Navigation />);
+    render(<Navigation lang="en" dict={mockDictionary} />);
     
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('About')).toBeInTheDocument();
@@ -22,9 +23,9 @@ describe('Navigation Component', () => {
 
   it('should apply active state styling to current page', () => {
     const { usePathname } = require('next/navigation');
-    usePathname.mockReturnValue('/about');
+    usePathname.mockReturnValue('/en/about');
     
-    render(<Navigation />);
+    render(<Navigation lang="en" dict={mockDictionary} />);
     
     const aboutLink = screen.getByText('About').closest('a');
     // Active links have border-b-2 and border-foreground classes
@@ -34,9 +35,9 @@ describe('Navigation Component', () => {
 
   it('should apply active state styling to home page', () => {
     const { usePathname } = require('next/navigation');
-    usePathname.mockReturnValue('/');
+    usePathname.mockReturnValue('/en');
     
-    render(<Navigation />);
+    render(<Navigation lang="en" dict={mockDictionary} />);
     
     const homeLink = screen.getByText('Home').closest('a');
     // Active links have border-b-2 and border-foreground classes
@@ -46,9 +47,9 @@ describe('Navigation Component', () => {
 
   it('should apply active state styling to links page', () => {
     const { usePathname } = require('next/navigation');
-    usePathname.mockReturnValue('/links');
+    usePathname.mockReturnValue('/en/links');
     
-    render(<Navigation />);
+    render(<Navigation lang="en" dict={mockDictionary} />);
     
     const linksLink = screen.getByText('Links').closest('a');
     // Active links have border-b-2 and border-foreground classes

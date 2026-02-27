@@ -17,13 +17,15 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
 }
 
+interface RootLayoutProps {
+  children: React.ReactNode;
+  params: Promise<{ lang: Locale }>;
+}
+
 export default async function RootLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{ lang: Locale }>;
-}) {
+}: RootLayoutProps) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
 
