@@ -10,6 +10,7 @@
 import { GitHubService } from '@/lib/github/service';
 import { getGitHubConfig } from '@/lib/github/config';
 import { FetchRepositoriesResult } from '@/lib/github/types';
+import { handleServerActionError } from '@/lib/api/next-error-handler';
 
 /**
  * Get GitHub projects using the GitHub service

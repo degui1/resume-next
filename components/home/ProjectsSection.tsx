@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Github, Star, ExternalLink, AlertCircle, GitFork, Code } from 'lucide-react';
 import { GitHubProject } from '@/lib/types';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { formatLargeNumber, formatDate } from '@/lib/github/formatters';
+import { formatLargeNumber, formatDate } from '@/lib/api/formatters';
 import { Locale } from '@/lib/i18n/locales';
 
 interface ProjectsSectionProps {

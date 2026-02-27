@@ -12,7 +12,7 @@ import {
   NotFoundError,
   RateLimitError,
   NetworkError,
-} from '@/lib/github/errors';
+} from '@/lib/github/error-handler';
 
 describe('GitHubClient', () => {
   // Mock fetch globally

@@ -10,7 +10,7 @@ import {
   isNotFoundError,
   isAuthenticationError,
   ERROR_MESSAGES,
-} from '@/lib/github/errors';
+} from '@/lib/github/error-handler';
 import { RateLimitInfo } from '@/lib/github/types';
 
 describe('GitHub Error Handler', () => {

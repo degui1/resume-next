@@ -6,7 +6,7 @@
  */
 
 import * as fc from 'fast-check';
-import { formatLargeNumber, formatDate, formatNumber } from '@/lib/github/formatters';
+import { formatLargeNumber, formatDate, formatNumber } from '@/lib/api/formatters';
 import type { Locale } from '@/lib/i18n/locales';
 
 describe('Formatting Properties', () => {

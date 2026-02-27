@@ -1,33 +1,54 @@
 /**
  * GitHub Configuration Module
  * 
- * Manages configuration for GitHub API integration, including:
- * - Reading configuration from environment variables
- * - Validating configuration values
- * - Providing default values
- * - Parsing repository filters
+ * Manages configuration for GitHub API integration using shared configuration utilities.
+ * Provides GitHub-specific configuration reader with environment variable mappings.
  */
 
+import { createConfigReader, parseNumber, parseStringArray } from '@/lib/api/config';
 import { GitHubConfig } from './types';
 
 /**
- * Default configuration values
+ * GitHub configuration reader using shared utilities
  */
-const DEFAULT_CONFIG = {
-  revalidate: 3600, // 1 hour in seconds (Next.js revalidation)
-  fallbackToMock: true,
-  baseUrl: 'https://api.github.com'
-} as const;
-
-/**
- * Environment variable names for GitHub configuration
- */
-const ENV_VARS = {
-  USERNAME: 'GITHUB_USERNAME',
-  TOKEN: 'GITHUB_TOKEN',
-  REVALIDATE: 'GITHUB_REVALIDATE',
-  REPOSITORIES: 'GITHUB_REPOSITORIES'
-} as const;
+const githubConfigReader = createConfigReader<GitHubConfig & Record<string, unknown>>({
+  mapping: {
+    username: 'GITHUB_USERNAME',
+    token: 'GITHUB_TOKEN',
+    revalidate: 'GITHUB_REVALIDATE',
+    repositoryFilter: 'GITHUB_REPOSITORIES'
+  },
+  defaults: {
+    username: '',
+    revalidate: 3600,
+    fallbackToMock: true
+  },
+  validators: {
+    revalidate: (value) => {
+      const parsed = parseNumber(value, 3600);
+      // Ensure positive number
+      return parsed > 0 ? parsed : 3600;
+    },
+    repositoryFilter: (value) => {
+      // If it's already an array, validate and clean it
+      if (Array.isArray(value)) {
+        const cleaned = value
+          .filter(repo => typeof repo === 'string' && repo.trim().length > 0)
+          .map(repo => repo.trim());
+        return cleaned.length > 0 ? cleaned : undefined;
+      }
+      // If it's a string, try to parse it
+      if (typeof value === 'string') {
+        const parsed = parseStringArray(value);
+        // Return empty array if parsing resulted in no items (for backward compatibility with getGitHubConfig)
+        return parsed ?? [];
+      }
+      // For any other type, return undefined
+      return undefined;
+    }
+  },
+  requiredFields: ['username']
+});
 
 /**
  * Get GitHub configuration from environment variables
@@ -54,28 +75,7 @@ const ENV_VARS = {
  * // { username: '', token: undefined, revalidate: 3600, repositoryFilter: undefined, fallbackToMock: true }
  */
 export function getGitHubConfig(): GitHubConfig {
-  const username = process.env[ENV_VARS.USERNAME] || '';
-  const token = process.env[ENV_VARS.TOKEN];
-  const revalidateStr = process.env[ENV_VARS.REVALIDATE];
-  const repositoriesStr = process.env[ENV_VARS.REPOSITORIES];
-
-  // Parse revalidation time from string to number
-  const revalidate = revalidateStr 
-    ? parseInt(revalidateStr, 10) 
-    : DEFAULT_CONFIG.revalidate;
-
-  // Parse repository filter from comma-separated string
-  const repositoryFilter = repositoriesStr
-    ? repositoriesStr.split(',').map(repo => repo.trim()).filter(repo => repo.length > 0)
-    : undefined;
-
-  return {
-    username,
-    token,
-    revalidate: isNaN(revalidate) ? DEFAULT_CONFIG.revalidate : revalidate,
-    repositoryFilter,
-    fallbackToMock: DEFAULT_CONFIG.fallbackToMock
-  };
+  return githubConfigReader.read();
 }
 
 /**
@@ -104,37 +104,7 @@ export function getGitHubConfig(): GitHubConfig {
  * // { username: 'octocat', token: undefined, revalidate: 3600, repositoryFilter: undefined, fallbackToMock: true }
  */
 export function validateConfig(config: Partial<GitHubConfig>): GitHubConfig {
-  // Validate and normalize revalidate time
-  let revalidate = config.revalidate ?? DEFAULT_CONFIG.revalidate;
-  if (typeof revalidate !== 'number' || isNaN(revalidate) || revalidate <= 0) {
-    revalidate = DEFAULT_CONFIG.revalidate;
-  }
-
-  // Validate and normalize repository filter
-  let repositoryFilter = config.repositoryFilter;
-  if (repositoryFilter !== undefined) {
-    // Ensure it's an array and filter out empty strings
-    if (!Array.isArray(repositoryFilter)) {
-      repositoryFilter = undefined;
-    } else {
-      repositoryFilter = repositoryFilter
-        .filter(repo => typeof repo === 'string' && repo.trim().length > 0)
-        .map(repo => repo.trim());
-      
-      // If array is empty after filtering, set to undefined
-      if (repositoryFilter.length === 0) {
-        repositoryFilter = undefined;
-      }
-    }
-  }
-
-  return {
-    username: config.username || '',
-    token: config.token,
-    revalidate,
-    repositoryFilter,
-    fallbackToMock: config.fallbackToMock ?? DEFAULT_CONFIG.fallbackToMock
-  };
+  return githubConfigReader.validate(config);
 }
 
 /**
@@ -155,5 +125,6 @@ export function validateConfig(config: Partial<GitHubConfig>): GitHubConfig {
  * }
  */
 export function isConfigured(config: GitHubConfig): boolean {
-  return config.username.length > 0;
+  return githubConfigReader.isConfigured(config);
 }
+

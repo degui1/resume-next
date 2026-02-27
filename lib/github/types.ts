@@ -1,5 +1,8 @@
 // GitHub API Response Types
 
+// Import shared rate limit types
+import type { RateLimitState, RateLimitInfo } from '@/lib/api/rate-limit';
+
 /**
  * GitHub API Repository Response
  * Represents the structure returned by GitHub REST API v3 for repository data
@@ -85,33 +88,13 @@ export interface GitHubConfig {
   revalidate: number; // Next.js revalidation time in seconds
   repositoryFilter?: string[];
   fallbackToMock: boolean;
-}
-
-// Rate Limit State Types
-
-/**
- * Rate Limit State
- * Internal state tracking for rate limit information
- */
-export interface RateLimitState {
-  limit: number;
-  remaining: number;
-  reset: Date;
-  used: number;
-}
-
-/**
- * Rate Limit Information
- * User-facing rate limit information with request permission
- */
-export interface RateLimitInfo {
-  canMakeRequest: boolean;
-  remaining: number;
-  resetAt: Date;
-  retryAfter?: number; // Seconds until reset
+  [key: string]: unknown; // Index signature for compatibility with shared config utilities
 }
 
 // Service Response Types
+
+// Re-export shared rate limit types for convenience
+export type { RateLimitState, RateLimitInfo } from '@/lib/api/rate-limit';
 
 /**
  * Fetch Repositories Result

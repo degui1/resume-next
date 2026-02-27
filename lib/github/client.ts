@@ -11,7 +11,7 @@ import {
   GitHubRateLimit,
   GitHubFetchOptions,
 } from './types';
-import { handleGitHubError } from './errors';
+import { handleGitHubError } from './error-handler';
 
 /**
  * Default base URL for GitHub REST API v3

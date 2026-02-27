@@ -7,9 +7,9 @@
  */
 
 import { GitHubClient } from './client';
-import { RateLimitHandler } from './rate-limit';
+import { RateLimitHandler } from '@/lib/api/rate-limit';
 import { transformRepositories } from './transformer';
-import { handleGitHubError, isRateLimitError, isNotFoundError } from './errors';
+import { handleGitHubError, isRateLimitError, isNotFoundError } from './error-handler';
 import { githubProjects } from '@/lib/data/mockData';
 import {
   GitHubServiceConfig,
@@ -126,12 +126,12 @@ export class GitHubService {
       // Handle errors and fall back to mock data
       const githubError = handleGitHubError(error);
       
-      // Update rate limit if available in error
-      if (githubError.rateLimit) {
+      // Update rate limit if available in error metadata
+      if (githubError.metadata) {
         this.rateLimitHandler.updateFromApi({
-          limit: githubError.rateLimit.remaining,
-          remaining: githubError.rateLimit.remaining,
-          reset: Math.floor(githubError.rateLimit.resetAt.getTime() / 1000),
+          limit: githubError.metadata.remaining,
+          remaining: githubError.metadata.remaining,
+          reset: Math.floor(githubError.metadata.resetAt.getTime() / 1000),
           used: 0,
         });
       }

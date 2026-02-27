@@ -5,7 +5,7 @@
  * Tests specific examples and edge cases for number and date formatting.
  */
 
-import { formatLargeNumber, formatDate, formatNumber } from '@/lib/github/formatters';
+import { formatLargeNumber, formatDate, formatNumber } from '@/lib/api/formatters';
 
 describe('Formatting Utilities', () => {
   describe('formatLargeNumber', () => {
