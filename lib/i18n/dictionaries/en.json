@@ -2,7 +2,15 @@
   "navigation": {
     "home": "Home",
     "about": "About",
-    "links": "Links"
+    "links": "Links",
+    "sections": {
+      "hero": "Introduction",
+      "content": "Content",
+      "experience": "Experience",
+      "skills": "Skills",
+      "testimonials": "Testimonials",
+      "contact": "Contact"
+    }
   },
   "home": {
     "hero": {

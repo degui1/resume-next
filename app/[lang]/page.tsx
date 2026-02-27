@@ -33,7 +33,7 @@ export default async function Home({
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="container mx-auto max-w-screen-xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <section id="hero" className="container mx-auto max-w-screen-xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <HeroSection 
           profile={profile}
           highlights={highlights}
@@ -43,7 +43,7 @@ export default async function Home({
       </section>
 
       {/* YouTube Section */}
-      <section className="bg-muted/30 py-12 sm:py-16">
+      <section id="content" className="bg-muted/30 py-12 sm:py-16">
         <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-4">{dict.home.content.title}</h2>
@@ -74,7 +74,7 @@ export default async function Home({
       </section>
 
       {/* Experience Timeline Section */}
-      <section className="py-12 sm:py-16">
+      <section id="experience" className="py-12 sm:py-16">
         <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-4">{dict.home.experience.title}</h2>
@@ -87,7 +87,7 @@ export default async function Home({
       </section>
 
       {/* Skills Carousel Section */}
-      <section className="bg-muted/30 py-12 sm:py-16">
+      <section id="skills" className="bg-muted/30 py-12 sm:py-16">
         <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 text-center">
             <h2 className="text-3xl font-bold mb-4">{dict.home.skills.title}</h2>
@@ -100,7 +100,7 @@ export default async function Home({
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-12 sm:py-16">
+      <section id="testimonials" className="py-12 sm:py-16">
         <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold mb-4">{dict.home.testimonials.title}</h2>
@@ -113,7 +113,7 @@ export default async function Home({
       </section>
 
       {/* Get in Touch Section */}
-      <section className="bg-muted/30 py-12 sm:py-16">
+      <section id="contact" className="bg-muted/30 py-12 sm:py-16">
         <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <GetInTouch 
             dict={dict}
