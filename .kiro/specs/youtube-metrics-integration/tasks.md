@@ -2,247 +2,253 @@
 
 ## Overview
 
-This implementation plan creates a YouTube Data API v3 integration following the established GitHub integration pattern. The implementation will be done incrementally, building from core types and configuration through API client, service layer, error handling, and finally server actions. Each step validates functionality before moving forward.
+This implementation plan creates a YouTube Data API v3 integration that leverages shared API utilities from lib/api/ (error handling, formatting, rate limiting, configuration). The YouTube-specific code is isolated in lib/youtube/ and focuses on API client, service orchestration, and data transformation. The implementation includes an error state component for graceful error handling without mock data fallback.
 
 ## Tasks
 
-- [ ] 1. Set up project structure and core types
+- [x] 1. Set up YouTube-specific project structure and types
   - Create `lib/youtube/` directory structure
   - Define TypeScript interfaces for YouTube API responses (YouTubeApiChannel, YouTubeApiVideo, YouTubeApiSearchResponse)
-  - Define application types (YouTubeChannel extension, Video extension)
-  - Define configuration types (YouTubeConfig, YouTubeClientConfig, YouTubeServiceConfig)
-  - Define error types (YouTubeError) and quota types (QuotaInfo, YouTubeQuotaInfo)
-  - Create `lib/youtube/types.ts` with all type definitions
+  - Define YouTube-specific configuration types (YouTubeConfig, YouTubeClientConfig)
+  - Create `lib/youtube/types.ts` with YouTube-specific type definitions
   - Create `lib/youtube/index.ts` for public API exports
-  - _Requirements: 9.1, 9.2, 9.3, 9.5_
+  - _Requirements: 9.1, 9.2, 9.5, 12.1, 12.2, 12.3, 12.4, 12.5, 12.6_
 
-- [ ] 2. Implement configuration module
-  - [ ] 2.1 Create configuration loader
-    - Implement `getYouTubeConfig()` to read from environment variables (YOUTUBE_API_KEY, YOUTUBE_CHANNEL_IDS, YOUTUBE_REVALIDATE)
-    - Implement `validateConfig()` to validate and normalize configuration
-    - Implement `isConfigured()` to check if YouTube integration is enabled
-    - Parse comma-separated channel IDs into array
+- [-] 2. Implement YouTube configuration module
+  - [x] 2.1 Create YouTube configuration loader using shared utilities
+    - Import createConfigReader, validateConfig, isConfigured from lib/api/config
+    - Implement `getYouTubeConfig()` to read YOUTUBE_API_KEY, YOUTUBE_CHANNEL_IDS, YOUTUBE_REVALIDATE
+    - Parse comma-separated channel IDs into array with trimming
+    - Validate and normalize configuration values
     - Create `lib/youtube/config.ts`
-    - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5_
+    - _Requirements: 4.1, 4.2, 4.3, 4.6, 4.7, 11.1, 11.2_
   
   - [ ]* 2.2 Write property test for channel ID list parsing
-    - **Property 6: Channel ID List Parsing**
-    - **Validates: Requirements 4.5**
+    - **Property 4: Channel ID List Parsing**
+    - **Validates: Requirements 4.6**
     - Test that any comma-separated string produces array of trimmed, non-empty channel IDs
 
-- [ ] 3. Implement error handling utilities
-  - [ ] 3.1 Create error handling module
-    - Implement `YouTubeError` class with statusCode, quotaInfo, and error type flags
-    - Implement `handleYouTubeError()` to convert unknown errors to YouTubeError
-    - Implement `isQuotaError()` to detect quota exceeded errors
-    - Implement `isNotFoundError()` to detect 404 errors
-    - Implement `isAuthError()` to detect authentication errors
-    - Create `lib/youtube/errors.ts`
-    - _Requirements: 1.4, 2.2, 7.1, 7.2, 7.4_
-  
-  - [ ]* 3.2 Write property test for error handling
-    - **Property 4: Error Handling Produces Descriptive Messages**
-    - **Validates: Requirements 1.4, 10.4**
-    - Test that any YouTube API error response produces YouTubeError with descriptive message and correct classification
-
-- [ ] 4. Implement number formatters
-  - [ ] 4.1 Create formatting utilities
-    - Implement `formatNumber()` to format numbers with K/M/B suffixes
-    - Implement `formatSubscribers()` for subscriber count formatting
-    - Implement `formatViews()` for view count formatting
-    - Support locale parameter for internationalization
-    - Create `lib/youtube/formatters.ts`
-    - _Requirements: 5.5, 8.4, 8.5_
-  
-  - [ ]* 4.2 Write property test for number formatting
-    - **Property 7: Number Formatting with Suffixes**
-    - **Validates: Requirements 5.5**
-    - Test that any positive integer produces string with appropriate suffix and at most one decimal place
-  
-  - [ ]* 4.3 Write property test for locale-aware formatting
-    - **Property 9: Locale-Aware Number Formatting**
-    - **Validates: Requirements 8.4, 8.5**
-    - Test that any number and valid locale produces locale-appropriate formatting
-
-- [ ] 5. Implement data transformers
-  - [ ] 5.1 Create transformation functions
+- [x] 3. Implement data transformers
+  - [x] 3.1 Create transformation functions using shared formatters
+    - Import formatLargeNumber from lib/api/formatters
     - Implement `transformChannel()` to convert YouTubeApiChannel to YouTubeChannel
     - Implement `transformVideos()` to convert YouTubeApiVideo[] to Video[]
     - Implement `transformChannels()` for multiple channels
     - Extract all required fields (id, name, handle, subscribers, url, viewCount, videoCount, thumbnailUrl)
-    - Use formatters for subscriber and view counts
+    - Use formatLargeNumber for subscriber, view, and video counts
     - Create `lib/youtube/transformer.ts`
-    - _Requirements: 1.2, 1.3, 5.1, 5.2, 5.3, 5.4, 6.2, 6.4, 6.5, 10.2, 10.3_
+    - _Requirements: 1.2, 1.3, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 6.2, 6.4, 6.5, 10.2, 10.3, 11.3_
   
-  - [ ]* 5.2 Write property test for channel data completeness
+  - [ ]* 3.2 Write property test for channel data completeness
     - **Property 1: Channel Data Completeness**
-    - **Validates: Requirements 1.2, 5.1, 5.2, 5.3, 5.4, 10.2, 10.3**
+    - **Validates: Requirements 1.2, 5.1, 5.2, 5.3, 5.4**
     - Test that any valid YouTube API channel response produces YouTubeChannel with all required fields
   
-  - [ ]* 5.3 Write property test for video data completeness
+  - [ ]* 3.3 Write property test for video data completeness
     - **Property 2: Video Data Completeness**
     - **Validates: Requirements 6.2, 6.4, 6.5**
     - Test that any valid YouTube API video response produces Video with all required fields
   
-  - [ ]* 5.4 Write property test for data transformation round-trip
-    - **Property 12: Data Transformation Round-Trip**
+  - [ ]* 3.4 Write property test for number formatting with suffixes
+    - **Property 3: Number Formatting with Suffixes**
+    - **Validates: Requirements 5.6, 5.7, 5.8**
+    - Test that formatLargeNumber produces correct K/M/B suffixes with at most one decimal place
+  
+  - [ ]* 3.5 Write property test for data transformation round-trip
+    - **Property 5: Data Transformation Round-Trip**
     - **Validates: Requirements 1.3, 10.5**
     - Test that serializing YouTubeChannel to API format then parsing back produces equivalent object
 
-- [ ] 6. Checkpoint - Ensure all tests pass
+- [x] 4. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 7. Implement rate limit handler
-  - [ ] 7.1 Create quota tracking module
-    - Implement `RateLimitHandler` class with quota state management
-    - Implement `checkQuota()` to determine if requests can be made
-    - Implement `updateFromApi()` to update quota state from API responses
-    - Implement `recordUsage()` to track quota consumption
-    - Calculate time until quota reset
-    - Create `lib/youtube/rate-limit.ts`
-    - _Requirements: 2.1, 2.3_
-  
-  - [ ]* 7.2 Write unit tests for rate limit handler
-    - Test quota checking logic
-    - Test quota state updates
-    - Test usage recording
-    - Test reset time calculations
-
-- [ ] 8. Implement YouTube API client
-  - [ ] 8.1 Create low-level API client
+- [x] 5. Implement YouTube API client
+  - [x] 5.1 Create low-level API client with shared error handling
+    - Import handleApiError, NetworkError, AuthenticationError, RateLimitError, NotFoundError from lib/api/errors
     - Implement `YouTubeClient` class with configuration
     - Implement `fetchChannel()` to fetch channel statistics from YouTube Data API v3
     - Implement `fetchChannelVideos()` to fetch recent videos (search + video details)
-    - Implement `getQuotaInfo()` to extract quota information from responses
     - Use Next.js fetch with revalidate option (default 3600 seconds)
     - Include API key in all requests
     - Parse JSON responses into typed objects
-    - Handle HTTP errors and convert to YouTubeError
-    - Limit video results to maxResults parameter
+    - Use handleApiError to classify HTTP errors into appropriate error types
+    - Throw NetworkError, AuthenticationError, RateLimitError, or NotFoundError based on classification
     - Create `lib/youtube/client.ts`
-    - _Requirements: 1.1, 1.2, 1.5, 3.1, 3.2, 3.3, 3.4, 6.1, 6.2, 6.3, 10.1_
-  
-  - [ ]* 8.2 Write property test for API key authentication
-    - **Property 3: API Key Authentication**
-    - **Validates: Requirements 1.5**
-    - Test that any API request includes API key in query parameters
-  
-  - [ ]* 8.3 Write property test for video result limiting
-    - **Property 8: Video Result Limiting**
-    - **Validates: Requirements 6.3**
-    - Test that fetching videos from channel with N > 5 videos returns exactly 5 videos
-  
-  - [ ]* 8.4 Write property test for API response validation
-    - **Property 10: API Response Type Validation**
-    - **Validates: Requirements 9.4**
-    - Test that invalid API responses are rejected with descriptive error
-  
-  - [ ]* 8.5 Write property test for JSON parsing
-    - **Property 11: JSON Parsing Correctness**
-    - **Validates: Requirements 10.1**
-    - Test that any valid YouTube API JSON response produces typed object that can be transformed
+    - _Requirements: 1.1, 1.2, 1.4, 1.5, 1.6, 3.1, 3.2, 3.3, 3.4, 6.1, 6.2, 6.3, 10.1, 11.6, 11.7, 12.2, 12.7_
 
-- [ ] 9. Implement YouTube service layer
-  - [ ] 9.1 Create high-level service orchestration
-    - Implement `YouTubeService` class with client and rate limit handler
-    - Implement `getChannelMetrics()` with fallback chain (API → cache → mock)
-    - Implement `getRecentVideos()` with fallback chain
+- [x] 6. Implement YouTube service layer
+  - [x] 6.1 Create high-level service orchestration with shared utilities
+    - Import RateLimitHandler from lib/api/rate-limit
+    - Import error type guards (isRateLimitError, isNotFoundError, isAuthenticationError) from lib/api/errors
+    - Implement `YouTubeService` class with client, rate limit handler, and config
+    - Implement `getChannelMetrics()` with error handling and cache fallback
+    - Implement `getRecentVideos()` with error handling and cache fallback
     - Implement `getQuotaStatus()` to expose quota information
-    - Check quota limits before making requests
-    - Handle quota exceeded errors by returning cached data
-    - Handle authentication errors by falling back to mock data
-    - Handle not found errors by logging warning and using mock data
-    - Apply channel ID filters from configuration
+    - Check rate limits before making requests using RateLimitHandler.checkLimit()
+    - Update rate limit state after requests using RateLimitHandler.updateFromApi()
+    - Handle RateLimitError by returning cached data or error result
+    - Handle AuthenticationError by returning error result
+    - Handle NotFoundError by returning error result
+    - Handle NetworkError by returning cached data or error result
+    - Return result objects with data, source ('api' | 'cache' | 'error'), quotaInfo, and error fields
     - Transform API responses using transformer functions
-    - Return result objects with data, source, quotaInfo, and error fields
     - Create `lib/youtube/service.ts`
-    - _Requirements: 2.1, 2.2, 2.4, 4.3, 4.4, 7.1, 7.2, 7.3, 7.4, 7.5_
-  
-  - [ ]* 9.2 Write property test for system resilience
-    - **Property 5: System Resilience with Fallback Data**
-    - **Validates: Requirements 2.4, 7.3, 7.5**
-    - Test that any API failure returns fallback data without throwing unhandled exceptions
-  
-  - [ ]* 9.3 Write unit tests for service layer
-    - Test fallback chain execution
-    - Test quota exceeded handling
-    - Test authentication error handling
-    - Test not found error handling
-    - Test multiple channel ID handling
-    - Test mock data fallback when not configured
+    - _Requirements: 1.4, 1.5, 2.1, 2.2, 2.3, 2.4, 2.5, 4.4, 4.5, 7.1, 7.2, 7.3, 7.4, 7.6, 7.7, 11.1, 11.4, 11.5, 11.7, 13.1, 13.2, 13.3, 13.4, 13.5, 13.6, 13.7_
 
-- [ ] 10. Checkpoint - Ensure all tests pass
+- [x] 7. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 11. Implement server actions
-  - [ ] 11.1 Create Next.js server actions
+- [x] 8. Implement error state component
+  - [x] 8.1 Create YouTubeErrorState component
+    - Create React component that accepts errorType and message props
+    - Support error types: 'quota', 'auth', 'not_found', 'network', 'config'
+    - Display appropriate error message based on error type
+    - Use portfolio design system for consistent styling
+    - Include clear, user-friendly messaging
+    - Create `components/youtube/YouTubeErrorState.tsx`
+    - _Requirements: 14.1, 14.2, 14.3, 14.4, 14.5, 14.6, 14.7, 14.8_
+  
+  - [ ]* 8.2 Write component tests for error state
+    - Test error state renders with quota error
+    - Test error state renders with auth error
+    - Test error state renders with not_found error
+    - Test error state renders with network error
+    - Test error state renders with config error
+    - Test error messages are user-friendly and descriptive
+
+- [x] 9. Implement server actions
+  - [x] 9.1 Create Next.js server actions
     - Create `getYouTubeChannels()` server action to fetch channel metrics
     - Create `getYouTubeVideos()` server action to fetch recent videos
     - Create `getYouTubeQuotaStatus()` server action to get quota status
-    - Initialize YouTubeService with configuration
+    - Initialize YouTubeService with configuration and shared utilities
     - Handle errors and return appropriate result objects
     - Add 'use server' directive
     - Create `app/actions/youtube.ts`
     - _Requirements: 1.1, 6.1_
-  
-  - [ ]* 11.2 Write integration tests for server actions
-    - Test server actions return correct data structure
-    - Test error handling in server actions
-    - Test fallback behavior through server actions
 
-- [ ] 12. Update existing components to use YouTube integration
-  - [ ] 12.1 Update YouTubeChannelInfo component
+- [x] 10. Update existing components to use YouTube integration
+  - [x] 10.1 Update YouTubeChannelInfo component
     - Import server actions from `app/actions/youtube`
+    - Import YouTubeErrorState component
     - Call `getYouTubeChannels()` to fetch channel data
-    - Display channel statistics (subscribers, views, videos)
+    - Display channel statistics (subscribers, views, videos) when data available
     - Display channel name and handle
-    - Format numbers using locale-aware formatting
-    - Handle loading and error states
-    - Display fallback message when using mock data
+    - Handle loading state
+    - Display YouTubeErrorState component when error occurs
+    - Pass error type and message to error state component
     - Update `components/home/YouTubeChannelInfo.tsx`
-    - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5_
+    - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 14.1, 14.2_
   
-  - [ ]* 12.2 Write component tests for YouTubeChannelInfo
+  - [ ]* 10.2 Write component tests for YouTubeChannelInfo
     - Test component renders channel data correctly
     - Test component handles loading state
-    - Test component handles error state
-    - Test component displays fallback message
+    - Test component displays error state for quota error
+    - Test component displays error state for auth error
+    - Test component displays error state for network error
+    - Test component displays error state for config error
+    - Test number formatting displays correctly (subscribers, views, videos)
 
-- [ ] 13. Add internationalization support
-  - [ ] 13.1 Add translation keys for YouTube labels
+- [x] 11. Add internationalization support
+  - [x] 11.1 Add translation keys for YouTube labels and errors
     - Add English translations for YouTube-related labels (subscribers, views, videos, channel)
     - Add Portuguese translations for YouTube-related labels
-    - Add error message translations (quota exceeded, auth failed, not found)
+    - Add English error message translations (quota exceeded, auth failed, not found, network error, config missing)
+    - Add Portuguese error message translations
     - Update i18n files in appropriate locations
     - _Requirements: 8.1, 8.2, 8.3_
   
-  - [ ]* 13.2 Test internationalization
+  - [ ]* 11.2 Test internationalization
     - Test English translations display correctly
     - Test Portuguese translations display correctly
-    - Test error messages use translated text
+    - Test error messages use translated text in both languages
 
-- [ ] 14. Add environment variable documentation
+- [x] 12. Add environment variable documentation
   - Update `.env.example` or documentation with YouTube environment variables
   - Document YOUTUBE_API_KEY configuration
   - Document YOUTUBE_CHANNEL_IDS configuration (comma-separated)
-  - Document YOUTUBE_REVALIDATE configuration (optional)
+  - Document YOUTUBE_REVALIDATE configuration (optional, default 3600)
   - Provide example values
-  - _Requirements: 4.1, 4.2, 4.5_
+  - _Requirements: 4.1, 4.2, 4.6_
 
-- [ ] 15. Final checkpoint - Ensure all tests pass
+- [x] 13. Write E2E tests for API integration and infrastructure
+  - [ ]* 13.1 Write E2E test for successful channel data fetch
+    - Mock YouTube API at network level
+    - Test full flow: API request → caching → data display
+    - Verify channel data displays correctly in UI
+    - _Requirements: 1.1, 1.2, 3.1, 3.2, 3.3, 3.4_
+  
+  - [ ]* 13.2 Write E2E test for quota exceeded with cache
+    - Mock quota exceeded response
+    - Verify cached data is displayed
+    - Verify no error state is shown when cache available
+    - _Requirements: 2.2, 2.3_
+  
+  - [ ]* 13.3 Write E2E test for quota exceeded without cache
+    - Mock quota exceeded response with no cache
+    - Verify error state component displays quota error message
+    - _Requirements: 2.4, 14.4_
+  
+  - [ ]* 13.4 Write E2E test for authentication error
+    - Mock authentication failure response
+    - Verify error state component displays auth error message
+    - _Requirements: 7.4, 14.5_
+  
+  - [ ]* 13.5 Write E2E test for channel not found
+    - Mock 404 response
+    - Verify error state component displays not found message
+    - _Requirements: 7.2, 7.3, 14.6_
+  
+  - [ ]* 13.6 Write E2E test for network error with cache
+    - Mock network failure with cache available
+    - Verify cached data is displayed
+    - _Requirements: 7.6_
+  
+  - [ ]* 13.7 Write E2E test for network error without cache
+    - Mock network failure with no cache
+    - Verify error state component displays network error message
+    - _Requirements: 7.7, 14.7_
+  
+  - [ ]* 13.8 Write E2E test for missing configuration
+    - Test with missing YOUTUBE_API_KEY
+    - Test with missing YOUTUBE_CHANNEL_IDS
+    - Verify error state component displays config error message
+    - _Requirements: 4.4, 4.5, 14.3_
+  
+  - [ ]* 13.9 Write E2E test for cache behavior
+    - Test cache hits return cached data without API request
+    - Test cache expiration triggers fresh API request
+    - Test cache revalidation after 1 hour
+    - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5_
+  
+  - [ ]* 13.10 Write E2E test for rate limiting
+    - Test RateLimitHandler tracks quota state
+    - Test checkLimit prevents requests when quota exceeded
+    - Test updateFromApi updates quota state correctly
+    - _Requirements: 13.1, 13.2, 13.3, 13.4, 13.5, 13.6_
+  
+  - [ ]* 13.11 Write E2E test for multiple channel IDs
+    - Test configuration with multiple comma-separated channel IDs
+    - Verify all channels are fetched and displayed
+    - _Requirements: 4.6_
+
+- [x] 14. Final checkpoint - Ensure all tests pass
   - Run all tests to ensure complete integration works
   - Verify YouTube data displays correctly in the UI
-  - Verify fallback behavior works when API is unavailable
-  - Verify quota exceeded handling works correctly
+  - Verify error state component displays for all error types
+  - Verify cache behavior works correctly
+  - Verify rate limiting works correctly
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Notes
 
 - Tasks marked with `*` are optional and can be skipped for faster MVP
 - Each task references specific requirements for traceability
-- The implementation follows the established GitHub integration pattern in `lib/github/`
+- Shared utilities from lib/api/ are assumed to exist (from shared-api-utilities spec)
+- YouTube-specific code is isolated in lib/youtube/ directory
+- No mock data fallback - error state component displays when data unavailable
+- Testing strategy: E2E for API/infrastructure, component tests for UI, property-based for transformation
 - Property-based tests use `fast-check` library with minimum 100 iterations
-- All tests are tagged with property numbers for traceability
-- Checkpoints ensure incremental validation throughout implementation
-- The fallback chain (API → cache → mock) ensures the portfolio remains functional
+- E2E tests use network-level mocking (Playwright or Cypress)
 - Next.js fetch caching is leveraged for automatic cache management
+- Checkpoints ensure incremental validation throughout implementation

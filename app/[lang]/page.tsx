@@ -1,6 +1,7 @@
 import { HeroSection } from '@/components/home/HeroSection';
 import { VideoCard } from '@/components/home/VideoCard';
 import { YouTubeChannelInfo } from '@/components/home/YouTubeChannelInfo';
+import { YouTubeErrorState } from '@/components/youtube/YouTubeErrorState';
 import { Timeline } from '@/components/home/Timeline';
 import { SkillsCarousel } from '@/components/home/SkillsCarousel';
 import { TestimonialsCarousel } from '@/components/home/TestimonialsCarousel';
@@ -10,8 +11,6 @@ import {
   profile, 
   highlights, 
   statistics, 
-  videos, 
-  youtubeChannels, 
   contentTopics,
   jobs,
   socialLinks,
@@ -21,6 +20,7 @@ import { testimonials } from '@/lib/data/testimonials';
 import { Locale } from '@/lib/i18n/locales';
 import { getDictionary } from '@/lib/i18n/get-dictionary';
 import { getGitHubProjects } from '@/app/actions/github';
+import { getYouTubeVideos } from '@/app/actions/youtube';
 
 interface HomeProps {
   params: Promise<{ lang: Locale }>
@@ -34,6 +34,9 @@ export default async function Home({
 
   // Fetch GitHub projects using the server action
   const githubResult = await getGitHubProjects();
+
+  // Fetch YouTube videos using the server action
+  const youtubeVideosResult = await getYouTubeVideos(6);
 
   return (
     <div className="min-h-screen">
@@ -60,17 +63,26 @@ export default async function Home({
           {/* Featured Videos Grid */}
           <div className="mb-8">
             <h3 className="text-xl font-semibold mb-4">{dict.home.content.featuredVideos}</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              {videos.map((video) => (
-                <VideoCard key={video.id} video={video} dict={dict} />
-              ))}
-            </div>
+            
+            {youtubeVideosResult.source === 'error' && youtubeVideosResult.error ? (
+              <YouTubeErrorState 
+                errorType={youtubeVideosResult.error.type}
+                message={youtubeVideosResult.error.message}
+              />
+            ) : youtubeVideosResult.data && youtubeVideosResult.data.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                {youtubeVideosResult.data.map((video) => (
+                  <VideoCard key={video.id} video={video} dict={dict} />
+                ))}
+              </div>
+            ) : (
+              <p className="text-muted-foreground">No videos available at the moment.</p>
+            )}
           </div>
 
           {/* YouTube Channel Info */}
           <div className="mt-12">
             <YouTubeChannelInfo 
-              channels={youtubeChannels}
               topics={contentTopics}
               dict={dict}
             />

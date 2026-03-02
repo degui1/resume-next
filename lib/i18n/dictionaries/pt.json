@@ -103,5 +103,24 @@
       "validation": "Dados inválidos recebidos do GitHub.",
       "generic": "Ocorreu um erro ao buscar dados do GitHub."
     }
+  },
+  "youtube": {
+    "labels": {
+      "channel": "Canal",
+      "subscribers": "inscritos",
+      "views": "visualizações",
+      "videos": "vídeos",
+      "viewCount": "Contagem de Visualizações",
+      "videoCount": "Contagem de Vídeos",
+      "subscriberCount": "Contagem de Inscritos"
+    },
+    "errors": {
+      "quota": "Limite de cota da API do YouTube atingido. Por favor, tente novamente mais tarde.",
+      "authentication": "Não foi possível autenticar com a API do YouTube",
+      "notFound": "Canal do YouTube não encontrado",
+      "network": "Não foi possível carregar dados do YouTube. Por favor, tente novamente mais tarde.",
+      "config": "Integração do YouTube não configurada",
+      "generic": "Ocorreu um erro ao buscar dados do YouTube."
+    }
   }
 }

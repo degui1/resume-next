@@ -103,5 +103,24 @@
       "validation": "Invalid data received from GitHub.",
       "generic": "An error occurred while fetching GitHub data."
     }
+  },
+  "youtube": {
+    "labels": {
+      "channel": "Channel",
+      "subscribers": "subscribers",
+      "views": "views",
+      "videos": "videos",
+      "viewCount": "View Count",
+      "videoCount": "Video Count",
+      "subscriberCount": "Subscriber Count"
+    },
+    "errors": {
+      "quota": "YouTube API quota limit reached. Please try again later.",
+      "authentication": "Unable to authenticate with YouTube API",
+      "notFound": "YouTube channel not found",
+      "network": "Unable to load YouTube data. Please try again later.",
+      "config": "YouTube integration not configured",
+      "generic": "An error occurred while fetching YouTube data."
+    }
   }
 }

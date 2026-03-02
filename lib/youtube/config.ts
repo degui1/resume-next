@@ -1,139 +1,112 @@
 /**
- * YouTube API Configuration Management
+ * YouTube integration configuration management
  * 
- * This module provides YouTube-specific configuration management
- * using the shared configuration utilities from @/lib/api/config.
+ * This module provides configuration loading and validation for the YouTube
+ * Data API v3 integration. It uses shared configuration utilities from lib/api/config
+ * to read environment variables and validate configuration values.
+ * 
+ * @module youtube/config
  */
 
-import { createConfigReader, parseNumber, parseStringArray, parseBoolean } from '@/lib/api/config';
+import {
+  createConfigReader,
+  parseNumber,
+  parseStringArray,
+  parseBoolean,
+  type ConfigReader,
+} from '@/lib/api/config';
+import type { YouTubeConfig } from './types';
 
 /**
- * YouTube API Configuration
+ * YouTube configuration reader instance
  * 
- * Configuration options for the YouTube API integration.
- * 
- * @property apiKey - YouTube Data API v3 key (required)
- * @property channelId - Default YouTube channel ID to fetch data from (optional)
- * @property revalidate - Cache revalidation time in seconds (default: 3600)
- * @property maxResults - Maximum number of results to fetch per request (default: 10)
- * @property fallbackToMock - Whether to use mock data when API is unavailable (default: true)
- * @property videoFilter - Array of video IDs to filter/include (optional)
- */
-export interface YouTubeConfig extends Record<string, unknown> {
-  apiKey: string;
-  channelId?: string;
-  revalidate: number;
-  maxResults: number;
-  fallbackToMock: boolean;
-  videoFilter?: string[];
-}
-
-/**
- * YouTube configuration reader
- * 
- * Reads and validates YouTube API configuration from environment variables.
- * 
- * Environment Variables:
+ * Reads configuration from environment variables:
  * - YOUTUBE_API_KEY: YouTube Data API v3 key (required)
- * - YOUTUBE_CHANNEL_ID: Default channel ID (optional)
+ * - YOUTUBE_CHANNEL_IDS: Comma-separated list of channel IDs (required)
  * - YOUTUBE_REVALIDATE: Cache revalidation time in seconds (default: 3600)
- * - YOUTUBE_MAX_RESULTS: Maximum results per request (default: 10)
- * - YOUTUBE_FALLBACK_TO_MOCK: Use mock data on failure (default: true)
- * - YOUTUBE_VIDEOS: Comma-separated list of video IDs to filter (optional)
- * 
- * @example
- * ```typescript
- * const config = getYouTubeConfig();
- * console.log(config.apiKey); // From YOUTUBE_API_KEY env var
- * console.log(config.revalidate); // 3600 (default) or from YOUTUBE_REVALIDATE
- * ```
  */
-const youtubeConfigReader = createConfigReader<YouTubeConfig>({
+const youtubeConfigReader: ConfigReader<YouTubeConfig> = createConfigReader<YouTubeConfig>({
   mapping: {
     apiKey: 'YOUTUBE_API_KEY',
-    channelId: 'YOUTUBE_CHANNEL_ID',
+    channelIds: 'YOUTUBE_CHANNEL_IDS',
     revalidate: 'YOUTUBE_REVALIDATE',
-    maxResults: 'YOUTUBE_MAX_RESULTS',
     fallbackToMock: 'YOUTUBE_FALLBACK_TO_MOCK',
-    videoFilter: 'YOUTUBE_VIDEOS',
   },
   defaults: {
+    apiKey: '',
+    channelIds: [],
     revalidate: 3600,
-    maxResults: 10,
     fallbackToMock: true,
   },
   validators: {
     revalidate: (value) => parseNumber(value, 3600),
-    maxResults: (value) => parseNumber(value, 10),
+    channelIds: (value) => parseStringArray(value) || [],
     fallbackToMock: (value) => parseBoolean(value, true),
-    videoFilter: (value) => parseStringArray(value),
   },
-  requiredFields: ['apiKey'],
+  requiredFields: ['apiKey', 'channelIds'],
 });
 
 /**
- * Get YouTube API configuration
+ * Get YouTube configuration from environment variables
  * 
- * Reads YouTube configuration from environment variables and applies
- * validation and default values.
+ * Reads and validates YouTube configuration including API key, channel IDs,
+ * and cache revalidation time. Channel IDs are parsed from a comma-separated
+ * string and trimmed of whitespace.
  * 
- * @returns YouTube configuration object
+ * @returns Complete YouTube configuration object
  * 
  * @example
- * ```typescript
  * const config = getYouTubeConfig();
- * if (isYouTubeConfigured(config)) {
- *   // API key is present, can make API requests
- *   const data = await fetchYouTubeData(config);
- * } else {
- *   // API key missing, use mock data
- *   const data = getMockYouTubeData();
- * }
- * ```
+ * // {
+ * //   apiKey: 'AIza...',
+ * //   channelIds: ['UCxxx', 'UCyyy'],
+ * //   revalidate: 3600,
+ * //   fallbackToMock: true
+ * // }
  */
-export const getYouTubeConfig = (): YouTubeConfig => {
+export function getYouTubeConfig(): YouTubeConfig {
   return youtubeConfigReader.read();
-};
+}
 
 /**
- * Validate YouTube configuration
+ * Validate and normalize a partial YouTube configuration
  * 
- * Validates a partial configuration object and returns a complete
- * configuration with defaults applied.
+ * Applies default values and validators to a partial configuration object.
+ * Useful for testing or when configuration comes from sources other than
+ * environment variables.
  * 
  * @param config - Partial configuration to validate
- * @returns Complete validated configuration
+ * @returns Complete, validated configuration object
  * 
  * @example
- * ```typescript
- * const userConfig = { apiKey: 'abc123', maxResults: 25 };
- * const validConfig = validateYouTubeConfig(userConfig);
- * console.log(validConfig.revalidate); // 3600 (default applied)
- * console.log(validConfig.maxResults); // 25 (user value preserved)
- * ```
+ * const config = validateYouTubeConfig({
+ *   apiKey: 'AIza...',
+ *   channelIds: ['UCxxx']
+ * });
+ * // Returns config with defaults applied for revalidate and fallbackToMock
  */
-export const validateYouTubeConfig = (config: Partial<YouTubeConfig>): YouTubeConfig => {
+export function validateYouTubeConfig(config: Partial<YouTubeConfig>): YouTubeConfig {
   return youtubeConfigReader.validate(config);
-};
+}
 
 /**
- * Check if YouTube is configured
+ * Check if YouTube integration is properly configured
  * 
- * Checks if the required YouTube API configuration (API key) is present.
+ * Verifies that all required configuration fields (apiKey and channelIds)
+ * are present and valid. Returns false if any required field is missing,
+ * empty, or invalid.
  * 
  * @param config - Configuration to check
- * @returns true if API key is present and valid
+ * @returns True if all required fields are present and valid
  * 
  * @example
- * ```typescript
  * const config = getYouTubeConfig();
  * if (isYouTubeConfigured(config)) {
- *   console.log('YouTube API is configured');
+ *   // Safe to use YouTube API
  * } else {
- *   console.log('YouTube API key is missing');
+ *   // Display error state
  * }
- * ```
  */
-export const isYouTubeConfigured = (config: YouTubeConfig): boolean => {
+export function isYouTubeConfigured(config: YouTubeConfig): boolean {
   return youtubeConfigReader.isConfigured(config);
-};
+}
