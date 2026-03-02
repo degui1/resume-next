@@ -75,7 +75,7 @@ describe('Configuration Utilities', () => {
   });
 
   describe('createConfigReader', () => {
-    interface TestConfig {
+    type TestConfig = {
       username: string;
       token?: string;
       revalidate: number;
@@ -137,7 +137,7 @@ describe('Configuration Utilities', () => {
     });
 
     it('should check if configuration is complete', () => {
-      const reader = createConfigReader(testOptions);
+      const reader = createConfigReader<TestConfig>(testOptions);
       
       const completeConfig: TestConfig = {
         username: 'testuser',

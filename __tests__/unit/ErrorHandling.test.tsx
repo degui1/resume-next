@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { ProjectCard } from '@/components/links/ProjectCard';
 import { LinkedInPostCard } from '@/components/links/LinkedInPostCard';
@@ -5,16 +6,20 @@ import { StatisticsCard } from '@/components/home/StatisticsCard';
 import { HighlightItem } from '@/components/home/HighlightItem';
 import { VideoCard } from '@/components/home/VideoCard';
 import { mockDictionary } from '../utils/mockDictionary.util';
+import { GitHubProject } from '@/lib/github';
 
 describe('Error Handling - Components with Empty Arrays', () => {
   it('should handle ProjectCard with empty technologies array', () => {
-    const projectWithoutTech = {
+    const projectWithoutTech: GitHubProject = {
       id: '1',
       name: 'Test Project',
       description: 'Test description',
       stars: 100,
       url: 'https://github.com/test/project',
       technologies: [],
+      forks: 0,
+      language: null,
+      updatedAt: new Date().toDateString()
     };
     
     const { container } = render(<ProjectCard project={projectWithoutTech} />);
@@ -25,13 +30,16 @@ describe('Error Handling - Components with Empty Arrays', () => {
   });
 
   it('should handle ProjectCard with zero stars', () => {
-    const projectWithZeroStars = {
+    const projectWithZeroStars: GitHubProject = {
       id: '1',
       name: 'New Project',
       description: 'Brand new project',
       stars: 0,
       url: 'https://github.com/test/new-project',
       technologies: ['React'],
+      forks: 0,
+      language: null,
+      updatedAt: new Date().toDateString()
     };
     
     const { container } = render(<ProjectCard project={projectWithZeroStars} />);
@@ -104,13 +112,16 @@ describe('Error Handling - Components with Missing Optional Fields', () => {
   });
 
   it('should handle ProjectCard with long description', () => {
-    const projectWithLongDesc = {
+    const projectWithLongDesc: GitHubProject = {
       id: '1',
       name: 'Test Project',
       description: 'This is a very long description that should be truncated or handled gracefully by the component. '.repeat(10),
       stars: 100,
       url: 'https://github.com/test/project',
       technologies: ['React', 'TypeScript'],
+      forks: 0,
+      language: null,
+      updatedAt: new Date().toDateString()
     };
     
     const { container } = render(<ProjectCard project={projectWithLongDesc} />);
