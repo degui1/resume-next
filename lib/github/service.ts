@@ -2,7 +2,7 @@
  * GitHub Service Orchestration Layer
  * 
  * High-level service that coordinates GitHub API client and rate limit handler.
- * Implements fallback chain: API (with Next.js cache) → mock data
+ * Handles errors gracefully without falling back to mock data.
  * Handles partial failures and repository filtering.
  */
 
@@ -10,7 +10,6 @@ import { GitHubClient } from './client';
 import { RateLimitHandler } from '@/lib/api/rate-limit';
 import { transformRepositories } from './transformer';
 import { handleGitHubError, isRateLimitError, isNotFoundError } from './error-handler';
-import { githubProjects } from '@/lib/data/mockData';
 import {
   GitHubServiceConfig,
   FetchRepositoriesResult,
@@ -54,16 +53,16 @@ export class GitHubService {
   }
 
   /**
-   * Get repositories with fallback chain
+   * Get repositories with error handling
    * 
-   * Implements the following fallback chain:
+   * Implements the following flow:
    * 1. Check rate limit before making request
    * 2. Fetch from GitHub API (with Next.js automatic caching)
-   * 3. If rate limit exceeded or error, fall back to mock data
+   * 3. If error occurs, return error state (no fallback to mock data)
    * 
    * Handles partial failures when fetching multiple repositories:
    * - If some repositories fail but others succeed, returns successful ones
-   * - If all repositories fail, falls back to mock data
+   * - If all repositories fail, returns error state
    * 
    * Applies repository filter if configured:
    * - If filter is set, fetches only specified repositories
@@ -72,25 +71,25 @@ export class GitHubService {
    * @returns Promise resolving to fetch result with data, source, and rate limit info
    */
   async getRepositories(): Promise<FetchRepositoriesResult> {
-    // If username not configured, fall back to mock data immediately
+    // If username not configured, return error
     if (!this.config.username) {
       return {
-        data: githubProjects,
+        data: [],
         source: 'fallback',
-        error: 'GitHub username not configured',
+        error: 'GitHub username not configured. Please set GITHUB_USERNAME in your environment variables.',
       };
     }
 
     // Check rate limit before making request
     const rateLimitInfo = this.rateLimitHandler.checkLimit();
     
-    // If rate limit exceeded, fall back to mock data
+    // If rate limit exceeded, return error
     if (!rateLimitInfo.canMakeRequest) {
       return {
-        data: githubProjects,
+        data: [],
         source: 'fallback',
         rateLimit: rateLimitInfo,
-        error: 'Rate limit exceeded',
+        error: 'GitHub API rate limit exceeded. Please try again later.',
       };
     }
 
@@ -123,7 +122,7 @@ export class GitHubService {
         rateLimit: this.rateLimitHandler.checkLimit(),
       };
     } catch (error) {
-      // Handle errors and fall back to mock data
+      // Handle errors and return error state
       const githubError = handleGitHubError(error);
       
       // Update rate limit if available in error metadata
@@ -136,9 +135,9 @@ export class GitHubService {
         });
       }
 
-      // Fall back to mock data
+      // Return error state without mock data
       return {
-        data: githubProjects,
+        data: [],
         source: 'fallback',
         rateLimit: this.rateLimitHandler.checkLimit(),
         error: githubError.message,
