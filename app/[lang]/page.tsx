@@ -3,7 +3,7 @@ import { YouTubeSection } from '@/components/home/YouTubeSection';
 import { GitHubProjectsSection } from '@/components/home/GitHubProjectsSection';
 import { Timeline } from '@/components/home/Timeline';
 import { SkillsCarousel } from '@/components/home/SkillsCarousel';
-import { TestimonialsCarousel } from '@/components/home/TestimonialsCarousel';
+// import { TestimonialsCarousel } from '@/components/home/TestimonialsCarousel';
 import { GetInTouch } from '@/components/home/GetInTouch';
 import { UnderConstruction } from '@/components/common/UnderConstruction';
 import { 
@@ -15,7 +15,7 @@ import {
   socialLinks,
 } from '@/lib/data/mockData';
 import { skills } from '@/lib/data/skills';
-import { testimonials } from '@/lib/data/testimonials';
+// import { testimonials } from '@/lib/data/testimonials';
 import { Locale } from '@/lib/i18n/locales';
 import { getDictionary } from '@/lib/i18n/get-dictionary';
 
