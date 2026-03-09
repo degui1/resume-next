@@ -81,12 +81,8 @@ async function GitHubProjectsContent({ dict, locale }: GitHubProjectsSectionProp
 
 export function GitHubProjectsSection({ dict, locale }: GitHubProjectsSectionProps) {
   return (
-    <section id="projects" className="py-12 sm:py-16">
-      <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <Suspense fallback={<GitHubLoadingFallback />}>
-          <GitHubProjectsContent dict={dict} locale={locale} />
-        </Suspense>
-      </div>
-    </section>
+    <Suspense fallback={<GitHubLoadingFallback />}>
+      <GitHubProjectsContent dict={dict} locale={locale} />
+    </Suspense>
   );
 }

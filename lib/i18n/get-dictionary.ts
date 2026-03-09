@@ -6,7 +6,7 @@ const dictionaries = {
 };
 
 export const getDictionary = async (locale: Locale) => {
-  return dictionaries[locale]();
+  return dictionaries[['en', 'pt'].includes(locale) ? locale : 'en']();
 };
 
 export type Dictionary = Awaited<ReturnType<typeof getDictionary>>;

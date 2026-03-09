@@ -2,6 +2,8 @@ import { LinkCard, ProjectCard, LinkedInPostCard } from '@/components/links';
 import { socialLinks, githubProjects, linkedinPosts } from '@/lib/data/mockData';
 import { Locale } from '@/lib/i18n/locales';
 import { getDictionary } from '@/lib/i18n/get-dictionary';
+import { GitHubProjectsSection } from '@/components/home/GitHubProjectsSection';
+import { UnderConstruction } from '@/components/common/UnderConstruction';
 
 interface LinksProps {
   params: Promise<{ lang: Locale }>;
@@ -24,14 +26,9 @@ export default async function Links({
         </div>
 
         {/* Projects Section */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">{dict.links.projects}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {githubProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        </div>
+        {/* <div className="mb-12">
+          <GitHubProjectsSection dict={dict} locale={lang} />
+        </div> */}
 
         {/* Social Links Section */}
         <div className="mb-12">
@@ -47,9 +44,12 @@ export default async function Links({
         <div>
           <h2 className="text-2xl font-bold mb-6">{dict.links.posts}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {linkedinPosts.map((post) => (
+            <div className='md:col-span-2 lg:col-span-3'>
+              <UnderConstruction dict={dict} />
+            </div>
+            {/* {linkedinPosts.map((post) => (
               <LinkedInPostCard key={post.id} post={post} />
-            ))}
+            ))} */}
           </div>
         </div>
       </section>

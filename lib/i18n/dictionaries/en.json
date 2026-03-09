@@ -122,5 +122,11 @@
       "config": "YouTube integration not configured",
       "generic": "An error occurred while fetching YouTube data."
     }
+  },
+  "common": {
+    "underConstruction": {
+      "title": "Under Construction",
+      "description": "This feature is currently being developed. Check back soon for updates!"
+    }
   }
 }

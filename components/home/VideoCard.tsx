@@ -34,7 +34,7 @@ export function VideoCard({ video }: VideoCardProps) {
         
         {/* Title */}
         <div className="p-4">
-          <h3 className="font-semibold text-foreground line-clamp-2">
+          <h3 className="font-semibold text-foreground line-clamp-2 text-lg">
             {video.title}
           </h3>
         </div>

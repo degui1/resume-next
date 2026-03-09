@@ -5,6 +5,7 @@ import { Timeline } from '@/components/home/Timeline';
 import { SkillsCarousel } from '@/components/home/SkillsCarousel';
 import { TestimonialsCarousel } from '@/components/home/TestimonialsCarousel';
 import { GetInTouch } from '@/components/home/GetInTouch';
+import { UnderConstruction } from '@/components/common/UnderConstruction';
 import { 
   profile, 
   highlights, 
@@ -41,7 +42,17 @@ export default async function Home({
       </section>
 
       {/* YouTube Section */}
-      <YouTubeSection contentTopics={contentTopics} dict={dict} />
+      <section id="content" className="bg-muted/30 py-12 sm:py-16">
+        <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold mb-4">{dict.home.content.title}</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl">
+              {dict.home.content.description}
+            </p>
+          </div>
+          <YouTubeSection contentTopics={contentTopics} dict={dict} locale={lang} />
+        </div>
+      </section>
 
       {/* Experience Timeline Section */}
       <section id="experience" className="py-12 sm:py-16">
@@ -70,7 +81,11 @@ export default async function Home({
       </section>
 
       {/* Projects Section */}
-      <GitHubProjectsSection dict={dict} locale={lang} />
+      <section id="projects" className="py-12 sm:py-16">
+        <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <GitHubProjectsSection dict={dict} locale={lang} />
+        </div>
+      </section>
 
       {/* Testimonials Section */}
       <section id="testimonials" className="bg-muted/30 py-12 sm:py-16">
@@ -81,7 +96,8 @@ export default async function Home({
               {dict.home.testimonials.description}
             </p>
           </div>
-          <TestimonialsCarousel testimonials={testimonials} dict={dict} />
+          {/* <TestimonialsCarousel testimonials={testimonials} dict={dict} /> */}
+          <UnderConstruction dict={dict} />
         </div>
       </section>
 

@@ -10,6 +10,7 @@ import { Card, CardContent } from '@/components/ui/card';
 interface YouTubeSectionProps {
   contentTopics: string[];
   dict: Dictionary;
+  locale?: string;
 }
 
 function YouTubeLoadingFallback() {
@@ -25,9 +26,9 @@ function YouTubeLoadingFallback() {
   );
 }
 
-async function YouTubeContent({ dict }: { dict: Dictionary }) {
+async function YouTubeContent({ dict, locale }: { dict: Dictionary; locale?: string }) {
   try {
-    const youtubeVideosResult = await getYouTubeVideos(6);
+    const youtubeVideosResult = await getYouTubeVideos(3, locale);
 
     if (youtubeVideosResult.source === 'error' && youtubeVideosResult.error) {
       return (
@@ -61,34 +62,26 @@ async function YouTubeContent({ dict }: { dict: Dictionary }) {
   }
 }
 
-export function YouTubeSection({ contentTopics, dict }: YouTubeSectionProps) {
+export function YouTubeSection({ contentTopics, dict, locale }: YouTubeSectionProps) {
   return (
-    <section id="content" className="bg-muted/30 py-12 sm:py-16">
-      <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold mb-4">{dict.home.content.title}</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl">
-            {dict.home.content.description}
-          </p>
-        </div>
-
-        {/* Featured Videos Grid */}
-        <div className="mb-8">
-          <h3 className="text-xl font-semibold mb-4">{dict.home.content.featuredVideos}</h3>
-          
-          <Suspense fallback={<YouTubeLoadingFallback />}>
-            <YouTubeContent dict={dict} />
-          </Suspense>
-        </div>
-
-        {/* YouTube Channel Info */}
-        <div className="mt-12">
-          <YouTubeChannelInfo 
-            topics={contentTopics}
-            dict={dict}
-          />
-        </div>
+    <>
+      {/* Featured Videos Grid */}
+      <div className="mb-8">
+        <h3 className="text-xl font-semibold mb-4">{dict.home.content.featuredVideos}</h3>
+        
+        <Suspense fallback={<YouTubeLoadingFallback />}>
+          <YouTubeContent dict={dict} locale={locale} />
+        </Suspense>
       </div>
-    </section>
+
+      {/* YouTube Channel Info */}
+      <div className="mt-12">
+        <YouTubeChannelInfo 
+          topics={contentTopics}
+          dict={dict}
+          locale={locale}
+          />
+      </div>
+    </>
   );
 }

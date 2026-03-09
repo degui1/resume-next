@@ -37,6 +37,7 @@ export class YouTubeClient {
   private readonly apiKey: string;
   private readonly baseUrl: string;
   private readonly revalidate: number;
+  private readonly locale?: string;
   private readonly handleError: ReturnType<typeof createErrorHandler>;
 
   /**
@@ -48,6 +49,7 @@ export class YouTubeClient {
     this.apiKey = config.apiKey;
     this.baseUrl = config.baseUrl || 'https://www.googleapis.com/youtube/v3';
     this.revalidate = config.revalidate ?? 3600;
+    this.locale = config.locale;
 
     // Create error handler with YouTube-specific messages
     this.handleError = createErrorHandler({
@@ -87,6 +89,11 @@ export class YouTubeClient {
     url.searchParams.set('part', 'snippet,statistics');
     url.searchParams.set('id', channelId);
     url.searchParams.set('key', this.apiKey);
+    
+    // Add localization parameter if locale is provided
+    if (this.locale) {
+      url.searchParams.set('hl', this.locale);
+    }
 
     try {
       const response = await fetch(url.toString(), {
@@ -153,6 +160,11 @@ export class YouTubeClient {
     searchUrl.searchParams.set('type', 'video');
     searchUrl.searchParams.set('maxResults', maxResults.toString());
     searchUrl.searchParams.set('key', this.apiKey);
+    
+    // Add localization parameter if locale is provided
+    if (this.locale) {
+      searchUrl.searchParams.set('hl', this.locale);
+    }
 
     try {
       const searchResponse = await fetch(searchUrl.toString(), {
@@ -178,6 +190,11 @@ export class YouTubeClient {
       videosUrl.searchParams.set('part', 'snippet,statistics');
       videosUrl.searchParams.set('id', videoIds.join(','));
       videosUrl.searchParams.set('key', this.apiKey);
+      
+      // Add localization parameter if locale is provided
+      if (this.locale) {
+        videosUrl.searchParams.set('hl', this.locale);
+      }
 
       const videosResponse = await fetch(videosUrl.toString(), {
         next: { revalidate: this.revalidate },

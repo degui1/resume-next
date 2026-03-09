@@ -68,7 +68,7 @@
   },
   "about": {
     "title": "Sobre",
-    "description": "Ao longo de mais de 3 anos na Apdata, contribuí para a plataforma global-antares focando na modernização da plataforma em nuvem, sistemas de controle de ponto e processamento de documentos OCR. Meu trabalho abrange desenvolvimento frontend (React, TypeScript), melhorias de infraestrutura e implementação de lógica de negócios complexa (Delphi, C#) para sistemas de RH e gestão de força de trabalho.",
+    "description": "Desenvolvedor full-stack com experiência no design e implementação de serviços backend, migrações para a nuvem e modernização de sistemas. Habilidade na construção de APIs, automação de fluxos de trabalho e integração de soluções baseadas em IA, como sistemas de OCR e validação. Forte foco em desempenho, segurança e arquitetura sustentável e de fácil manutenção. Experiência na refatoração de bases de código legadas e na criação de estruturas de projeto mais limpas. Motivado por desafios técnicos complexos e pelo design de sistemas escaláveis.",
     "experience": {
       "title": "Experiência Profissional",
       "present": "Presente",
@@ -121,6 +121,12 @@
       "network": "Não foi possível carregar dados do YouTube. Por favor, tente novamente mais tarde.",
       "config": "Integração do YouTube não configurada",
       "generic": "Ocorreu um erro ao buscar dados do YouTube."
+    }
+  },
+  "common": {
+    "underConstruction": {
+      "title": "Em Construção",
+      "description": "Este recurso está sendo desenvolvido. Volte em breve para atualizações!"
     }
   }
 }

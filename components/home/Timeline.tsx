@@ -3,6 +3,7 @@
 import { Job } from '@/lib/types';
 import { useState } from 'react';
 import { Briefcase, GraduationCap, Calendar } from 'lucide-react';
+import { UnderConstruction } from '../common/UnderConstruction';
 
 interface TimelineProps {
   jobs: Job[];
@@ -41,12 +42,17 @@ export function Timeline({ jobs, dict }: TimelineProps) {
       </div>
 
       {/* Timeline */}
+      {activeTab === 'education' && (
+        <UnderConstruction dict={dict}/>
+      )}
+
       <div className="relative">
         {/* Center line */}
         <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/30 -translate-x-1/2 hidden md:block" />
         
         <div className="space-y-12">
-          {jobs.map((job, index) => {
+
+          {activeTab === 'work' && jobs.map((job, index) => {
             const isLeft = index % 2 === 0;
             
             return (

@@ -75,6 +75,7 @@ export interface YouTubeClientConfig {
   apiKey: string;
   baseUrl?: string;
   revalidate?: number;
+  locale?: string;
 }
 
 // Application Types

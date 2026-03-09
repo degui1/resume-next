@@ -13,9 +13,10 @@ import { YouTubeErrorState } from '@/components/youtube/YouTubeErrorState';
 interface YouTubeChannelInfoProps {
   topics: string[];
   dict: Dictionary;
+  locale?: string;
 }
 
-export function YouTubeChannelInfo({ topics, dict }: YouTubeChannelInfoProps) {
+export function YouTubeChannelInfo({ topics, dict, locale }: YouTubeChannelInfoProps) {
   const [channels, setChannels] = useState<YouTubeChannel[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<{ type: 'quota' | 'auth' | 'not_found' | 'network' | 'config'; message: string } | null>(null);
@@ -24,7 +25,7 @@ export function YouTubeChannelInfo({ topics, dict }: YouTubeChannelInfoProps) {
     async function fetchChannels() {
       try {
         setLoading(true);
-        const result = await getYouTubeChannels();
+        const result = await getYouTubeChannels(locale);
 
         if (result.source === 'error' && result.error) {
           setError(result.error);
@@ -43,7 +44,7 @@ export function YouTubeChannelInfo({ topics, dict }: YouTubeChannelInfoProps) {
     }
 
     fetchChannels();
-  }, []);
+  }, [locale]);
 
   const handleVisitChannel = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');

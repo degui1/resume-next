@@ -27,9 +27,10 @@ import type {
  * configuration. This is a helper function to avoid duplicating service
  * initialization logic across multiple server actions.
  * 
+ * @param locale - Optional locale code for API localization (e.g., 'en', 'pt')
  * @returns Configured YouTube service instance
  */
-function createYouTubeService(): YouTubeService {
+function createYouTubeService(locale?: string): YouTubeService {
   // Get configuration from environment variables
   const config = getYouTubeConfig();
 
@@ -37,6 +38,7 @@ function createYouTubeService(): YouTubeService {
   const client = new YouTubeClient({
     apiKey: config.apiKey,
     revalidate: config.revalidate,
+    locale,
   });
 
   // Create rate limit handler
@@ -63,6 +65,7 @@ function createYouTubeService(): YouTubeService {
  * This server action can be called from client components to fetch
  * YouTube data without exposing API keys or implementation details.
  * 
+ * @param locale - Optional locale code for API localization (e.g., 'en', 'pt')
  * @returns Result object with channel data, source, quota info, and optional error
  * 
  * @example
@@ -70,7 +73,7 @@ function createYouTubeService(): YouTubeService {
  * // In a client component
  * import { getYouTubeChannels } from '@/app/actions/youtube';
  * 
- * const result = await getYouTubeChannels();
+ * const result = await getYouTubeChannels('pt');
  * 
  * if (result.source === 'api') {
  *   console.log('Channels:', result.data);
@@ -79,9 +82,9 @@ function createYouTubeService(): YouTubeService {
  * }
  * ```
  */
-export async function getYouTubeChannels(): Promise<FetchChannelResult> {
+export async function getYouTubeChannels(locale?: string): Promise<FetchChannelResult> {
   try {
-    const service = createYouTubeService();
+    const service = createYouTubeService(locale);
     return await service.getChannelMetrics();
   } catch (error) {
     // Handle unexpected errors
@@ -106,6 +109,7 @@ export async function getYouTubeChannels(): Promise<FetchChannelResult> {
  * YouTube video data without exposing API keys or implementation details.
  * 
  * @param maxResults - Maximum number of videos to fetch (default: 5)
+ * @param locale - Optional locale code for API localization (e.g., 'en', 'pt')
  * @returns Result object with video data, source, quota info, and optional error
  * 
  * @example
@@ -113,7 +117,7 @@ export async function getYouTubeChannels(): Promise<FetchChannelResult> {
  * // In a client component
  * import { getYouTubeVideos } from '@/app/actions/youtube';
  * 
- * const result = await getYouTubeVideos(5);
+ * const result = await getYouTubeVideos(5, 'pt');
  * 
  * if (result.source === 'api') {
  *   console.log('Videos:', result.data);
@@ -123,10 +127,11 @@ export async function getYouTubeChannels(): Promise<FetchChannelResult> {
  * ```
  */
 export async function getYouTubeVideos(
-  maxResults: number = 5
+  maxResults: number = 5,
+  locale?: string
 ): Promise<FetchVideosResult> {
   try {
-    const service = createYouTubeService();
+    const service = createYouTubeService(locale);
     return await service.getRecentVideos(maxResults);
   } catch (error) {
     // Handle unexpected errors
