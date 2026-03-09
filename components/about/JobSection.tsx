@@ -24,7 +24,7 @@ export function JobSection({ job, dict }: JobSectionProps) {
         {/* Features Section */}
         {job.features && job.features.length > 0 && (
           <div>
-            <h4 className="font-semibold mb-2">Key Features</h4>
+            <h4 className="font-semibold mb-2">{dict.about.experience.keyFeatures}</h4>
             <ul className="list-disc list-inside space-y-1 text-muted-foreground">
               {job.features.map((feature, index) => (
                 <li key={index}>{feature}</li>
@@ -36,7 +36,7 @@ export function JobSection({ job, dict }: JobSectionProps) {
         {/* Contributions Section */}
         {job.contributions && job.contributions.length > 0 && (
           <div>
-            <h4 className="font-semibold mb-2">Main Contributions</h4>
+            <h4 className="font-semibold mb-2">{dict.about.experience.mainContributions}</h4>
             <ul className="list-disc list-inside space-y-1 text-muted-foreground">
               {job.contributions.map((contribution, index) => (
                 <li key={index}>{contribution}</li>
@@ -48,7 +48,7 @@ export function JobSection({ job, dict }: JobSectionProps) {
         {/* Technologies Section */}
         {job.technologies && job.technologies.length > 0 && (
           <div>
-            <h4 className="font-semibold mb-2">Technologies</h4>
+            <h4 className="font-semibold mb-2">{dict.about.experience.technologies}</h4>
             <div className="flex flex-wrap gap-2">
               {job.technologies.map((tech, index) => (
                 <Badge key={index} variant="secondary">

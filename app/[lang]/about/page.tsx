@@ -1,9 +1,7 @@
 import { JobSection } from '@/components/about/JobSection';
 import { ThesisSection } from '@/components/about/ThesisSection';
-import { jobs, thesis } from '@/lib/data/mockData';
 import { Locale } from '@/lib/i18n/locales';
 import { getDictionary } from '@/lib/i18n/get-dictionary';
-import { UnderConstruction } from '@/components/common/UnderConstruction';
 
 interface AboutProps {
   params: Promise<{ lang: Locale }>;
@@ -30,18 +28,16 @@ export default async function About({
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-6">{dict.about.experience.title}</h2>
           <div className="space-y-6">
-            <UnderConstruction dict={dict} />
-            {/* {jobs.map((job) => (
+            {dict.about.jobs.map((job) => (
               <JobSection key={job.id} job={job} dict={dict} />
-            ))} */}
+            ))}
           </div>
         </div>
 
         {/* Thesis Section */}
         <div>
           <h2 className="text-2xl font-bold mb-6">{dict.about.research.title}</h2>
-          <UnderConstruction dict={dict} />
-          {/* <ThesisSection thesis={thesis} /> */}
+          <ThesisSection thesis={dict.about.thesis} dict={dict} />
         </div>
       </section>
     </div>

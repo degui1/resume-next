@@ -72,10 +72,105 @@
     "experience": {
       "title": "Experiência Profissional",
       "present": "Presente",
-      "contributions": "Principais Contribuições"
+      "contributions": "Principais Contribuições",
+      "keyFeatures": "Principais Características",
+      "mainContributions": "Principais Contribuições",
+      "technologies": "Tecnologias"
     },
     "research": {
-      "title": "Pesquisa Acadêmica"
+      "title": "Pesquisa Acadêmica",
+      "description": "Descrição",
+      "results": "Resultados"
+    },
+    "jobs": [
+      {
+        "id": "1",
+        "company": "Apdata do Brasil",
+        "role": "Desenvolvedor de Software",
+        "period": "2024 - Presente",
+        "features": [
+          "Desafios arquiteturais maiores",
+          "Mentoria de desenvolvedores juniores",
+          "Liderança de iniciativas multifuncionais",
+          "Continuar impulsionando a inovação na plataforma em nuvem da Apdata"
+        ],
+        "contributions": [
+          "Adicionada funcionalidade de agendamento específica para contratados com centro de custo, folha de pagamento e rastreamento de atividades",
+          "Desenvolvida nova rotina independente de sobreaviso",
+          "Eliminadas restrições técnicas do sistema legado",
+          "Fornecida solução mais flexível para agendamento de força de trabalho",
+          "Aprimorada experiência do usuário e completude de recursos",
+          "Atualizados pacotes críticos de produção e removidas dependências não utilizadas, reduzindo o tamanho do bundle",
+          "Melhorada segurança e desempenho em toda a plataforma",
+          "Estabelecida consistência do sistema de design",
+          "Modernizada arquitetura do projeto",
+          "Melhorada organização e manutenibilidade do código",
+          "Implementado lançamento de formulário de fluxo de trabalho para leitura de documentos OCR",
+          "Automatizado preenchimento de campos a partir de dados de atestado médico extraídos por OCR",
+          "Otimizado fluxo de trabalho de processamento de documentos",
+          "Criada validação cadastral para CFO (Conselho Federal de Odontologia)",
+          "Automatizada verificação de credenciais profissionais para dentistas",
+          "Criada validação cadastral para CFM (Conselho Federal de Medicina)",
+          "Verificação de credenciais profissionais para médicos",
+          "Integrada funcionalidade de chatbot na plataforma"
+        ],
+        "technologies": ["React", "Node.js", "Delphi", "Docker", "Nest.js", "AWS", "Linux", "Kiro", "SQL Server", "Oracle", "OCR"]
+      },
+      {
+        "id": "2",
+        "company": "Apdata do Brasil",
+        "role": "Desenvolvedor de Software Júnior",
+        "period": "2022 - 2024",
+        "features": [
+          "Desafios arquiteturais maiores",
+          "Mentoria de desenvolvedores juniores",
+          "Liderança de iniciativas multifuncionais",
+          "Continuar impulsionando a inovação na plataforma em nuvem da Apdata"
+        ],
+        "contributions": [
+          "Eliminadas restrições técnicas do sistema legado",
+          "Aprimorada experiência do usuário e completude de recursos",
+          "Modernizada arquitetura do projeto",
+          "Melhorada organização e manutenibilidade do código",
+          "Implementado lançamento de formulário de fluxo de trabalho para leitura de documentos OCR",
+          "Automatizado preenchimento de campos a partir de dados de atestado médico extraídos por OCR",
+          "Otimizado fluxo de trabalho de processamento de documentos",
+          "Criada validação cadastral para CFO (Conselho Federal de Odontologia)",
+          "Automatizada verificação de credenciais profissionais para dentistas",
+          "Criada validação cadastral para CFM (Conselho Federal de Medicina)",
+          "Verificação de credenciais profissionais para médicos",
+          "Integrada funcionalidade de chatbot na plataforma"
+        ],
+        "technologies": ["React", "Node.js", "Delphi", "Nest.js", "AWS", "Linux", "Kiro", "SQL Server", "Oracle", "OCR"]
+      },
+      {
+        "id": "3",
+        "company": "Grupo Melo Cordeiro",
+        "role": "Desenvolvedor de Software Estagiário",
+        "period": "2019 - 2022",
+        "features": [
+          "Desenvolvidos projetos para clientes",
+          "Mentoria de desenvolvedores juniores",
+          "Liderança de decisões de arquitetura técnica"
+        ],
+        "contributions": [
+          "Entregues mais de 15 projetos bem-sucedidos",
+          "Melhorada produtividade da equipe em 40%",
+          "Implementado pipeline de CI/CD"
+        ],
+        "technologies": ["Vue.js", "Django", "MySQL", "Docker"]
+      }
+    ],
+    "thesis": {
+      "title": "Desenvolvimento de uma Plataforma Web para Simplificação da Criação de Workflows em YAML",
+      "description": "O objetivo deste projeto foi desenvolver uma plataforma que atenuasse as dificuldades e simplificasse a criação de arquivos YAML de forma inteligente, guiada e explicativa. A proposta visava apoiar especialmente desenvolvedores iniciantes, oferecendo uma experiência mais acessível e amigável, reduzindo a curva de aprendizado.",
+      "technologies": ["Nest.js", "React", "Node.js", "Prisma"],
+      "results": [
+        "Publicado em conferência internacional",
+        "Implementado em sistema de produção",
+        "Melhorado engajamento do usuário em 35%"
+      ],
+      "link": "https://github.com/degui1/codeflow/blob/main/README.md"
     }
   },
   "links": {

@@ -72,10 +72,111 @@
     "experience": {
       "title": "Professional Experience",
       "present": "Present",
-      "contributions": "Key Contributions"
+      "contributions": "Key Contributions",
+      "keyFeatures": "Key Features",
+      "mainContributions": "Main Contributions",
+      "technologies": "Technologies"
     },
     "research": {
-      "title": "Academic Research"
+      "title": "Academic Research",
+      "description": "Description",
+      "results": "Results"
+    },
+    "jobs": [
+      {
+        "id": "1",
+        "company": "Apdata do Brasil",
+        "role": "Software Developer",
+        "period": "2024 - Present",
+        "features": [
+          "Larger architectural challenges",
+          "Mentor junior developers",
+          "Lead cross-functional initiatives",
+          "Continue driving innovation in Apdata's cloud platform"
+        ],
+        "contributions": [
+          "Added contractor-specific appointment functionality with cost center, payroll, and activity tracking",
+          "Developed new independent on-call (sobreaviso) routine",
+          "Eliminated technical restrictions from legacy system",
+          "Provided more flexible solution for workforce scheduling",
+          "Enhanced user experience and feature completeness",
+          "Updated critical production packages and removed unused dependencies, reducing bundle size",
+          "Improved security and performance across the platform",
+          "Established design system consistency",
+          "Modernized project architecture",
+          "Improved code organization and maintainability",
+          "Implemented workflow form launch for OCR document reading",
+          "Automated field population from OCR-extracted medical certificate data",
+          "Streamlined document processing workflow",
+          "Created cadastral validation for CFO (Conselho Federal de Odontologia)",
+          "Automated professional credential verification for dentists",
+          "Created cadastral validation for CFM (Conselho Federal de Medicina)",
+          "Professional credential verification for physicians",
+          "Integrated chatbot functionality into platform"
+        ],
+        "technologies": ["React", "Node.js", "Delphi", "Docker", "Nest.js", "AWS", "Linux", "Kiro", "SQL Server", "Oracle", "OCR"]
+      },
+      {
+        "id": "2",
+        "company": "Apdata do Brasil",
+        "role": "Junior Software Developer",
+        "period": "2022 - 2024",
+        "features": [
+          "Larger architectural challenges",
+          "Mentor junior developers",
+          "Lead cross-functional initiatives",
+          "Continue driving innovation in Apdata's cloud platform"
+        ],
+        "contributions": [
+          "Added contractor-specific appointment functionality with cost center, payroll, and activity tracking",
+          "Developed new independent on-call (sobreaviso) routine",
+          "Eliminated technical restrictions from legacy system",
+          "Provided more flexible solution for workforce scheduling",
+          "Enhanced user experience and feature completeness",
+          "Updated critical production packages and removed unused dependencies, reducing bundle size",
+          "Improved security and performance across the platform",
+          "Established design system consistency",
+          "Modernized project architecture",
+          "Improved code organization and maintainability",
+          "Implemented workflow form launch for OCR document reading",
+          "Automated field population from OCR-extracted medical certificate data",
+          "Streamlined document processing workflow",
+          "Created cadastral validation for CFO (Conselho Federal de Odontologia)",
+          "Automated professional credential verification for dentists",
+          "Created cadastral validation for CFM (Conselho Federal de Medicina)",
+          "Professional credential verification for physicians",
+          "Integrated chatbot functionality into platform"
+        ],
+        "technologies": ["React", "Node.js", "Delphi", "Nest.js", "AWS", "Linux", "Kiro", "SQL Server", "Oracle", "OCR"]
+      },
+      {
+        "id": "3",
+        "company": "Grupo Melo Cordeiro",
+        "role": "Intern Software Developer",
+        "period": "2019 - 2022",
+        "features": [
+          "Developed client projects",
+          "Mentored junior developers",
+          "Led technical architecture decisions"
+        ],
+        "contributions": [
+          "Delivered 15+ successful projects",
+          "Improved team productivity by 40%",
+          "Implemented CI/CD pipeline"
+        ],
+        "technologies": ["Vue.js", "Django", "MySQL", "Docker"]
+      }
+    ],
+    "thesis": {
+      "title": "Development of a Web Platform to Simplify the Creation of YAML Workflows",
+      "description": "The goal of this project was to develop a platform that reduces the difficulties and simplifies the creation of YAML files in an intelligent, guided, and explanatory way. The proposal aimed to especially support beginner developers, offering a more accessible and user-friendly experience while reducing the learning curve.",
+      "technologies": ["Nest.js", "React", "Node.js", "Prisma"],
+      "results": [
+        "Published in international conference",
+        "Implemented in production system",
+        "Improved user engagement by 35%"
+      ],
+      "link": "https://github.com/degui1/codeflow/blob/main/README.md"
     }
   },
   "links": {

@@ -61,7 +61,6 @@ export interface Job {
   company: string;
   role: string;
   period: string;
-  startDate: string;
   endDate?: string;
   features: string[];
   contributions: string[];
