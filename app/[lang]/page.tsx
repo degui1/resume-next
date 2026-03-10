@@ -3,19 +3,14 @@ import { YouTubeSection } from '@/components/home/YouTubeSection';
 import { GitHubProjectsSection } from '@/components/home/GitHubProjectsSection';
 import { Timeline } from '@/components/home/Timeline';
 import { SkillsCarousel } from '@/components/home/SkillsCarousel';
-// import { TestimonialsCarousel } from '@/components/home/TestimonialsCarousel';
 import { GetInTouch } from '@/components/home/GetInTouch';
 import { UnderConstruction } from '@/components/common/UnderConstruction';
 import { 
   profile, 
-  highlights, 
-  statistics, 
   contentTopics,
-  jobs,
   socialLinks,
 } from '@/lib/data/mockData';
 import { skills } from '@/lib/data/skills';
-// import { testimonials } from '@/lib/data/testimonials';
 import { Locale } from '@/lib/i18n/locales';
 import { getDictionary } from '@/lib/i18n/get-dictionary';
 
@@ -34,10 +29,10 @@ export default async function Home({
       {/* Hero Section */}
       <section id="hero" className="container mx-auto max-w-screen-xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <HeroSection 
-          profile={profile}
-          highlights={highlights}
-          statistics={statistics}
           dict={dict}
+          profileImage={profile.profileImage}
+          email={profile.email}
+          lang={lang}
         />
       </section>
 
@@ -63,7 +58,7 @@ export default async function Home({
               {dict.home.experience.description}
             </p>
           </div>
-          <Timeline jobs={jobs} dict={dict} />
+          <Timeline jobs={dict.about.jobs} dict={dict} />
         </div>
       </section>
 

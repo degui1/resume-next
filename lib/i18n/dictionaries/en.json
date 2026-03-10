@@ -16,7 +16,27 @@
   "home": {
     "hero": {
       "greeting": "Hello, I'm",
-      "description": "Software Engineer passionate about creating innovative solutions and sharing knowledge through content creation."
+      "description": "Software Engineer passionate about creating innovative solutions and sharing knowledge through content creation.",
+      "linkButton": "Navigate to my social medias",
+      "profile": {
+        "name": "Guilherme Gonçalves",
+        "title": "Full Stack Developer",
+        "description": "Building amazing web experiences with modern technologies and teaching others to do the same.",
+        "location": "São Paulo, Brazil",
+        "role": "Software Developer"
+      },
+      "highlights": [
+        {
+          "id": "1",
+          "icon": "briefcase",
+          "text": "CTO at American startup"
+        },
+        {
+          "id": "2",
+          "icon": "GraduationCap",
+          "text": "Graduated in computer science"
+        }
+      ]
     },
     "highlights": {
       "title": "Highlights"
@@ -89,32 +109,29 @@
         "role": "Software Developer",
         "period": "2024 - Present",
         "features": [
-          "Larger architectural challenges",
+          "On-Call Duty System Rewrite",
+          "OCR Medical Certificate Automation",
           "Mentor junior developers",
+          "Platform Stability Improvements",
           "Lead cross-functional initiatives",
           "Continue driving innovation in Apdata's cloud platform"
         ],
         "contributions": [
-          "Added contractor-specific appointment functionality with cost center, payroll, and activity tracking",
-          "Developed new independent on-call (sobreaviso) routine",
-          "Eliminated technical restrictions from legacy system",
-          "Provided more flexible solution for workforce scheduling",
-          "Enhanced user experience and feature completeness",
-          "Updated critical production packages and removed unused dependencies, reducing bundle size",
-          "Improved security and performance across the platform",
+          "Legacy System Migration",
+          "AI and Automation Integration",
+          "Infrastructure and Performance Improvements",
+          "Domain Expertise Development",
           "Established design system consistency",
           "Modernized project architecture",
           "Improved code organization and maintainability",
           "Implemented workflow form launch for OCR document reading",
-          "Automated field population from OCR-extracted medical certificate data",
-          "Streamlined document processing workflow",
           "Created cadastral validation for CFO (Conselho Federal de Odontologia)",
           "Automated professional credential verification for dentists",
           "Created cadastral validation for CFM (Conselho Federal de Medicina)",
           "Professional credential verification for physicians",
           "Integrated chatbot functionality into platform"
         ],
-        "technologies": ["React", "Node.js", "Delphi", "Docker", "Nest.js", "AWS", "Linux", "Kiro", "SQL Server", "Oracle", "OCR"]
+        "technologies": ["Delphi", "Node.js", "Docker", "Nest.js", "AWS", "React", "Linux", "Kiro", "SQL Server", "Oracle", "OCR"]
       },
       {
         "id": "2",
@@ -122,49 +139,29 @@
         "role": "Junior Software Developer",
         "period": "2022 - 2024",
         "features": [
-          "Larger architectural challenges",
-          "Mentor junior developers",
-          "Lead cross-functional initiatives",
-          "Continue driving innovation in Apdata's cloud platform"
+          "Project Structure Modernization",
+          "Artificial intelligence integration"
         ],
         "contributions": [
-          "Added contractor-specific appointment functionality with cost center, payroll, and activity tracking",
-          "Developed new independent on-call (sobreaviso) routine",
-          "Eliminated technical restrictions from legacy system",
-          "Provided more flexible solution for workforce scheduling",
-          "Enhanced user experience and feature completeness",
-          "Updated critical production packages and removed unused dependencies, reducing bundle size",
-          "Improved security and performance across the platform",
-          "Established design system consistency",
-          "Modernized project architecture",
-          "Improved code organization and maintainability",
-          "Implemented workflow form launch for OCR document reading",
-          "Automated field population from OCR-extracted medical certificate data",
-          "Streamlined document processing workflow",
-          "Created cadastral validation for CFO (Conselho Federal de Odontologia)",
-          "Automated professional credential verification for dentists",
-          "Created cadastral validation for CFM (Conselho Federal de Medicina)",
-          "Professional credential verification for physicians",
-          "Integrated chatbot functionality into platform"
+          "Frontend Development",
+          "Platform UI Consistency",
+          "Innovation of the web application using the newest tools on the market"
         ],
-        "technologies": ["React", "Node.js", "Delphi", "Nest.js", "AWS", "Linux", "Kiro", "SQL Server", "Oracle", "OCR"]
+        "technologies": ["React", "Node.js", "Delphi", "Nest.js", "AWS", "Linux", "SQL Server", "Oracle"]
       },
       {
         "id": "3",
         "company": "Grupo Melo Cordeiro",
         "role": "Intern Software Developer",
-        "period": "2019 - 2022",
+        "period": "2022 - 2022",
         "features": [
-          "Developed client projects",
-          "Mentored junior developers",
-          "Led technical architecture decisions"
+          "Energy station monitoring"
         ],
         "contributions": [
-          "Delivered 15+ successful projects",
-          "Improved team productivity by 40%",
-          "Implemented CI/CD pipeline"
+          "MVP Development with Vue.js",
+          "Hands-on frontend development experience"
         ],
-        "technologies": ["Vue.js", "Django", "MySQL", "Docker"]
+        "technologies": ["Vue.js", "Firebase", "Node.js", "Git"]
       }
     ],
     "thesis": {
@@ -172,9 +169,8 @@
       "description": "The goal of this project was to develop a platform that reduces the difficulties and simplifies the creation of YAML files in an intelligent, guided, and explanatory way. The proposal aimed to especially support beginner developers, offering a more accessible and user-friendly experience while reducing the learning curve.",
       "technologies": ["Nest.js", "React", "Node.js", "Prisma"],
       "results": [
-        "Published in international conference",
-        "Implemented in production system",
-        "Improved user engagement by 35%"
+        "Improved understanding of workflow structures",
+        "Satisfactory performance in complex scenarios"
       ],
       "link": "https://github.com/degui1/codeflow/blob/main/README.md"
     }

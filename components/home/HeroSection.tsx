@@ -1,43 +1,38 @@
-import { Profile, Highlight, Statistic } from '@/lib/types';
-import { Badge } from '@/components/ui/badge';
+import { Dictionary } from '@/lib/i18n/get-dictionary';
+import { Locale } from '@/lib/i18n/locales';
 import { Button } from '@/components/ui/button';
 import { HighlightItem } from './HighlightItem';
-import { StatisticsCard } from './StatisticsCard';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
-import { Dictionary } from '@/lib/i18n/get-dictionary';
+import Link from 'next/link';
 
 interface HeroSectionProps {
-  profile: Profile;
-  highlights: Highlight[];
-  statistics: Statistic[];
   dict: Dictionary;
+  profileImage: string;
+  email?: string;
+  lang: Locale;
 }
 
-export function HeroSection({ profile, highlights, statistics, dict }: HeroSectionProps) {
+export function HeroSection({ dict, profileImage, email, lang }: HeroSectionProps) {
+  const profile = dict.home.hero.profile;
+  const highlights = dict.home.hero.highlights;
+
   return (
     <section className="py-12 sm:py-16" data-section="hero">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Left Column: Profile Image */}
           <div className="flex justify-center lg:justify-start">
-            <div className="relative">
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden">
+            <div className="relative w-full">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden m-auto">
                 <Image
-                  src={profile.profileImage}
+                  src={profileImage}
                   alt={`${profile.name} profile picture`}
                   fill
                   className="object-cover"
                   priority
                 />
               </div>
-              {profile.availability && (
-                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2">
-                  <Badge variant="secondary" className="px-4 py-2 text-sm shadow-md">
-                    {profile.availability}
-                  </Badge>
-                </div>
-              )}
             </div>
           </div>
 
@@ -75,17 +70,13 @@ export function HeroSection({ profile, highlights, statistics, dict }: HeroSecti
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-3">
-              <Button size="lg">Ver Cursos</Button>
-              <Button size="lg" variant="outline">Ler Blog</Button>
+              <Link href={`/${lang}/links`} className="w-full">
+                <Button size="lg" className="w-full">
+                  {dict.home.hero.linkButton}
+                </Button>
+              </Link>
             </div>
           </div>
-        </div>
-
-        {/* Statistics Grid */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-          {statistics.map((statistic) => (
-            <StatisticsCard key={statistic.id} statistic={statistic} />
-          ))}
         </div>
       </div>
     </section>

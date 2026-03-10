@@ -15,7 +15,7 @@ export const profile: Profile = {
   name: "Guilherme Gonçalves",
   title: "Full Stack Developer & Tech Educator",
   description: "Building amazing web experiences with modern technologies and teaching others to do the same.",
-  profileImage: "/images/profile.jpg",
+  profileImage: "/images/profile2.jpg",
   location: "São Paulo, Brazil",
   role: "Software Developer",
   availability: "Disponível",
@@ -55,7 +55,7 @@ export const statistics: Statistic[] = [
   {
     id: "2",
     label: "Anos de Experiência",
-    value: "10+",
+    value: "3+",
     icon: "calendar"
   },
   {
@@ -177,7 +177,6 @@ export const jobs: Job[] = [
     company: "Apdata do Brasil",
     role: "Software Developer",
     period: "2024 - Present",
-    startDate: "2024-09",
     features: [
       "Larger architectural challenges",
       "Mentor junior developers",
@@ -211,7 +210,6 @@ export const jobs: Job[] = [
     company: "Apdata do Brasil",
     role: "Junior Software Developer",
     period: "2022 - 2024",
-    startDate: "2022-11",
     features: [
       "Larger architectural challenges",
       "Mentor junior developers",
@@ -245,7 +243,6 @@ export const jobs: Job[] = [
     company: "Grupo Melo Cordeiro",
     role: "Intern Software Developer",
     period: "2019 - 2022",
-    startDate: "2019-03",
     endDate: "2022-01",
     features: [
       "Developed client projects",
@@ -295,11 +292,4 @@ export const socialLinks: SocialLink[] = [
     url: "https://youtube.com/@guilhermegoncalves6743",
     icon: "youtube"
   },
-  // {
-  //   id: "4",
-  //   platform: "Twitter",
-  //   username: "@johndoe",
-  //   url: "https://twitter.com/johndoe",
-  //   icon: "twitter"
-  // }
 ];

@@ -9,9 +9,7 @@ export function HighlightItem({ highlight }: HighlightItemProps) {
   // Map icon string to lucide-react icon component
   const iconMap: Record<string, keyof typeof Icons> = {
     briefcase: 'Briefcase',
-    users: 'Users',
-    award: 'Award',
-    globe: 'Globe',
+    GraduationCap: 'GraduationCap',
   };
 
   const IconComponent = Icons[iconMap[highlight.icon] || 'Circle'] as React.ComponentType<{ className?: string }>;
