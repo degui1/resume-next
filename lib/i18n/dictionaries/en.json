@@ -20,21 +20,16 @@
       "linkButton": "Navigate to my social medias",
       "profile": {
         "name": "Guilherme Gonçalves",
-        "title": "Full Stack Developer",
-        "description": "Building amazing web experiences with modern technologies and teaching others to do the same.",
+        "title": "Full-stack Software Developer II",
+        "description": "Full-Stack Software Engineer with 3+ years of experience specializing in React, TypeScript, JavaScript, and Node.js.",
         "location": "São Paulo, Brazil",
-        "role": "Software Developer"
+        "role": "Software Developer II"
       },
       "highlights": [
         {
           "id": "1",
-          "icon": "briefcase",
-          "text": "CTO at American startup"
-        },
-        {
-          "id": "2",
           "icon": "GraduationCap",
-          "text": "Graduated in computer science"
+          "text": "Postgraduate Degree in Solution Architecture (In Progress)"
         }
       ]
     },
@@ -88,7 +83,7 @@
   },
   "about": {
     "title": "About",
-    "description": "Full-stack developer with experience designing and implementing backend services, cloud migrations, and system modernization. Skilled in building APIs, automating workflows, and integrating AI-powered solutions such as OCR and validation systems. Strong focus on performance, security, and maintainable architecture. Experienced in refactoring legacy codebases and establishing cleaner project structures. Motivated by complex technical challenges and scalable system design.",
+    "description": "Full-Stack Software Engineer with 3+ years of experience specializing in React, TypeScript, JavaScript, and Node.js. Skilled in designing scalable frontend architectures, optimizing application performance, building real-time systems with WebSockets and REST APIs, and developing backend automation services with NestJS. Strong background in system modernization, CI/CD practices, and technical leadership across enterprise environments.",
     "experience": {
       "title": "Professional Experience",
       "present": "Present",
@@ -106,62 +101,59 @@
       {
         "id": "1",
         "company": "Apdata do Brasil",
-        "role": "Software Developer",
-        "period": "2024 - Present",
+        "role": "Software Developer II",
+        "period": "2022 - Present",
         "features": [
-          "On-Call Duty System Rewrite",
-          "OCR Medical Certificate Automation",
-          "Mentor junior developers",
-          "Platform Stability Improvements",
-          "Lead cross-functional initiatives",
-          "Continue driving innovation in Apdata's cloud platform"
+          "Promoted from Junior to Mid-Level after leading architectural modernization, performance optimization, and backend automation initiatives across React and Node.js systems"
         ],
         "contributions": [
-          "Legacy System Migration",
-          "AI and Automation Integration",
-          "Infrastructure and Performance Improvements",
-          "Domain Expertise Development",
-          "Established design system consistency",
-          "Modernized project architecture",
-          "Improved code organization and maintainability",
-          "Implemented workflow form launch for OCR document reading",
-          "Created cadastral validation for CFO (Conselho Federal de Odontologia)",
-          "Automated professional credential verification for dentists",
-          "Created cadastral validation for CFM (Conselho Federal de Medicina)",
-          "Professional credential verification for physicians",
-          "Integrated chatbot functionality into platform"
+          "Drove architectural decisions in a multi-year migration from ExtJS to React, collaborating with cross-functional teams to define frontend stack, libraries, and performance strategies while redesigning a core time-tracking system that improved usability and received positive client feedback;",
+          "Designed and implemented a scalable real-time dashboard architecture using WebSockets and React Query, combined with a configuration-driven system capable of generating complete dashboard structures from a single file, reducing development complexity and accelerating delivery;",
+          "Reduced internationalization overhead by 94.5% (1,518 ms → 84 ms per session) by implementing a language-keyed static cache with controlled invalidation, eliminating redundant processing during high-frequency React re-renders;",
+          "Led the migration from Create React App to Vite, rebuilding project configuration from scratch and introducing ESLint, Prettier, and modern tooling standards to improve maintainability and developer experience;",
+          "Built backend automation services with NestJS, Node.js, and Puppeteer to automate data extraction from legacy web portals without APIs, including resolving cross-platform Chromium certificate handling issues across Linux and Windows;",
+          "Developed the backend foundation of an AI assistant using NestJS and LangChain, enabling contextual question answering over company documentation through knowledge base integration;",
+          "Established the initial testing foundation with unit and end-to-end testing using Vitest, introduced code review practices, and led internal technical sessions on React performance, frontend architecture, and AI-assisted development practices."
         ],
-        "technologies": ["Delphi", "Node.js", "Docker", "Nest.js", "AWS", "React", "Linux", "Kiro", "SQL Server", "Oracle", "OCR"]
+        "technologies": ["TypeScript", "JavaScript", "React", "React Query", "React Hook Form", "Zod", "Vite", "Node.js", "NestJS", "Puppeteer", "REST APIs", "Vitest", "Unit & E2E Testing", "Workflow Automation", "Docker", "CI/CD", "Linux", "Git"]
       },
       {
         "id": "2",
         "company": "Apdata do Brasil",
         "role": "Junior Software Developer",
-        "period": "2022 - 2024",
-        "features": [
-          "Project Structure Modernization",
-          "Artificial intelligence integration"
-        ],
-        "contributions": [
-          "Frontend Development",
-          "Platform UI Consistency",
-          "Innovation of the web application using the newest tools on the market"
-        ],
-        "technologies": ["React", "Node.js", "Delphi", "Nest.js", "AWS", "Linux", "SQL Server", "Oracle"]
+        "period": "2022 - Present",
+        "technologies": ["TypeScript", "JavaScript", "React", "React Query", "React Hook Form", "Zod", "Vite", "Node.js", "NestJS", "Puppeteer", "REST APIs", "Vitest", "Unit & E2E Testing", "Workflow Automation", "Docker", "CI/CD", "Linux", "Git"]
       },
       {
         "id": "3",
         "company": "Grupo Melo Cordeiro",
         "role": "Intern Software Developer",
         "period": "2022 - 2022",
-        "features": [
-          "Energy station monitoring"
-        ],
         "contributions": [
-          "MVP Development with Vue.js",
-          "Hands-on frontend development experience"
+          "Built approximately 80% of the frontend of a solar monitoring platform MVP for enterprise clients within a 3-month delivery cycle using Vue.js."
         ],
-        "technologies": ["Vue.js", "Firebase", "Node.js", "Git"]
+        "technologies": ["JavaScript", "Git", "REST APIs", "Vue.js"]
+      }
+    ],
+    "education": [
+      {
+        "id": "1",
+        "institution": "FIAP",
+        "degree": "Postgraduate Degree in Solution Architecture (In Progress)",
+        "period": "2026 - 2027"
+      },
+      {
+        "id": "2",
+        "institution": "Universidade Paulista",
+        "degree": "Bachelor’s Degree in Computer Science",
+        "period": "2021 - 2025",
+        "technologies": ["React", "Node.js", "NestJS", "Prisma"]
+      },
+      {
+        "id": "3",
+        "institution": "ETEC Professor Camargo Aranha",
+        "degree": "Systems Analysis and Development Technician",
+        "period": "2020 - 2021"
       }
     ],
     "thesis": {

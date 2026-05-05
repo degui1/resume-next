@@ -1,17 +1,68 @@
 'use client';
 
-import { Job } from '@/lib/types';
+import { Job, Education } from '@/lib/types';
 import { useState } from 'react';
 import { Briefcase, GraduationCap, Calendar } from 'lucide-react';
-import { UnderConstruction } from '../common/UnderConstruction';
 
 interface TimelineProps {
   jobs: Job[];
+  education: Education[];
   dict: any;
 }
 
-export function Timeline({ jobs, dict }: TimelineProps) {
+export function Timeline({ jobs, education, dict }: TimelineProps) {
   const [activeTab, setActiveTab] = useState<'work' | 'education'>('work');
+
+  const renderTimelineItem = (
+    title: string,
+    subtitle: string,
+    period: string,
+    technologies: string[] | undefined,
+    index: number,
+    id: string
+  ) => {
+    const isLeft = index % 2 === 0;
+
+    return (
+      <div key={id} className="relative">
+        {/* Timeline dot */}
+        <div className="absolute left-1/2 top-6 w-3 h-3 rounded-full bg-primary -translate-x-1/2 z-10 hidden md:block" />
+
+        {/* Mobile dot */}
+        <div className="absolute left-0 top-6 w-3 h-3 rounded-full bg-primary z-10 md:hidden" />
+
+        {/* Content */}
+        <div className={`grid md:grid-cols-2 gap-8 ${isLeft ? '' : 'md:grid-flow-dense'}`}>
+          <div className={`${isLeft ? 'md:text-right' : 'md:col-start-2'} pl-6 md:pl-0`}>
+            <div className={`inline-block ${isLeft ? 'md:mr-8' : 'md:ml-8'} text-left`}>
+              <h3 className="text-xl font-semibold mb-1">{title}</h3>
+              <p className="text-muted-foreground mb-2">{subtitle}</p>
+              <div className="flex items-center gap-1 text-sm text-muted-foreground mb-4">
+                <Calendar className="w-4 h-4" />
+                <span>{period}</span>
+              </div>
+
+              {technologies && technologies.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {technologies.slice(0, 5).map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 text-xs rounded-md bg-muted text-muted-foreground"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Right side (empty for spacing) */}
+          <div className={`hidden md:block ${isLeft ? 'md:col-start-2' : ''}`} />
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -41,61 +92,18 @@ export function Timeline({ jobs, dict }: TimelineProps) {
         </button>
       </div>
 
-      {/* Timeline */}
-      {activeTab === 'education' && (
-        <UnderConstruction dict={dict}/>
-      )}
-
       <div className="relative">
         {/* Center line */}
         <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/30 -translate-x-1/2 hidden md:block" />
-        
-        <div className="space-y-12">
 
-          {activeTab === 'work' && jobs.map((job, index) => {
-            const isLeft = index % 2 === 0;
-            
-            return (
-              <div key={job.id} className="relative">
-                {/* Timeline dot */}
-                <div className="absolute left-1/2 top-6 w-3 h-3 rounded-full bg-primary -translate-x-1/2 z-10 hidden md:block" />
-                
-                {/* Mobile dot */}
-                <div className="absolute left-0 top-6 w-3 h-3 rounded-full bg-primary z-10 md:hidden" />
-                
-                {/* Content */}
-                <div className={`grid md:grid-cols-2 gap-8 ${isLeft ? '' : 'md:grid-flow-dense'}`}>
-                  {/* Left side */}
-                  <div className={`${isLeft ? 'md:text-right' : 'md:col-start-2'} pl-6 md:pl-0`}>
-                    <div className={`inline-block ${isLeft ? 'md:mr-8' : 'md:ml-8'} text-left`}>
-                      <h3 className="text-xl font-semibold mb-1">{job.role}</h3>
-                      <p className="text-muted-foreground mb-2">{job.company}</p>
-                      <div className="flex items-center gap-1 text-sm text-muted-foreground mb-4">
-                        <Calendar className="w-4 h-4" />
-                        <span>{job.period}</span>
-                      </div>
-                      
-                      {job.technologies && job.technologies.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
-                          {job.technologies.slice(0, 5).map((tech, idx) => (
-                            <span
-                              key={idx}
-                              className="px-2 py-1 text-xs rounded-md bg-muted text-muted-foreground"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  
-                  {/* Right side (empty for spacing) */}
-                  <div className={`hidden md:block ${isLeft ? 'md:col-start-2' : ''}`} />
-                </div>
-              </div>
-            );
-          })}
+        <div className="space-y-12">
+          {activeTab === 'work' && jobs.map((job, index) =>
+            renderTimelineItem(job.role, job.company, job.period, job.technologies, index, job.id)
+          )}
+
+          {activeTab === 'education' && education.map((entry, index) =>
+            renderTimelineItem(entry.degree, entry.institution, entry.period, entry.technologies, index, entry.id)
+          )}
         </div>
       </div>
     </div>

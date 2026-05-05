@@ -62,10 +62,21 @@ export interface Job {
   role: string;
   period: string;
   endDate?: string;
-  features: string[];
-  contributions: string[];
+  features?: string[];
+  contributions?: string[];
   technologies?: string[];
   logo?: string;
+}
+
+// Education data structure
+export interface Education {
+  id: string;
+  institution: string;
+  degree: string;
+  period: string;
+  description?: string;
+  activities?: string[];
+  technologies?: string[];
 }
 
 // Thesis data structure

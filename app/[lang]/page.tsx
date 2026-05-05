@@ -58,7 +58,7 @@ export default async function Home({
               {dict.home.experience.description}
             </p>
           </div>
-          <Timeline jobs={dict.about.jobs} dict={dict} />
+          <Timeline jobs={dict.about.jobs} education={dict.about.education} dict={dict} />
         </div>
       </section>
 

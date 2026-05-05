@@ -9,8 +9,15 @@ import { getDictionary } from "@/lib/i18n/get-dictionary";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Personal Portfolio",
+  title: "Guilherme Gonçalves",
   description: "Personal portfolio website showcasing professional achievements and content",
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+    ],
+    apple: '/apple-icon.png',
+  },
 };
 
 export async function generateStaticParams() {
