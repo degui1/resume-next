@@ -109,20 +109,21 @@
         "contributions": [
           "Drove architectural decisions in a multi-year migration from ExtJS to React, collaborating with cross-functional teams to define frontend stack, libraries, and performance strategies while redesigning a core time-tracking system that improved usability and received positive client feedback;",
           "Designed and implemented a scalable real-time dashboard architecture using WebSockets and React Query, combined with a configuration-driven system capable of generating complete dashboard structures from a single file, reducing development complexity and accelerating delivery;",
+          "Optimized SQL queries in operational dashboards over historical tables with more than 26M records, reducing estimated cost by up to 9.2x, memory consumption by up to 83x, and repetitive database calls by up to 800x through execution plans, XEvent Profiler, query rewriting, batch loading, and compatibility with SQL Server and Oracle;",
           "Reduced internationalization overhead by 94.5% (1,518 ms → 84 ms per session) by implementing a language-keyed static cache with controlled invalidation, eliminating redundant processing during high-frequency React re-renders;",
           "Led the migration from Create React App to Vite, rebuilding project configuration from scratch and introducing ESLint, Prettier, and modern tooling standards to improve maintainability and developer experience;",
           "Built backend automation services with NestJS, Node.js, and Puppeteer to automate data extraction from legacy web portals without APIs, including resolving cross-platform Chromium certificate handling issues across Linux and Windows;",
           "Developed the backend foundation of an AI assistant using NestJS and LangChain, enabling contextual question answering over company documentation through knowledge base integration;",
           "Established the initial testing foundation with unit and end-to-end testing using Vitest, introduced code review practices, and led internal technical sessions on React performance, frontend architecture, and AI-assisted development practices."
         ],
-        "technologies": ["TypeScript", "JavaScript", "React", "React Query", "React Hook Form", "Zod", "Vite", "Node.js", "NestJS", "Puppeteer", "REST APIs", "Vitest", "Unit & E2E Testing", "Workflow Automation", "Docker", "CI/CD", "Linux", "Git"]
+        "technologies": ["TypeScript", "JavaScript", "Node.js", "React.js", "NestJS", "SQL", "Microsoft SQL Server", "Oracle", "REST APIs", "WebSocket", "Docker", "Linux", "CI/CD", "Software Infrastructure", "Web Servers", "Front-End Development", "Workflow Automation", "Git", "Scrum", "Kanban", "Unit Testing", "E2E Testing", "Vite", "Vitest", "Puppeteer", "React Query", "React Hook Form", "Zod"]
       },
       {
         "id": "2",
         "company": "Apdata do Brasil",
         "role": "Junior Software Developer",
         "period": "2022 - Present",
-        "technologies": ["TypeScript", "JavaScript", "React", "React Query", "React Hook Form", "Zod", "Vite", "Node.js", "NestJS", "Puppeteer", "REST APIs", "Vitest", "Unit & E2E Testing", "Workflow Automation", "Docker", "CI/CD", "Linux", "Git"]
+        "technologies": ["TypeScript", "JavaScript", "Node.js", "React.js", "NestJS", "SQL", "Microsoft SQL Server", "REST APIs", "WebSocket", "Docker", "Linux", "CI/CD", "Software Infrastructure", "Web Servers", "Front-End Development", "Workflow Automation", "Git", "Scrum", "Kanban", "Unit Testing", "E2E Testing", "Vite", "Vitest", "Puppeteer", "React Query", "React Hook Form", "Zod"]
       },
       {
         "id": "3",
@@ -132,7 +133,7 @@
         "contributions": [
           "Built approximately 80% of the frontend of a solar monitoring platform MVP for enterprise clients within a 3-month delivery cycle using Vue.js."
         ],
-        "technologies": ["JavaScript", "Git", "REST APIs", "Vue.js"]
+        "technologies": ["JavaScript", "Vue.js", "REST APIs", "Git"]
       }
     ],
     "education": [
@@ -147,7 +148,7 @@
         "institution": "Universidade Paulista",
         "degree": "Bachelor’s Degree in Computer Science",
         "period": "2021 - 2025",
-        "technologies": ["React", "Node.js", "NestJS", "Prisma"]
+        "technologies": ["Node.js", "React", "NestJS", "Prisma"]
       },
       {
         "id": "3",
@@ -159,7 +160,7 @@
     "thesis": {
       "title": "Development of a Web Platform to Simplify the Creation of YAML Workflows",
       "description": "The goal of this project was to develop a platform that reduces the difficulties and simplifies the creation of YAML files in an intelligent, guided, and explanatory way. The proposal aimed to especially support beginner developers, offering a more accessible and user-friendly experience while reducing the learning curve.",
-      "technologies": ["Nest.js", "React", "Node.js", "Prisma"],
+      "technologies": ["Node.js", "React", "Nest.js", "Prisma"],
       "results": [
         "Improved understanding of workflow structures",
         "Satisfactory performance in complex scenarios"

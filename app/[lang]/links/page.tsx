@@ -1,8 +1,7 @@
-import { LinkCard, ProjectCard, LinkedInPostCard } from '@/components/links';
-import { socialLinks, githubProjects, linkedinPosts } from '@/lib/data/mockData';
+import { LinkCard } from '@/components/links';
+import { socialLinks } from '@/lib/data/mockData';
 import { Locale } from '@/lib/i18n/locales';
 import { getDictionary } from '@/lib/i18n/get-dictionary';
-import { GitHubProjectsSection } from '@/components/home/GitHubProjectsSection';
 import { UnderConstruction } from '@/components/common/UnderConstruction';
 
 interface LinksProps {
@@ -25,11 +24,6 @@ export default async function Links({
           </p>
         </div>
 
-        {/* Projects Section */}
-        {/* <div className="mb-12">
-          <GitHubProjectsSection dict={dict} locale={lang} />
-        </div> */}
-
         {/* Social Links Section */}
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-6">{dict.links.social}</h2>
@@ -47,9 +41,6 @@ export default async function Links({
             <div className='md:col-span-2 lg:col-span-3'>
               <UnderConstruction dict={dict} />
             </div>
-            {/* {linkedinPosts.map((post) => (
-              <LinkedInPostCard key={post.id} post={post} />
-            ))} */}
           </div>
         </div>
       </section>

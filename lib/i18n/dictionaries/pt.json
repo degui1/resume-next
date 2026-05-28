@@ -109,20 +109,21 @@
         "contributions": [
           "Conduzi decisões arquiteturais em uma migração de múltiplos anos do ExtJS para React, colaborando com equipes multifuncionais para definir stack frontend, bibliotecas e estratégias de performance, enquanto redesenhava um sistema central de controle de horas que melhorou a usabilidade e recebeu feedback positivo dos clientes;",
           "Projetei e implementei uma arquitetura de dashboard em tempo real escalável utilizando WebSockets e React Query, combinada com um sistema orientado por configuração capaz de gerar estruturas completas de dashboard a partir de um único arquivo, reduzindo a complexidade de desenvolvimento e acelerando as entregas;",
+          "Otimizei queries SQL em dashboards operacionais com tabela de histórico acima de 26M registros, reduzindo custo estimado em até 9,2x, consumo de memória em até 83x e chamadas repetitivas ao banco em até 800x, usando planos de execução, XEvent Profiler, reescrita de queries, cargas em lote e compatibilidade com SQL Server e Oracle;",
           "Reduzi o overhead de internacionalização em 94,5% (1.518 ms → 84 ms por sessão) implementando um cache estático com chave por idioma e invalidação controlada, eliminando processamento redundante durante re-renderizações de alta frequência no React;",
           "Liderei a migração do Create React App para o Vite, reconstruindo a configuração do projeto do zero e introduzindo ESLint, Prettier e padrões modernos de ferramentas para melhorar a manutenibilidade e a experiência do desenvolvedor;",
-          "Desenvolveu serviços de automação backend com NestJS, Node.js e Puppeteer para automatizar a extração de dados de portais web legados sem APIs, incluindo a resolução de problemas de certificado do Chromium em múltiplas plataformas (Linux e Windows);",
+          "Desenvolvi serviços de automação backend com NestJS, Node.js e Puppeteer para automatizar a extração de dados de portais web legados sem APIs, incluindo a resolução de problemas de certificado do Chromium em múltiplas plataformas (Linux e Windows);",
           "Desenvolvi a fundação backend de um assistente de IA utilizando NestJS e LangChain, permitindo respostas contextuais a perguntas sobre documentação da empresa por meio de integração com base de conhecimento;",
-          "Estabeleci a fundação inicial de testes com testes unitários e end-to-end utilizando Vitest, introduziu práticas de revisão de código e conduziu sessões técnicas internas sobre performance no React, arquitetura frontend e práticas de desenvolvimento assistido por IA."
+          "Estabeleci a fundação inicial de testes com testes unitários e end-to-end utilizando Vitest, introduzi práticas de revisão de código e conduzi sessões técnicas internas sobre performance no React, arquitetura frontend e práticas de desenvolvimento assistido por IA."
         ],
-        "technologies": ["TypeScript", "JavaScript", "React", "React Query", "React Hook Form", "Zod", "Vite", "Node.js", "NestJS", "Puppeteer", "REST APIs", "Vitest", "Unit & E2E Testing", "Workflow Automation", "Docker", "CI/CD", "Linux", "Git"]
+        "technologies": ["TypeScript", "JavaScript", "Node.js", "React.js", "NestJS", "SQL", "Microsoft SQL Server", "Oracle", "REST APIs", "WebSocket", "Docker", "Linux", "CI/CD", "Software Infrastructure", "Web Servers", "Front-End Development", "Automação de Workflows", "Git", "Scrum", "Kanban", "Teste de unidade", "Testes end-to-end", "Vite", "Vitest", "Puppeteer", "React Query", "React Hook Form", "Zod"]
       },
       {
         "id": "2",
         "company": "Apdata do Brasil",
         "role": "Junior Software Developer",
         "period": "2022 - Present",
-        "technologies": ["TypeScript", "JavaScript", "React", "React Query", "React Hook Form", "Zod", "Vite", "Node.js", "NestJS", "Puppeteer", "REST APIs", "Vitest", "Unit & E2E Testing", "Workflow Automation", "Docker", "CI/CD", "Linux", "Git"]
+        "technologies": ["TypeScript", "JavaScript", "Node.js", "React.js", "NestJS", "SQL", "Microsoft SQL Server", "REST APIs", "WebSocket", "Docker", "Linux", "CI/CD", "Software Infrastructure", "Web Servers", "Front-End Development", "Automação de Workflows", "Git", "Scrum", "Kanban", "Teste de unidade", "Testes end-to-end", "Vite", "Vitest", "Puppeteer", "React Query", "React Hook Form", "Zod"]
       },
       {
         "id": "3",
@@ -132,7 +133,7 @@
         "contributions": [
           "Desenvolvi a fundação backend de um assistente de IA utilizando NestJS e LangChain, permitindo respostas contextuais a perguntas sobre documentação da empresa por meio de integração com base de conhecimento."
         ],
-        "technologies": ["JavaScript", "Git", "REST APIs", "Vue.js"]
+        "technologies": ["JavaScript", "Vue.js", "REST APIs", "Git"]
       }
     ],
     "education": [
@@ -147,7 +148,7 @@
         "institution": "Universidade Paulista",
         "degree": "Bacharelado em Ciências da Computação",
         "period": "2021 - 2025",
-        "technologies": ["React", "Node.js", "NestJS", "Prisma"]
+        "technologies": ["Node.js", "React", "NestJS", "Prisma"]
       },
       {
         "id": "3",
@@ -159,7 +160,7 @@
     "thesis": {
       "title": "Desenvolvimento de uma Plataforma Web para Simplificação da Criação de Workflows em YAML",
       "description": "O objetivo deste projeto foi desenvolver uma plataforma que atenuasse as dificuldades e simplificasse a criação de arquivos YAML de forma inteligente, guiada e explicativa. A proposta visava apoiar especialmente desenvolvedores iniciantes, oferecendo uma experiência mais acessível e amigável, reduzindo a curva de aprendizado.",
-      "technologies": ["Nest.js", "React", "Node.js", "Prisma"],
+      "technologies": ["Node.js", "React", "Nest.js", "Prisma"],
       "results": [
         "Melhora na compreensão da estrutura dos workflows",
         "Desempenho satisfatório em cenários complexos"
