@@ -53,6 +53,14 @@ export const skills: Skill[] = [
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg'
   },
   {
+    name: 'Java',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg'
+  },
+  {
+    name: 'Spring',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg'
+  },
+  {
     name: 'Delphi',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/delphi/delphi-original.svg',
   },

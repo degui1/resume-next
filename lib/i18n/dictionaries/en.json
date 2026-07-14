@@ -29,7 +29,7 @@
         {
           "id": "1",
           "icon": "GraduationCap",
-          "text": "Postgraduate Degree in Solution Architecture (In Progress)"
+          "text": "Postgraduate Degree in Java Architecture and Development (In Progress)"
         }
       ]
     },
@@ -83,7 +83,7 @@
   },
   "about": {
     "title": "About",
-    "description": "Full-Stack Software Engineer with 3+ years of experience specializing in React, TypeScript, JavaScript, and Node.js. Skilled in designing scalable frontend architectures, optimizing application performance, building real-time systems with WebSockets and REST APIs, and developing backend automation services with NestJS. Strong background in system modernization, CI/CD practices, and technical leadership across enterprise environments.",
+    "description": "Full-Stack Software Engineer with 3+ years of experience specializing in React, TypeScript, JavaScript, and Node.js. Currently deepening knowledge in Java, Spring, Docker, and software architecture through a postgraduate degree in Java Architecture and Development. Skilled in designing scalable frontend architectures, optimizing application performance, building real-time systems with WebSockets and REST APIs, and developing backend automation services with NestJS. Strong background in system modernization, CI/CD practices, and technical leadership across enterprise environments.",
     "experience": {
       "title": "Professional Experience",
       "present": "Present",
@@ -140,8 +140,9 @@
       {
         "id": "1",
         "institution": "FIAP",
-        "degree": "Postgraduate Degree in Solution Architecture (In Progress)",
-        "period": "2026 - 2027"
+        "degree": "Postgraduate Degree in Java Architecture and Development (In Progress)",
+        "period": "2026 - 2027",
+        "technologies": ["Java", "Docker", "Spring", "Software Architecture"]
       },
       {
         "id": "2",

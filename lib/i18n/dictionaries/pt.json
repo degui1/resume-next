@@ -29,7 +29,7 @@
         {
           "id": "1",
           "icon": "GraduationCap",
-          "text": "Pós-Graduação em Arquitetura de Soluções (Em Andamento)"
+          "text": "Pós-Graduação em Arquitetura e Desenvolvimento Java (Em Andamento)"
         }
       ]
     },
@@ -83,7 +83,7 @@
   },
   "about": {
     "title": "Sobre",
-    "description": "Engenheiro de Software Full-Stack com mais de 3 anos de experiência especializado em React, TypeScript, JavaScript e Node.js. Habilidoso no design de arquiteturas frontend escaláveis, otimização de performance de aplicações, construção de sistemas em tempo real com WebSockets e REST APIs, e desenvolvimento de serviços de automação backend com NestJS. Sólida experiência em modernização de sistemas, práticas de CI/CD e liderança técnica em ambientes corporativos.",
+    "description": "Engenheiro de Software Full-Stack com mais de 3 anos de experiência especializado em React, TypeScript, JavaScript e Node.js. Atualmente aprofundando conhecimentos em Java, Spring, Docker e arquitetura de software por meio da pós-graduação em Arquitetura e Desenvolvimento Java. Habilidoso no design de arquiteturas frontend escaláveis, otimização de performance de aplicações, construção de sistemas em tempo real com WebSockets e REST APIs, e desenvolvimento de serviços de automação backend com NestJS. Sólida experiência em modernização de sistemas, práticas de CI/CD e liderança técnica em ambientes corporativos.",
     "experience": {
       "title": "Experiência Profissional",
       "present": "Presente",
@@ -140,8 +140,9 @@
       {
         "id": "1",
         "institution": "FIAP",
-        "degree": "Pós-Graduação em Arquitetura de Soluções (Em Andamento)",
-        "period": "2026 - 2027"
+        "degree": "Pós-Graduação em Arquitetura e Desenvolvimento Java (Em Andamento)",
+        "period": "2026 - 2027",
+        "technologies": ["Java", "Docker", "Spring", "Arquitetura de Software"]
       },
       {
         "id": "2",
