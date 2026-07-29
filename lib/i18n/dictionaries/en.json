@@ -1,223 +1,294 @@
-{
-  "navigation": {
-    "home": "Home",
-    "about": "About",
-    "links": "Links",
-    "sections": {
-      "hero": "Introduction",
-      "content": "Content",
-      "experience": "Experience",
-      "skills": "Skills",
-      "projects": "Projects",
-      "testimonials": "Testimonials",
-      "contact": "Contact"
-    }
-  },
-  "home": {
-    "hero": {
-      "greeting": "Hello, I'm",
-      "description": "Software Engineer passionate about creating innovative solutions and sharing knowledge through content creation.",
-      "linkButton": "Navigate to my social medias",
-      "profile": {
-        "name": "Guilherme Gonçalves",
-        "title": "Full-stack Software Developer II",
-        "description": "Full-Stack Software Engineer with 3+ years of experience specializing in React, TypeScript, JavaScript, and Node.js.",
-        "location": "São Paulo, Brazil",
-        "role": "Software Developer II"
+  {
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "links": "Links",
+      "sections": {
+        "hero": "Introduction",
+        "content": "Content",
+        "experience": "Experience",
+        "skills": "Skills",
+        "projects": "Projects",
+        "testimonials": "Testimonials",
+        "contact": "Contact"
+      }
+    },
+    "home": {
+      "hero": {
+        "greeting": "Hello, I'm",
+        "description": "Software Engineer passionate about creating innovative solutions and sharing knowledge through content creation.",
+        "linkButton": "Navigate to my social medias",
+        "profile": {
+          "name": "Guilherme Gonçalves",
+          "title": "Software Developer II | React · TypeScript · Node.js · Java",
+          "description": "Full-Stack Software Engineer with 3+ years of experience specializing in React, TypeScript, JavaScript, and Node.js.",
+          "location": "São Paulo, Brazil",
+          "role": "Software Developer II"
+        },
+        "highlights": [
+          {
+            "id": "1",
+            "icon": "GraduationCap",
+            "text": "Postgraduate Degree in Java Architecture and Development (In Progress)"
+          }
+        ]
       },
-      "highlights": [
+      "highlights": {
+        "title": "Highlights"
+      },
+      "statistics": {
+        "title": "Statistics"
+      },
+      "content": {
+        "title": "My Content Creation Journey",
+        "description": "I create educational content about software development, algorithms, and career growth in tech. My goal is to make complex topics accessible and help developers level up their skills.",
+        "featuredVideos": "Featured Videos",
+        "views": "views",
+        "subscribers": "subscribers",
+        "videos": "videos"
+      },
+      "experience": {
+        "title": "Qualification",
+        "description": "My personal journey",
+        "education": "Education",
+        "work": "Work"
+      },
+      "skills": {
+        "title": "Technologies & Skills",
+        "description": "Tools and technologies I work with to build amazing solutions"
+      },
+      "testimonials": {
+        "title": "Recommendations",
+        "description": "What colleagues and partners say about working with me"
+      },
+      "projects": {
+        "title": "Featured Projects",
+        "description": "Some of my open-source projects and contributions on GitHub",
+        "viewProject": "View Project",
+        "stars": "stars",
+        "forks": "forks",
+        "language": "Language",
+        "lastUpdated": "Last updated",
+        "viewOnGitHub": "View on GitHub"
+      },
+      "contact": {
+        "title": "Get in Touch",
+        "subtitle": "Let's connect and discuss your next project",
+        "findMe": "You can also find me at",
+        "emailPlaceholder": "Enter your email",
+        "submitButton": "Send Message",
+        "orButton": "or",
+        "moreDetails": "More details and links"
+      }
+    },
+    "about": {
+      "title": "About",
+      "description": "Full-Stack Software Engineer with 3+ years of experience specializing in React, TypeScript, JavaScript, and Node.js. Currently deepening knowledge in Java, Spring, Docker, and software architecture through a postgraduate degree in Java Architecture and Development. Skilled in designing scalable frontend architectures, optimizing application performance, building real-time systems with WebSockets and REST APIs, and developing backend automation services with NestJS. Strong background in system modernization, CI/CD practices, and technical leadership across enterprise environments.",
+      "experience": {
+        "title": "Professional Experience",
+        "present": "Present",
+        "contributions": "Key Contributions",
+        "keyFeatures": "Key Features",
+        "mainContributions": "Main Contributions",
+        "technologies": "Technologies"
+      },
+      "research": {
+        "title": "Academic Research",
+        "description": "Description",
+        "results": "Results"
+      },
+      "jobs": [
         {
           "id": "1",
-          "icon": "GraduationCap",
-          "text": "Postgraduate Degree in Java Architecture and Development (In Progress)"
+          "company": "Apdata do Brasil",
+          "role": "Software Developer II",
+          "period": "Nov 2022 – Present",
+          "features": [
+            "Promoted from Junior to Mid-Level after leading architectural modernization, performance optimization, and backend automation initiatives across React and Node.js systems."
+          ],
+          "contributions": [
+            "Drove architectural decisions in a multi-year migration from ExtJS to React, collaborating with cross-functional teams to define frontend stack, libraries, modern tooling with Vite, and performance strategies;",
+            "Designed and implemented a real-time dashboard architecture using WebSockets, React Query, and a configuration-driven approach, reducing development complexity and accelerating delivery of new features;",
+            "Optimized SQL queries in operational dashboards over historical tables with more than 26M records, reducing estimated cost by up to 9.2x, memory consumption by up to 83x, and repetitive database calls by up to 800x through execution plans, XEvent Profiler, query rewriting, batch loading, and compatibility with SQL Server and Oracle;",
+            "Reduced internationalization overhead by 94.5% (1,518 ms → 84 ms per session) with a language-keyed static cache and controlled invalidation, eliminating redundant processing during frequent React re-renders;",
+            "Built backend automation services with NestJS, Node.js, and Puppeteer for data extraction from legacy web portals without APIs;",
+            "Developed the backend foundation of an AI assistant using NestJS and LangChain, enabling contextual question answering over company documentation through knowledge base integration;",
+            "Experience with AI-assisted development using Codex, Claude, Cursor, and Kiro, creating and integrating MCPs, agent-oriented workflows with Kiro CLI, and Spec-Driven Development (SDD) with Spec Toolkit for specification-guided implementation;"
+          ],
+          "technologies": [
+            "TypeScript",
+            "JavaScript",
+            "React.js",
+            "Node.js",
+            "NestJS",
+            "SQL",
+            "Microsoft SQL Server",
+            "Oracle",
+            "REST APIs",
+            "WebSocket",
+            "Docker",
+            "CI/CD",
+            "Linux",
+            "Git",
+            "Vite",
+            "Vitest",
+            "Puppeteer",
+            "React Query",
+            "React Hook Form",
+            "Zod",
+            "AI-Assisted Development",
+            "MCPs",
+            "Kiro CLI",
+            "Spec-Driven Development (SDD)",
+            "Spec Toolkit"
+          ]
+        },
+        {
+          "id": "2",
+          "company": "Apdata do Brasil",
+          "role": "Junior Software Developer",
+          "period": "Nov 2022 – Aug 2024",
+          "technologies": [
+            "TypeScript",
+            "JavaScript",
+            "React.js",
+            "Node.js",
+            "NestJS",
+            "SQL",
+            "Microsoft SQL Server",
+            "Oracle",
+            "REST APIs",
+            "WebSocket",
+            "Docker",
+            "CI/CD",
+            "Linux",
+            "Git",
+            "Vite",
+            "Vitest",
+            "Puppeteer",
+            "React Query",
+            "React Hook Form",
+            "Zod",
+            "AI-Assisted Development",
+            "MCPs",
+            "Kiro CLI",
+            "Spec-Driven Development (SDD)",
+            "Spec Toolkit"
+          ]
+        },
+        {
+          "id": "3",
+          "company": "Grupo Melo Cordeiro",
+          "role": "Frontend Developer Intern",
+          "period": "Aug 2022 – Nov 2022 (3 months)",
+          "contributions": [
+            "Built approximately 80% of the frontend of a solar monitoring platform MVP for enterprise clients within a 3-month delivery cycle using Vue.js."
+          ],
+          "technologies": [
+            "JavaScript",
+            "Git",
+            "REST APIs",
+            "Vue.js"
+          ]
         }
-      ]
-    },
-    "highlights": {
-      "title": "Highlights"
-    },
-    "statistics": {
-      "title": "Statistics"
-    },
-    "content": {
-      "title": "My Content Creation Journey",
-      "description": "I create educational content about software development, algorithms, and career growth in tech. My goal is to make complex topics accessible and help developers level up their skills.",
-      "featuredVideos": "Featured Videos",
-      "views": "views",
-      "subscribers": "subscribers",
-      "videos": "videos"
-    },
-    "experience": {
-      "title": "Qualification",
-      "description": "My personal journey",
-      "education": "Education",
-      "work": "Work"
-    },
-    "skills": {
-      "title": "Technologies & Skills",
-      "description": "Tools and technologies I work with to build amazing solutions"
-    },
-    "testimonials": {
-      "title": "Recommendations",
-      "description": "What colleagues and partners say about working with me"
-    },
-    "projects": {
-      "title": "Featured Projects",
-      "description": "Some of my open-source projects and contributions on GitHub",
-      "viewProject": "View Project",
-      "stars": "stars",
-      "forks": "forks",
-      "language": "Language",
-      "lastUpdated": "Last updated",
-      "viewOnGitHub": "View on GitHub"
-    },
-    "contact": {
-      "title": "Get in Touch",
-      "subtitle": "Let's connect and discuss your next project",
-      "findMe": "You can also find me at",
-      "emailPlaceholder": "Enter your email",
-      "submitButton": "Send Message",
-      "orButton": "or",
-      "moreDetails": "More details and links"
-    }
-  },
-  "about": {
-    "title": "About",
-    "description": "Full-Stack Software Engineer with 3+ years of experience specializing in React, TypeScript, JavaScript, and Node.js. Currently deepening knowledge in Java, Spring, Docker, and software architecture through a postgraduate degree in Java Architecture and Development. Skilled in designing scalable frontend architectures, optimizing application performance, building real-time systems with WebSockets and REST APIs, and developing backend automation services with NestJS. Strong background in system modernization, CI/CD practices, and technical leadership across enterprise environments.",
-    "experience": {
-      "title": "Professional Experience",
-      "present": "Present",
-      "contributions": "Key Contributions",
-      "keyFeatures": "Key Features",
-      "mainContributions": "Main Contributions",
-      "technologies": "Technologies"
-    },
-    "research": {
-      "title": "Academic Research",
-      "description": "Description",
-      "results": "Results"
-    },
-    "jobs": [
-      {
-        "id": "1",
-        "company": "Apdata do Brasil",
-        "role": "Software Developer II",
-        "period": "2022 - Present",
-        "features": [
-          "Promoted from Junior to Mid-Level after leading architectural modernization, performance optimization, and backend automation initiatives across React and Node.js systems"
-        ],
-        "contributions": [
-          "Drove architectural decisions in a multi-year migration from ExtJS to React, collaborating with cross-functional teams to define frontend stack, libraries, and performance strategies while redesigning a core time-tracking system that improved usability and received positive client feedback;",
-          "Designed and implemented a scalable real-time dashboard architecture using WebSockets and React Query, combined with a configuration-driven system capable of generating complete dashboard structures from a single file, reducing development complexity and accelerating delivery;",
-          "Optimized SQL queries in operational dashboards over historical tables with more than 26M records, reducing estimated cost by up to 9.2x, memory consumption by up to 83x, and repetitive database calls by up to 800x through execution plans, XEvent Profiler, query rewriting, batch loading, and compatibility with SQL Server and Oracle;",
-          "Reduced internationalization overhead by 94.5% (1,518 ms → 84 ms per session) by implementing a language-keyed static cache with controlled invalidation, eliminating redundant processing during high-frequency React re-renders;",
-          "Led the migration from Create React App to Vite, rebuilding project configuration from scratch and introducing ESLint, Prettier, and modern tooling standards to improve maintainability and developer experience;",
-          "Built backend automation services with NestJS, Node.js, and Puppeteer to automate data extraction from legacy web portals without APIs, including resolving cross-platform Chromium certificate handling issues across Linux and Windows;",
-          "Developed the backend foundation of an AI assistant using NestJS and LangChain, enabling contextual question answering over company documentation through knowledge base integration;",
-          "Established the initial testing foundation with unit and end-to-end testing using Vitest, introduced code review practices, and led internal technical sessions on React performance, frontend architecture, and AI-assisted development practices."
-        ],
-        "technologies": ["TypeScript", "JavaScript", "Node.js", "React.js", "NestJS", "SQL", "Microsoft SQL Server", "Oracle", "REST APIs", "WebSocket", "Docker", "Linux", "CI/CD", "Software Infrastructure", "Web Servers", "Front-End Development", "Workflow Automation", "Git", "Scrum", "Kanban", "Unit Testing", "E2E Testing", "Vite", "Vitest", "Puppeteer", "React Query", "React Hook Form", "Zod"]
-      },
-      {
-        "id": "2",
-        "company": "Apdata do Brasil",
-        "role": "Junior Software Developer",
-        "period": "2022 - Present",
-        "technologies": ["TypeScript", "JavaScript", "Node.js", "React.js", "NestJS", "SQL", "Microsoft SQL Server", "REST APIs", "WebSocket", "Docker", "Linux", "CI/CD", "Software Infrastructure", "Web Servers", "Front-End Development", "Workflow Automation", "Git", "Scrum", "Kanban", "Unit Testing", "E2E Testing", "Vite", "Vitest", "Puppeteer", "React Query", "React Hook Form", "Zod"]
-      },
-      {
-        "id": "3",
-        "company": "Grupo Melo Cordeiro",
-        "role": "Intern Software Developer",
-        "period": "2022 - 2022",
-        "contributions": [
-          "Built approximately 80% of the frontend of a solar monitoring platform MVP for enterprise clients within a 3-month delivery cycle using Vue.js."
-        ],
-        "technologies": ["JavaScript", "Vue.js", "REST APIs", "Git"]
-      }
-    ],
-    "education": [
-      {
-        "id": "1",
-        "institution": "FIAP",
-        "degree": "Postgraduate Degree in Java Architecture and Development (In Progress)",
-        "period": "2026 - 2027",
-        "technologies": ["Java", "Docker", "Spring", "Software Architecture"]
-      },
-      {
-        "id": "2",
-        "institution": "Universidade Paulista",
-        "degree": "Bachelor’s Degree in Computer Science",
-        "period": "2021 - 2025",
-        "technologies": ["Node.js", "React", "NestJS", "Prisma"]
-      },
-      {
-        "id": "3",
-        "institution": "ETEC Professor Camargo Aranha",
-        "degree": "Systems Analysis and Development Technician",
-        "period": "2020 - 2021"
-      }
-    ],
-    "thesis": {
-      "title": "Development of a Web Platform to Simplify the Creation of YAML Workflows",
-      "description": "The goal of this project was to develop a platform that reduces the difficulties and simplifies the creation of YAML files in an intelligent, guided, and explanatory way. The proposal aimed to especially support beginner developers, offering a more accessible and user-friendly experience while reducing the learning curve.",
-      "technologies": ["Node.js", "React", "Nest.js", "Prisma"],
-      "results": [
-        "Improved understanding of workflow structures",
-        "Satisfactory performance in complex scenarios"
       ],
-      "link": "https://github.com/degui1/codeflow/blob/main/README.md"
-    }
-  },
-  "links": {
-    "title": "Links",
-    "description": "Connect with me on various platforms and explore my projects.",
-    "projects": "Projects",
-    "social": "Social Media",
-    "posts": "Recent Posts"
-  },
-  "notFound": {
-    "title": "404",
-    "heading": "Page Not Found",
-    "description": "The page you're looking for doesn't exist or has been moved.",
-    "backButton": "Go back home"
-  },
-  "footer": {
-    "rights": "All rights reserved."
-  },
-  "github": {
-    "errors": {
-      "rateLimit": "GitHub API rate limit reached. Showing cached data.",
-      "network": "Unable to fetch GitHub data. Showing cached data.",
-      "authentication": "GitHub authentication failed. Check your token.",
-      "notFound": "Repository not found.",
-      "validation": "Invalid data received from GitHub.",
-      "generic": "An error occurred while fetching GitHub data."
-    }
-  },
-  "youtube": {
-    "labels": {
-      "channel": "Channel",
-      "subscribers": "subscribers",
-      "views": "views",
-      "videos": "videos",
-      "viewCount": "View Count",
-      "videoCount": "Video Count",
-      "subscriberCount": "Subscriber Count"
+      "education": [
+        {
+          "id": "1",
+          "institution": "FIAP",
+          "degree": "Postgraduate Degree in Java Architecture and Development (In Progress)",
+          "period": "Apr 2026 – Apr 2027 (1 year)",
+          "technologies": [
+            "Java",
+            "Docker",
+            "Spring",
+            "Software Architecture"
+          ]
+        },
+        {
+          "id": "2",
+          "institution": "Universidade Paulista",
+          "degree": "Bachelor’s Degree in Computer Science",
+          "period": "Jan 2022 – Dec 2025 (4 years)",
+          "technologies": [
+            "Node.js",
+            "React",
+            "NestJS",
+            "Prisma"
+          ]
+        },
+        {
+          "id": "3",
+          "institution": "ETEC Professor Camargo Aranha",
+          "degree": "Systems Analysis and Development Technician",
+          "period": "Jan 2020 – Aug 2021 (1 year and 6 months)"
+        }
+      ],
+      "thesis": {
+        "title": "Development of a Web Platform to Simplify the Creation of YAML Workflows",
+        "description": "The goal of this project was to develop a platform that reduces the difficulties and simplifies the creation of YAML files in an intelligent, guided, and explanatory way. The proposal aimed to especially support beginner developers, offering a more accessible and user-friendly experience while reducing the learning curve.",
+        "technologies": [
+          "Node.js",
+          "React",
+          "Nest.js",
+          "Prisma"
+        ],
+        "results": [
+          "Improved understanding of workflow structures",
+          "Satisfactory performance in complex scenarios"
+        ],
+        "link": "https://github.com/degui1/codeflow/blob/main/README.md"
+      }
     },
-    "errors": {
-      "quota": "YouTube API quota limit reached. Please try again later.",
-      "authentication": "Unable to authenticate with YouTube API",
-      "notFound": "YouTube channel not found",
-      "network": "Unable to load YouTube data. Please try again later.",
-      "config": "YouTube integration not configured",
-      "generic": "An error occurred while fetching YouTube data."
-    }
-  },
-  "common": {
-    "underConstruction": {
-      "title": "Under Construction",
-      "description": "This feature is currently being developed. Check back soon for updates!"
+    "links": {
+      "title": "Links",
+      "description": "Connect with me on various platforms and explore my projects.",
+      "projects": "Projects",
+      "social": "Social Media",
+      "posts": "Recent Posts"
+    },
+    "notFound": {
+      "title": "404",
+      "heading": "Page Not Found",
+      "description": "The page you're looking for doesn't exist or has been moved.",
+      "backButton": "Go back home"
+    },
+    "footer": {
+      "rights": "All rights reserved."
+    },
+    "github": {
+      "errors": {
+        "rateLimit": "GitHub API rate limit reached. Showing cached data.",
+        "network": "Unable to fetch GitHub data. Showing cached data.",
+        "authentication": "GitHub authentication failed. Check your token.",
+        "notFound": "Repository not found.",
+        "validation": "Invalid data received from GitHub.",
+        "generic": "An error occurred while fetching GitHub data."
+      }
+    },
+    "youtube": {
+      "labels": {
+        "channel": "Channel",
+        "subscribers": "subscribers",
+        "views": "views",
+        "videos": "videos",
+        "viewCount": "View Count",
+        "videoCount": "Video Count",
+        "subscriberCount": "Subscriber Count"
+      },
+      "errors": {
+        "quota": "YouTube API quota limit reached. Please try again later.",
+        "authentication": "Unable to authenticate with YouTube API",
+        "notFound": "YouTube channel not found",
+        "network": "Unable to load YouTube data. Please try again later.",
+        "config": "YouTube integration not configured",
+        "generic": "An error occurred while fetching YouTube data."
+      }
+    },
+    "common": {
+      "underConstruction": {
+        "title": "Under Construction",
+        "description": "This feature is currently being developed. Check back soon for updates!"
+      }
     }
   }
-}

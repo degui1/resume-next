@@ -20,10 +20,10 @@
       "linkButton": "Veja minhas redes",
       "profile": {
         "name": "Guilherme Gonçalves",
-        "title": "Desenvolvedor Full Stack",
+        "title": "Engenheiro de Software II | React · TypeScript · Node.js · Java",
         "description": "Engenheiro de Software Full-Stack com mais de 3 anos de experiência especializado em React, TypeScript, JavaScript e Node.js.",
         "location": "São Paulo, Brasil",
-        "role": "Desenvolvedor de Software"
+        "role": "Engenheiro de Software II"
       },
       "highlights": [
         {
@@ -102,38 +102,88 @@
         "id": "1",
         "company": "Apdata do Brasil",
         "role": "Desenvolvedor de Software Pleno",
-        "period": "2024 - Presente",
+        "period": "Nov 2022 – Presente",
         "features": [
           "Promovido de Júnior para Pleno após liderar iniciativas de modernização arquitetural, otimização de performance e automação de backend em sistemas React e Node.js."
         ],
         "contributions": [
-          "Conduzi decisões arquiteturais em uma migração de múltiplos anos do ExtJS para React, colaborando com equipes multifuncionais para definir stack frontend, bibliotecas e estratégias de performance, enquanto redesenhava um sistema central de controle de horas que melhorou a usabilidade e recebeu feedback positivo dos clientes;",
-          "Projetei e implementei uma arquitetura de dashboard em tempo real escalável utilizando WebSockets e React Query, combinada com um sistema orientado por configuração capaz de gerar estruturas completas de dashboard a partir de um único arquivo, reduzindo a complexidade de desenvolvimento e acelerando as entregas;",
-          "Otimizei queries SQL em dashboards operacionais com tabela de histórico acima de 26M registros, reduzindo custo estimado em até 9,2x, consumo de memória em até 83x e chamadas repetitivas ao banco em até 800x, usando planos de execução, XEvent Profiler, reescrita de queries, cargas em lote e compatibilidade com SQL Server e Oracle;",
-          "Reduzi o overhead de internacionalização em 94,5% (1.518 ms → 84 ms por sessão) implementando um cache estático com chave por idioma e invalidação controlada, eliminando processamento redundante durante re-renderizações de alta frequência no React;",
-          "Liderei a migração do Create React App para o Vite, reconstruindo a configuração do projeto do zero e introduzindo ESLint, Prettier e padrões modernos de ferramentas para melhorar a manutenibilidade e a experiência do desenvolvedor;",
-          "Desenvolvi serviços de automação backend com NestJS, Node.js e Puppeteer para automatizar a extração de dados de portais web legados sem APIs, incluindo a resolução de problemas de certificado do Chromium em múltiplas plataformas (Linux e Windows);",
+          "Conduzi decisões arquiteturais em uma migração de múltiplos anos do ExtJS para React, colaborando com equipes multifuncionais para definir stack frontend, bibliotecas, tooling moderno com Vite e estratégias de performance;",
+          "Projetei e implementei uma arquitetura de dashboard em tempo real utilizando WebSockets, React Query e uma abordagem orientada por configuração, reduzindo a complexidade de desenvolvimento e acelerando a entrega de novas funcionalidades;",
+          "Otimizei consultas SQL em dashboards operacionais sobre tabelas históricas com mais de 26M de registros, reduzindo o custo estimado em até 9,2x, o consumo de memória em até 83x e chamadas repetitivas ao banco de dados em até 800x por meio de planos de execução, XEvent Profiler, reescrita de queries, carregamento em lote e compatibilidade com SQL Server e Oracle;",
+          "Reduzi o overhead de internacionalização em 94,5% (1.518 ms → 84 ms por sessão) com cache estático por idioma e invalidação controlada, eliminando processamento redundante em re-renderizações frequentes no React;",
+          "Desenvolvi serviços de automação backend com NestJS, Node.js e Puppeteer para extração de dados de portais web legados sem APIs;",
           "Desenvolvi a fundação backend de um assistente de IA utilizando NestJS e LangChain, permitindo respostas contextuais a perguntas sobre documentação da empresa por meio de integração com base de conhecimento;",
-          "Estabeleci a fundação inicial de testes com testes unitários e end-to-end utilizando Vitest, introduzi práticas de revisão de código e conduzi sessões técnicas internas sobre performance no React, arquitetura frontend e práticas de desenvolvimento assistido por IA."
+          "Experiência com desenvolvimento assistido por IA utilizando Codex, Claude, Cursor e Kiro, criação e integração de MCPs, fluxos orientados a agentes com Kiro CLI e Spec-Driven Development (SDD) com Spec Toolkit para implementação guiada por especificações;"
         ],
-        "technologies": ["TypeScript", "JavaScript", "Node.js", "React.js", "NestJS", "SQL", "Microsoft SQL Server", "Oracle", "REST APIs", "WebSocket", "Docker", "Linux", "CI/CD", "Software Infrastructure", "Web Servers", "Front-End Development", "Automação de Workflows", "Git", "Scrum", "Kanban", "Teste de unidade", "Testes end-to-end", "Vite", "Vitest", "Puppeteer", "React Query", "React Hook Form", "Zod"]
+        "technologies": [
+          "TypeScript",
+          "JavaScript",
+          "React.js",
+          "Node.js",
+          "NestJS",
+          "SQL",
+          "Microsoft SQL Server",
+          "Oracle",
+          "REST APIs",
+          "WebSocket",
+          "Docker",
+          "CI/CD",
+          "Git",
+          "Vite",
+          "React Query",
+          "React Hook Form",
+          "Zod",
+          "AI-Assisted Development",
+          "MCPs",
+          "Kiro CLI",
+          "SDD",
+          "Spec Toolkit"
+        ]
       },
       {
         "id": "2",
         "company": "Apdata do Brasil",
-        "role": "Junior Software Developer",
-        "period": "2022 - Present",
-        "technologies": ["TypeScript", "JavaScript", "Node.js", "React.js", "NestJS", "SQL", "Microsoft SQL Server", "REST APIs", "WebSocket", "Docker", "Linux", "CI/CD", "Software Infrastructure", "Web Servers", "Front-End Development", "Automação de Workflows", "Git", "Scrum", "Kanban", "Teste de unidade", "Testes end-to-end", "Vite", "Vitest", "Puppeteer", "React Query", "React Hook Form", "Zod"]
+        "role": "Desenvolvedor de Software Jr.",
+        "period": "Nov 2022 – Ago 2024",
+        "technologies": [
+          "TypeScript",
+          "JavaScript",
+          "React.js",
+          "Node.js",
+          "NestJS",
+          "SQL",
+          "Microsoft SQL Server",
+          "Oracle",
+          "REST APIs",
+          "WebSocket",
+          "Docker",
+          "CI/CD",
+          "Git",
+          "Vite",
+          "React Query",
+          "React Hook Form",
+          "Zod",
+          "AI-Assisted Development",
+          "MCPs",
+          "Kiro CLI",
+          "SDD",
+          "Spec Toolkit"
+        ]
       },
       {
         "id": "3",
         "company": "Grupo Melo Cordeiro",
-        "role": "Desenvolvedor de Software Estagiário",
-        "period": "2022 - 2022",
+        "role": "Estagiário de Desenvolvimento Front-end",
+        "period": "Ago 2022 – Nov 2022 (3 meses)",
         "contributions": [
-          "Desenvolvi a fundação backend de um assistente de IA utilizando NestJS e LangChain, permitindo respostas contextuais a perguntas sobre documentação da empresa por meio de integração com base de conhecimento."
+          "Desenvolvi aproximadamente 80% do frontend de um MVP de plataforma de monitoramento solar para clientes corporativos dentro de um ciclo de entrega de 3 meses utilizando Vue.js."
         ],
-        "technologies": ["JavaScript", "Vue.js", "REST APIs", "Git"]
+        "technologies": [
+          "JavaScript",
+          "Git",
+          "REST APIs",
+          "Vue.js"
+        ]
       }
     ],
     "education": [
@@ -141,27 +191,42 @@
         "id": "1",
         "institution": "FIAP",
         "degree": "Pós-Graduação em Arquitetura e Desenvolvimento Java (Em Andamento)",
-        "period": "2026 - 2027",
-        "technologies": ["Java", "Docker", "Spring", "Arquitetura de Software"]
+        "period": "Abr 2026 – Abr 2027 (1 ano)",
+        "technologies": [
+          "Java",
+          "Docker",
+          "Spring",
+          "Arquitetura de Software"
+        ]
       },
       {
         "id": "2",
         "institution": "Universidade Paulista",
-        "degree": "Bacharelado em Ciências da Computação",
-        "period": "2021 - 2025",
-        "technologies": ["Node.js", "React", "NestJS", "Prisma"]
+        "degree": "Bacharelado em Ciência da Computação",
+        "period": "Jan 2021 – Dez 2025 (4 anos)",
+        "technologies": [
+          "Node.js",
+          "React",
+          "NestJS",
+          "Prisma"
+        ]
       },
       {
         "id": "3",
         "institution": "ETEC Professor Camargo Aranha",
         "degree": "Técnico em Análise e Desenvolvimento de Sistemas",
-        "period": "2020 - 2021"
+        "period": "Jan 2020 – Ago 2021 (1 ano e 6 meses)"
       }
     ],
     "thesis": {
       "title": "Desenvolvimento de uma Plataforma Web para Simplificação da Criação de Workflows em YAML",
       "description": "O objetivo deste projeto foi desenvolver uma plataforma que atenuasse as dificuldades e simplificasse a criação de arquivos YAML de forma inteligente, guiada e explicativa. A proposta visava apoiar especialmente desenvolvedores iniciantes, oferecendo uma experiência mais acessível e amigável, reduzindo a curva de aprendizado.",
-      "technologies": ["Node.js", "React", "Nest.js", "Prisma"],
+      "technologies": [
+        "Node.js",
+        "React",
+        "Nest.js",
+        "Prisma"
+      ],
       "results": [
         "Melhora na compreensão da estrutura dos workflows",
         "Desempenho satisfatório em cenários complexos"
